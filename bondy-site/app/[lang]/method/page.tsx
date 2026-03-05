@@ -11,65 +11,106 @@ export default function MethodPage({ params }: { params: { lang: Lang } }) {
   const lk = (href: string) => `/${lang}${href}`
 
   return (
-    <main className="min-h-screen" style={{ background: '#F0EBE3' }}>
+    <main style={{ background: '#F0EBE3', minHeight: '100vh' }}>
       <Nav lang={lang} tr={tr.nav} />
 
-      {/* Header */}
-      <section className="pt-[60px]" style={{ borderBottom: '1px solid #DDD8D0' }}>
-        <div className="px-8 md:px-16 py-20 md:py-28" style={{ maxWidth: '900px' }}>
-          <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#C06A2D', marginBottom: '2rem' }}>
-            {m.label}
+      {/* Header — blanco puro */}
+      <header style={{ paddingTop: '60px', background: '#FFFFFF', borderBottom: '1px solid #E8E4DE' }}>
+        <div style={{ padding: '4.5rem clamp(1.25rem,5vw,4rem) 4rem', maxWidth: '860px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '2rem' }}>
+            <div style={{ width: '22px', height: '1px', background: '#C06A2D', flexShrink: 0 }} />
+            <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C06A2D' }}>
+              {m.label}
+            </span>
+            <div style={{ width: '22px', height: '1px', background: 'rgba(192,106,45,0.4)', flexShrink: 0 }} />
           </div>
-          <h1 className="font-display font-black leading-tight tracking-tight mb-8" style={{ fontSize: 'clamp(48px,6vw,80px)', color: '#1A1A1A' }}>
+          <h1 style={{ fontFamily: 'Playfair Display, Georgia, serif', fontSize: 'clamp(48px,6vw,80px)', fontWeight: 900, lineHeight: 1.05, letterSpacing: '-0.02em', color: '#1A1A1A', marginBottom: '2rem' }}>
             {m.h1_1}<br />{m.h1_2} <em style={{ color: '#C06A2D', fontStyle: 'italic' }}>{m.h1_em}</em>
           </h1>
-          <p style={{ fontSize: '16px', lineHeight: 1.75, fontWeight: 300, maxWidth: '540px', color: '#6B6966' }}>
+          <p style={{ fontSize: '17px', lineHeight: 1.78, fontWeight: 300, maxWidth: '580px', color: '#6B6966' }}>
             {m.intro}
           </p>
         </div>
-      </section>
+      </header>
 
-      {/* Steps */}
-      <section className="px-8 md:px-16 py-20">
-        {m.steps.map((step) => (
-          <div key={step.n} className="grid grid-cols-1 md:grid-cols-[120px_1fr_200px] gap-8 md:gap-16 py-14" style={{ borderTop: '1px solid #DDD8D0' }}>
-            <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.15em', color: '#C06A2D' }}>
-              {step.n}
-            </div>
-            <div>
-              <h2 className="font-display font-bold tracking-tight mb-3" style={{ fontSize: 'clamp(28px,3vw,38px)', color: '#1A1A1A' }}>
-                {step.title}
-              </h2>
-              <div style={{ fontSize: '16px', fontWeight: 500, marginBottom: '1.25rem', color: '#1A1A1A' }}>
-                {step.subtitle}
+      {/* Steps — alternando stone / blanco */}
+      <section>
+        {m.steps.map((step, i) => (
+          <div
+            key={step.n}
+            style={{
+              background: i % 2 === 0 ? '#F0EBE3' : '#FFFFFF',
+              borderBottom: '1px solid #E0DBD3',
+              padding: '3.5rem clamp(1.25rem,5vw,4rem)',
+            }}
+          >
+            <div className="method-step-grid">
+              {/* Número */}
+              <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.15em', color: '#C06A2D', paddingTop: '4px' }}>
+                {step.n}
               </div>
-              <p style={{ fontSize: '16px', lineHeight: 1.8, fontWeight: 300, maxWidth: '560px', color: '#6B6966' }}>
-                {step.body}
-              </p>
-            </div>
-            <div className="flex md:justify-end md:items-start">
-              <div style={{ border: '1px solid #DDD8D0', padding: '8px 16px', display: 'inline-block' }}>
-                <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#C8C4BE', marginBottom: '4px' }}>{m.timelineLabel}</div>
-                <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', color: '#6B6966' }}>{step.time}</div>
+
+              {/* Contenido */}
+              <div>
+                <h2 style={{ fontFamily: 'Playfair Display, Georgia, serif', fontSize: 'clamp(28px,3vw,42px)', fontWeight: 900, lineHeight: 1.15, letterSpacing: '-0.01em', color: '#1A1A1A', marginBottom: '0.6rem' }}>
+                  {step.title}
+                </h2>
+                <div style={{ fontSize: '15px', fontWeight: 600, color: '#3A3836', marginBottom: '1.25rem' }}>
+                  {step.subtitle}
+                </div>
+                <p style={{ fontSize: '16px', lineHeight: 1.82, fontWeight: 300, maxWidth: '580px', color: '#6B6966' }}>
+                  {step.body}
+                </p>
+              </div>
+
+              {/* Timeline badge */}
+              <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-start' }}>
+                <div style={{ border: '1px solid #DDD8D0', padding: '10px 18px', background: i % 2 === 0 ? '#FFFFFF' : '#F8F4EF' }}>
+                  <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#C4BFB8', marginBottom: '5px' }}>
+                    {m.timelineLabel}
+                  </div>
+                  <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', color: '#6B6966' }}>
+                    {step.time}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         ))}
       </section>
 
-      {/* Bottom CTA */}
-      <section className="px-8 md:px-16 py-20 md:py-28" style={{ borderTop: '1px solid #DDD8D0', background: '#FFFFFF' }}>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="font-display font-black leading-tight tracking-tight" style={{ fontSize: 'clamp(32px,4vw,52px)', color: '#1A1A1A' }}>
-              {m.cta.h2_1}<br />{m.cta.h2_2} <em style={{ color: '#C06A2D', fontStyle: 'italic' }}>{m.cta.h2_em}</em>
-            </h2>
+      {/* Franja sienna — el "1 in 4 rule" o principio clave */}
+      <section style={{ background: '#C06A2D', padding: '3.5rem clamp(1.25rem,5vw,4rem)', borderBottom: '1px solid #A85820' }}>
+        <div style={{ maxWidth: '760px', display: 'flex', gap: '2.5rem', alignItems: 'flex-start' }} className="principle-grid">
+          <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', flexShrink: 0, paddingTop: '4px' }}>
+            {lang === 'es' ? 'Principio' : 'Principle'}
           </div>
           <div>
-            <p style={{ fontSize: '16px', lineHeight: 1.75, fontWeight: 300, marginBottom: '2rem', color: '#6B6966' }}>
+            <p style={{ fontFamily: 'Playfair Display, Georgia, serif', fontSize: 'clamp(20px,2.5vw,28px)', fontWeight: 700, lineHeight: 1.4, color: '#FFFFFF', marginBottom: '1rem' }}>
+              {lang === 'es'
+                ? 'Si menos de 1 de cada 4 candidatos avanza, pausamos la búsqueda.'
+                : 'If fewer than 1 in 4 candidates advance, we stop the search.'}
+            </p>
+            <p style={{ fontSize: '15px', lineHeight: 1.75, fontWeight: 300, color: 'rgba(255,255,255,0.75)' }}>
+              {lang === 'es'
+                ? 'No mandamos más volumen. Nos sentamos con el cliente a realinear el brief. Es la única forma de proteger la calidad del proceso.'
+                : 'We don\'t send more volume. We sit with the client to realign the brief. It\'s the only way to protect the quality of the process.'}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA final — negro */}
+      <section style={{ background: '#1A1A1A', padding: '5rem clamp(1.25rem,5vw,4rem)' }}>
+        <div style={{ display: 'grid', gap: '3rem', alignItems: 'center', maxWidth: '900px' }} className="cta-grid">
+          <h2 style={{ fontFamily: 'Playfair Display, Georgia, serif', fontSize: 'clamp(32px,4vw,54px)', fontWeight: 900, lineHeight: 1.1, letterSpacing: '-0.01em', color: '#F4F2EE' }}>
+            {m.cta.h2_1}<br />{m.cta.h2_2} <em style={{ color: '#C06A2D', fontStyle: 'italic' }}>{m.cta.h2_em}</em>
+          </h2>
+          <div>
+            <p style={{ fontSize: '16px', lineHeight: 1.78, fontWeight: 300, color: 'rgba(255,255,255,0.5)', marginBottom: '2rem' }}>
               {m.cta.body}
             </p>
-            <Link href={lk('/contact')} style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', background: '#C06A2D', color: '#1A1A1A', fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', padding: '14px 32px', textDecoration: 'none', fontWeight: 500 }}>
+            <Link href={lk('/contact')} style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', background: '#C06A2D', color: '#0E0E0E', fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', padding: '14px 32px', textDecoration: 'none', fontWeight: 500 }}>
               {m.cta.cta}
             </Link>
           </div>
@@ -77,6 +118,23 @@ export default function MethodPage({ params }: { params: { lang: Lang } }) {
       </section>
 
       <Footer lang={lang} tr={tr.footer} />
+
+      <style>{`
+        .method-step-grid {
+          display: grid;
+          grid-template-columns: 80px 1fr 220px;
+          gap: 2rem 3rem;
+          align-items: start;
+        }
+        .cta-grid { grid-template-columns: 1fr 1fr; }
+        .principle-grid { flex-direction: row; }
+        @media (max-width: 768px) {
+          .method-step-grid { grid-template-columns: 40px 1fr; }
+          .method-step-grid > div:last-child { grid-column: 2; }
+          .cta-grid { grid-template-columns: 1fr !important; }
+          .principle-grid { flex-direction: column !important; gap: 1rem !important; }
+        }
+      `}</style>
     </main>
   )
 }
