@@ -182,151 +182,156 @@ export default function WorkPage({ params }: { params: { lang: Lang } }) {
   const [openCase, setOpenCase] = useState<string | null>(null)
 
   return (
-    <main className="bg-b-black min-h-screen">
+    <main style={{ background: '#F0EBE3', minHeight: '100vh' }}>
       <Nav lang={lang} tr={tr.nav} />
 
-      {/* ── HEADER + STATS ── */}
-      <section className="pt-[73px] border-b border-white/10">
-        <div className="grid grid-cols-1 md:grid-cols-2">
-          <div className="px-8 md:px-16 py-20 md:py-28 border-b md:border-b-0 md:border-r border-white/10 flex flex-col justify-between">
+      {/* ── HEADER — blanco puro */}
+      <header style={{ paddingTop: '60px', background: '#FFFFFF', borderBottom: '1px solid #E8E4DE' }}>
+        <div className="work-header-grid">
+          {/* Left */}
+          <div style={{ padding: '4rem clamp(1.25rem,4vw,3.5rem)', borderRight: '1px solid #E8E4DE', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
-              <div className="font-mono-bondy text-[10px] tracking-widest uppercase text-b-orange mb-8">
-                {c.label}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '2rem' }}>
+                <div style={{ width: '22px', height: '1px', background: '#C06A2D' }} />
+                <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C06A2D' }}>
+                  {c.label}
+                </span>
+                <div style={{ width: '22px', height: '1px', background: 'rgba(192,106,45,0.4)' }} />
               </div>
-              <h1 className="font-display text-[clamp(48px,6vw,80px)] font-black leading-tight tracking-tight text-b-off mb-6">
+              <h1 style={{ fontFamily: 'Playfair Display, Georgia, serif', fontSize: 'clamp(44px,5.5vw,76px)', fontWeight: 900, lineHeight: 1.05, letterSpacing: '-0.02em', color: '#1A1A1A', marginBottom: '1.75rem' }}>
                 {c.h1a}<br />
-                <em className="text-b-orange italic">{c.h1b}</em>
+                <em style={{ color: '#C06A2D', fontStyle: 'italic' }}>{c.h1b}</em>
               </h1>
-              <p className="text-b-lgt text-[16px] leading-relaxed font-light max-w-md">
+              <p style={{ fontSize: '16px', lineHeight: 1.78, fontWeight: 300, maxWidth: '420px', color: '#6B6966' }}>
                 {c.intro}
               </p>
             </div>
           </div>
 
-          <div className="grid grid-cols-2">
+          {/* Right — stats grid */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
             {stats[lang].map((s, i) => (
               <div
                 key={s.label}
-                className={`px-8 py-10 md:px-10 md:py-12 flex flex-col justify-between
-                  ${i % 2 === 0 ? 'border-r border-white/10' : ''}
-                  ${i < 2 ? 'border-b border-white/10' : ''}
-                `}
+                style={{
+                  padding: '2.5rem clamp(1rem,3vw,2.5rem)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  borderRight: i % 2 === 0 ? '1px solid #E8E4DE' : 'none',
+                  borderBottom: i < 2 ? '1px solid #E8E4DE' : 'none',
+                  background: i === 3 ? '#F8F4EF' : 'transparent',
+                }}
               >
-                <span className="font-mono-bondy text-[10px] tracking-widest uppercase text-white/50 leading-relaxed">
+                <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#A09D99', lineHeight: 1.5 }}>
                   {s.sub}
                 </span>
                 <div>
-                  <div className="font-display text-[52px] md:text-[60px] font-black leading-none text-b-off tracking-tight">
+                  <div style={{ fontFamily: 'Playfair Display, Georgia, serif', fontSize: 'clamp(44px,4.5vw,60px)', fontWeight: 900, lineHeight: 1, color: '#1A1A1A', letterSpacing: '-0.02em' }}>
                     {s.value.endsWith('+')
-                      ? <>{s.value.slice(0, -1)}<span className="text-b-orange text-[28px]">+</span></>
+                      ? <>{s.value.slice(0, -1)}<span style={{ color: '#C06A2D', fontSize: '60%' }}>+</span></>
                       : s.value
                     }
                   </div>
-                  <div className="text-b-lgt text-[13px] font-light mt-2 leading-relaxed">{s.label}</div>
+                  <div style={{ fontSize: '13px', fontWeight: 300, marginTop: '6px', color: '#6B6966' }}>{s.label}</div>
                 </div>
               </div>
             ))}
           </div>
         </div>
-      </section>
+      </header>
 
-      {/* ── MAP ── */}
-      <section className="border-b border-white/10">
-        <div className="px-8 md:px-16 py-8 border-b border-white/10">
-          <div className="font-mono-bondy text-[10px] tracking-widest uppercase text-b-orange">
+      {/* ── MAP — stone */}
+      <section style={{ background: '#F0EBE3', borderBottom: '1px solid #E0DBD3' }}>
+        <div style={{ padding: '1.5rem clamp(1.25rem,5vw,4rem)', borderBottom: '1px solid #E0DBD3' }}>
+          <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C06A2D' }}>
             {c.mapLabel}
           </div>
         </div>
-        <div className="px-8 md:px-16 py-12">
+        <div style={{ padding: '2.5rem clamp(1.25rem,5vw,4rem) 3rem' }}>
           <WorldMap lang={lang} />
         </div>
       </section>
 
-      {/* ── CASE STUDIES ── */}
-      <section className="border-b border-white/10">
-        <div className="px-8 md:px-16 py-8 border-b border-white/10">
-          <div className="font-mono-bondy text-[10px] tracking-widest uppercase text-b-orange">
+      {/* ── CASE STUDIES — blanco */}
+      <section style={{ background: '#FFFFFF', borderBottom: '1px solid #E0DBD3' }}>
+        <div style={{ padding: '1.5rem clamp(1.25rem,5vw,4rem)', borderBottom: '1px solid #E8E4DE' }}>
+          <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C06A2D' }}>
             {c.casesLabel}
           </div>
         </div>
 
-        <div className="divide-y divide-white/10">
+        <div>
           {cases.map((cs, idx) => (
-            <div key={cs.slug}>
+            <div key={cs.slug} style={{ borderBottom: '1px solid #EBE7E1' }}>
               <div
-                className="px-8 md:px-16 py-10 md:py-12 grid grid-cols-1 md:grid-cols-[56px_1fr_auto] gap-6 md:gap-10 items-start cursor-pointer group hover:bg-white/[0.02] transition-colors"
+                style={{ padding: '2.5rem clamp(1.25rem,5vw,4rem)', display: 'grid', gridTemplateColumns: '48px 1fr auto', gap: '1.5rem 2.5rem', alignItems: 'start', cursor: 'pointer', transition: 'background 0.15s', background: openCase === cs.slug ? '#F8F4EF' : 'transparent' }}
                 onClick={() => setOpenCase(openCase === cs.slug ? null : cs.slug)}
               >
-                <span className="font-mono-bondy text-[10px] text-b-orange tracking-widest pt-1">
+                <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', color: '#C06A2D', letterSpacing: '0.15em', paddingTop: '4px' }}>
                   0{idx + 1}
                 </span>
 
                 <div>
-                  <div className="flex flex-wrap items-center gap-3 mb-3">
-                    <h2 className="font-display text-2xl md:text-3xl font-bold text-b-off tracking-tight">
+                  <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
+                    <h2 style={{ fontFamily: 'Playfair Display, Georgia, serif', fontSize: 'clamp(22px,2.5vw,32px)', fontWeight: 900, color: '#1A1A1A', letterSpacing: '-0.01em', lineHeight: 1.1 }}>
                       {cs.client}
                     </h2>
-                    <span className="font-mono-bondy text-[10px] tracking-widest uppercase text-b-orange border border-b-orange/50 px-3 py-1">
+                    <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#C06A2D', border: '1px solid rgba(192,106,45,0.45)', padding: '3px 10px' }}>
                       {cs.type[lang]}
                     </span>
                   </div>
-                  <p className="text-b-lgt text-[15px] font-light leading-relaxed max-w-2xl mb-4">
+                  <p style={{ fontSize: '15px', lineHeight: 1.78, fontWeight: 300, maxWidth: '640px', marginBottom: '12px', color: '#5A5754' }}>
                     {cs.headline[lang]}
                   </p>
-                  <div className="flex flex-wrap items-center gap-3">
-                    <span className="font-mono-bondy text-[10px] tracking-widest text-white/50">{cs.region}</span>
-                    <span className="text-white/30">·</span>
-                    <span className="font-mono-bondy text-[10px] tracking-widest text-white/50">{cs.year}</span>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '10px' }}>
+                    <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.12em', color: '#A09D99' }}>{cs.region}</span>
+                    <span style={{ color: '#C4BFB8' }}>·</span>
+                    <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.12em', color: '#A09D99' }}>{cs.year}</span>
                   </div>
                 </div>
 
-                <div className="font-mono-bondy text-[10px] tracking-widest uppercase text-b-mid group-hover:text-b-orange transition-colors pt-1 shrink-0">
+                <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: openCase === cs.slug ? '#C06A2D' : '#A09D99', paddingTop: '4px', flexShrink: 0, transition: 'color 0.15s' }}>
                   {openCase === cs.slug ? c.close : c.readMore}
                 </div>
               </div>
 
               {openCase === cs.slug && (
-                <div className="border-t border-white/10 bg-white/[0.015] px-8 md:px-16 py-12 md:py-16">
-                  <div className="grid grid-cols-3 gap-8 mb-14 pb-14 border-b border-white/10">
+                <div style={{ borderTop: '1px solid #E8E4DE', background: '#F8F4EF', padding: '3rem clamp(1.25rem,5vw,4rem) 3.5rem' }}>
+                  {/* Metrics */}
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem', marginBottom: '3rem', paddingBottom: '3rem', borderBottom: '1px solid #E0DBD3' }}>
                     {cs.metrics.map((m) => (
-                      <div key={m.label[lang]} className="border-l-2 border-b-orange/20 pl-6">
-                        <div className="font-display text-[40px] font-black text-b-off leading-none mb-2">
+                      <div key={m.label[lang]} style={{ borderLeft: '2px solid rgba(192,106,45,0.3)', paddingLeft: '1.25rem' }}>
+                        <div style={{ fontFamily: 'Playfair Display, Georgia, serif', fontSize: '40px', fontWeight: 900, color: '#1A1A1A', lineHeight: 1, marginBottom: '8px' }}>
                           {m.n}
                         </div>
-                        <div className="font-mono-bondy text-[11px] tracking-widest uppercase text-b-lgt">
+                        <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#6B6966' }}>
                           {m.label[lang]}
                         </div>
                       </div>
                     ))}
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-                    <div>
-                      <div className="font-mono-bondy text-[10px] tracking-widest uppercase text-b-orange mb-5">
-                        {c.challenge}
+                  {/* CDA */}
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '2.5rem' }} className="case-cda-grid">
+                    {[
+                      { label: c.challenge, text: cs.challenge[lang] },
+                      { label: c.approach,  text: cs.approach[lang] },
+                      { label: c.result,    text: cs.result[lang] },
+                    ].map(({ label, text }) => (
+                      <div key={label}>
+                        <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C06A2D', marginBottom: '1rem' }}>
+                          {label}
+                        </div>
+                        <p style={{ fontSize: '15px', lineHeight: 1.82, fontWeight: 300, color: '#5A5754' }}>{text}</p>
                       </div>
-                      <p className="text-b-lgt text-[15px] leading-relaxed font-light">{cs.challenge[lang]}</p>
-                    </div>
-                    <div>
-                      <div className="font-mono-bondy text-[10px] tracking-widest uppercase text-b-orange mb-5">
-                        {c.approach}
-                      </div>
-                      <p className="text-b-lgt text-[15px] leading-relaxed font-light">{cs.approach[lang]}</p>
-                    </div>
-                    <div>
-                      <div className="font-mono-bondy text-[10px] tracking-widest uppercase text-b-orange mb-5">
-                        {c.result}
-                      </div>
-                      <p className="text-b-lgt text-[15px] leading-relaxed font-light">{cs.result[lang]}</p>
-                    </div>
+                    ))}
                   </div>
 
-                  <div className="flex flex-wrap gap-2 mt-10">
+                  {/* Tags */}
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '2.5rem' }}>
                     {cs.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="font-mono-bondy text-[10px] tracking-widest uppercase text-white/70 border border-white/30 px-3 py-1.5"
-                      >
+                      <span key={tag} style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#6B6966', border: '1px solid #DDD8D0', padding: '6px 12px' }}>
                         {tag}
                       </span>
                     ))}
@@ -338,41 +343,51 @@ export default function WorkPage({ params }: { params: { lang: Lang } }) {
         </div>
       </section>
 
-      {/* ── INDUSTRIES ── */}
-      <section className="border-b border-white/10 px-8 md:px-16 py-14">
-        <div className="font-mono-bondy text-[10px] tracking-widest uppercase text-b-orange mb-8">
+      {/* ── INDUSTRIES — stone */}
+      <section style={{ background: '#F0EBE3', borderBottom: '1px solid #E0DBD3', padding: '3rem clamp(1.25rem,5vw,4rem)' }}>
+        <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C06A2D', marginBottom: '1.75rem' }}>
           {c.industriesLabel}
         </div>
-        <div className="flex flex-wrap gap-3">
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
           {industries.map((ind) => (
-            <span
-              key={ind}
-              className="font-mono-bondy text-[10px] tracking-widest uppercase text-b-lgt border border-white/20 px-4 py-2 hover:border-white/40 hover:text-b-off transition-colors"
-            >
+            <span key={ind} style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#6B6966', border: '1px solid #C4BFB8', padding: '8px 16px', background: '#FFFFFF', transition: 'all 0.15s' }}>
               {ind}
             </span>
           ))}
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section className="px-8 md:px-16 py-24 md:py-36 text-center">
-        <div className="font-mono-bondy text-[10px] tracking-widest uppercase text-b-orange mb-8">
+      {/* ── CTA — negro */}
+      <section style={{ background: '#1A1A1A', padding: '5rem clamp(1.25rem,5vw,4rem)', textAlign: 'center' }}>
+        <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C06A2D', marginBottom: '1.75rem' }}>
           {c.ctaLabel}
         </div>
-        <h2 className="font-display text-[clamp(36px,5vw,64px)] font-black leading-tight tracking-tight text-b-off mb-10">
+        <h2 style={{ fontFamily: 'Playfair Display, Georgia, serif', fontSize: 'clamp(36px,5vw,64px)', fontWeight: 900, lineHeight: 1.1, letterSpacing: '-0.01em', color: '#F4F2EE', marginBottom: '2.5rem' }}>
           {c.ctaH2a}<br />
-          <em className="text-b-orange italic">{c.ctaH2b}</em>
+          <em style={{ color: '#C06A2D', fontStyle: 'italic' }}>{c.ctaH2b}</em>
         </h2>
         <Link
           href={`/${lang}/contact`}
-          className="inline-flex items-center gap-3 bg-b-orange text-b-black font-mono-bondy text-[11px] tracking-widest uppercase px-10 py-5 hover:bg-b-orange/90 transition-colors"
+          style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', background: '#C06A2D', color: '#0E0E0E', fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', padding: '16px 40px', textDecoration: 'none', fontWeight: 500 }}
         >
           {c.ctaBtn}
         </Link>
       </section>
 
       <Footer lang={lang} tr={tr.footer} />
+
+      <style>{`
+        .work-header-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
+        .case-cda-grid { grid-template-columns: 1fr 1fr 1fr; }
+        @media (max-width: 768px) {
+          .work-header-grid { grid-template-columns: 1fr !important; }
+          .work-header-grid > div:first-child { border-right: none !important; border-bottom: 1px solid #E8E4DE; }
+          .case-cda-grid { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
     </main>
   )
 }
