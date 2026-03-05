@@ -4,6 +4,7 @@ import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import { useState } from 'react'
 import type { Lang } from '@/lib/i18n/translations'
+import { t } from '@/lib/i18n/translations'
 
 // ── COPY ─────────────────────────────────────────────────────────────
 const copy = {
@@ -34,7 +35,7 @@ const copy = {
     sending: 'Sending...',
     successTitle: 'Got it.',
     successBody: "We'll reach out to your referral shortly. If it leads to a placement, we'll be in touch with you too.",
-    errorMsg: 'Something went wrong. Try emailing us at hola@wearebondy.com',
+    errorMsg: 'Something went wrong. Try emailing us at hello@wearebondy.com',
     finePrint: 'The bonus is paid after the referred candidate completes 3 months in the role. Only one bonus per unique referral. Bondy employees are not eligible.',
   },
   es: {
@@ -64,7 +65,7 @@ const copy = {
     sending: 'Enviando...',
     successTitle: 'Listo.',
     successBody: 'Vamos a contactar a tu referido pronto. Si resulta en una colocación, te avisamos a vos también.',
-    errorMsg: 'Algo salió mal. Escribinos a hola@wearebondy.com',
+    errorMsg: 'Algo salió mal. Escribinos a hello@wearebondy.com',
     finePrint: 'El bono se paga una vez que el candidato referido completa 3 meses en el rol. Solo un bono por referido único. Los empleados de Bondy no son elegibles.',
   },
 }
@@ -79,6 +80,8 @@ type FormState = {
 
 export default function ReferralsPage({ params }: { params: { lang: Lang } }) {
   const lang = params.lang
+  const tr = t(lang)
+  const lk = (href: string) => `/${lang}${href}`
   const c = copy[lang]
 
   const [form, setForm] = useState<FormState>({
@@ -117,7 +120,7 @@ export default function ReferralsPage({ params }: { params: { lang: Lang } }) {
 
   return (
     <main className="bg-b-black min-h-screen">
-      <Nav />
+      <Nav lang={lang} tr={tr.nav} />
 
       {/* ── HERO ── */}
       <section className="pt-[73px] border-b border-white/10">
@@ -331,7 +334,7 @@ export default function ReferralsPage({ params }: { params: { lang: Lang } }) {
         </div>
       </section>
 
-      <Footer />
+      <Footer lang={lang} tr={tr.footer} />
     </main>
   )
 }
