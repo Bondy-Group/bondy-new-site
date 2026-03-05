@@ -36,7 +36,7 @@ export default function Home() {
               <h1 className="font-display text-[clamp(52px,7vw,88px)] font-black leading-[0.95] tracking-tight text-b-off mb-10">
                 The last<br />
                 recruiter<br />
-                you'll ever<br />
+                you'll <em style={{color:'#C06A2D',fontStyle:'italic'}}>ever</em><br />
                 <em className="text-b-orange italic">need.</em>
               </h1>
 
@@ -65,42 +65,42 @@ export default function Home() {
           {/* Right — stats */}
           <div className="grid grid-cols-2">
             <div className="border-b border-r border-white/10 px-8 py-10 md:px-10 md:py-14 flex flex-col justify-between">
-              <span className="font-mono-bondy text-[11px] tracking-wider uppercase text-white/40">Experience</span>
+              <span className="font-mono-bondy text-[11px] tracking-wider uppercase text-white/60">Experience</span>
               <div>
                 <div className="font-display text-[64px] md:text-[80px] font-black leading-none text-b-off tracking-tight">
                   16<span className="text-b-orange text-[40px]">+</span>
                 </div>
-                <div className="text-b-mid text-[13px] font-light mt-2 leading-relaxed">years in technical recruitment</div>
+                <div style={{color:"#AEADA9",fontSize:"14px",fontWeight:300,marginTop:"8px",lineHeight:1.55}}>years in technical recruitment</div>
               </div>
             </div>
 
             <div className="border-b border-white/10 px-8 py-10 md:px-10 md:py-14 flex flex-col justify-between">
-              <span className="font-mono-bondy text-[11px] tracking-wider uppercase text-white/40">Speed</span>
+              <span className="font-mono-bondy text-[11px] tracking-wider uppercase text-white/60">Speed</span>
               <div>
                 <div className="font-display text-[64px] md:text-[80px] font-black leading-none text-b-off tracking-tight">
                   5–7<span className="text-b-orange text-[28px]">d</span>
                 </div>
-                <div className="text-b-mid text-[13px] font-light mt-2 leading-relaxed">to your first qualified candidate</div>
+                <div style={{color:"#AEADA9",fontSize:"14px",fontWeight:300,marginTop:"8px",lineHeight:1.55}}>to your first qualified candidate</div>
               </div>
             </div>
 
             <div className="border-b border-r border-white/10 px-8 py-10 md:px-10 md:py-14 flex flex-col justify-between">
-              <span className="font-mono-bondy text-[11px] tracking-wider uppercase text-white/40">Retention</span>
+              <span className="font-mono-bondy text-[11px] tracking-wider uppercase text-white/60">Retention</span>
               <div>
                 <div className="font-display text-[64px] md:text-[80px] font-black leading-none text-b-off tracking-tight">
                   94<span className="text-b-orange text-[28px]">%</span>
                 </div>
-                <div className="text-b-mid text-[13px] font-light mt-2 leading-relaxed">of placements still in role at 6 months</div>
+                <div style={{color:"#AEADA9",fontSize:"14px",fontWeight:300,marginTop:"8px",lineHeight:1.55}}>of placements still in role at 6 months</div>
               </div>
             </div>
 
             <div className="border-b border-white/10 px-8 py-10 md:px-10 md:py-14 flex flex-col justify-between" style={{background: '#161616'}}>
-              <span className="font-mono-bondy text-[11px] tracking-wider uppercase text-white/40">Warranty</span>
+              <span className="font-mono-bondy text-[11px] tracking-wider uppercase text-white/60">Warranty</span>
               <div>
                 <div className="font-display text-[48px] md:text-[56px] font-black leading-none text-b-orange tracking-tight">
                   The Bondy<br />Method™
                 </div>
-                <div className="text-b-mid text-[13px] font-light mt-3 leading-relaxed">A proprietary framework for technical hiring</div>
+                <div style={{color:"#AEADA9",fontSize:"14px",fontWeight:300,marginTop:"8px",lineHeight:1.55}}>A proprietary framework for technical hiring</div>
               </div>
             </div>
           </div>
@@ -241,7 +241,7 @@ export default function Home() {
                 <span className="font-mono-bondy text-[11px] text-b-orange tracking-wider mt-1 shrink-0">{step.n}</span>
                 <div>
                   <div className="font-display text-lg font-bold text-b-off mb-2 tracking-tight">{step.title}</div>
-                  <div className="text-b-mid text-[14px] font-light leading-relaxed">{step.desc}</div>
+                  <div style={{color:"#B8B6B2",fontSize:"14px",fontWeight:300,lineHeight:1.72}}>{step.desc}</div>
                 </div>
               </div>
             ))}
@@ -304,3 +304,4 @@ export default function Home() {
     </main>
   )
 }
+
