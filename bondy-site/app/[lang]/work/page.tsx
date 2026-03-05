@@ -197,7 +197,7 @@ export default function WorkPage({ params }: { params: { lang: Lang } }) {
                 {c.h1a}<br />
                 <em className="text-b-orange italic">{c.h1b}</em>
               </h1>
-              <p className="text-b-mid text-[16px] leading-relaxed font-light max-w-md">
+              <p className="text-b-lgt text-[16px] leading-relaxed font-light max-w-md">
                 {c.intro}
               </p>
             </div>
@@ -212,7 +212,7 @@ export default function WorkPage({ params }: { params: { lang: Lang } }) {
                   ${i < 2 ? 'border-b border-white/10' : ''}
                 `}
               >
-                <span className="font-mono-bondy text-[9px] tracking-widest uppercase text-white/25 leading-relaxed">
+                <span className="font-mono-bondy text-[10px] tracking-widest uppercase text-white/50 leading-relaxed">
                   {s.sub}
                 </span>
                 <div>
@@ -222,7 +222,7 @@ export default function WorkPage({ params }: { params: { lang: Lang } }) {
                       : s.value
                     }
                   </div>
-                  <div className="text-b-mid text-xs font-light mt-2 leading-relaxed">{s.label}</div>
+                  <div className="text-b-lgt text-[13px] font-light mt-2 leading-relaxed">{s.label}</div>
                 </div>
               </div>
             ))}
@@ -266,17 +266,17 @@ export default function WorkPage({ params }: { params: { lang: Lang } }) {
                     <h2 className="font-display text-2xl md:text-3xl font-bold text-b-off tracking-tight">
                       {cs.client}
                     </h2>
-                    <span className="font-mono-bondy text-[9px] tracking-widest uppercase text-b-orange border border-b-orange/25 px-2 py-1">
+                    <span className="font-mono-bondy text-[10px] tracking-widest uppercase text-b-orange border border-b-orange/50 px-3 py-1">
                       {cs.type[lang]}
                     </span>
                   </div>
-                  <p className="text-b-mid text-[15px] font-light leading-relaxed max-w-2xl mb-4">
+                  <p className="text-b-lgt text-[15px] font-light leading-relaxed max-w-2xl mb-4">
                     {cs.headline[lang]}
                   </p>
                   <div className="flex flex-wrap items-center gap-3">
-                    <span className="font-mono-bondy text-[9px] tracking-widest text-white/30">{cs.region}</span>
-                    <span className="text-white/15">·</span>
-                    <span className="font-mono-bondy text-[9px] tracking-widest text-white/25">{cs.year}</span>
+                    <span className="font-mono-bondy text-[10px] tracking-widest text-white/50">{cs.region}</span>
+                    <span className="text-white/30">·</span>
+                    <span className="font-mono-bondy text-[10px] tracking-widest text-white/50">{cs.year}</span>
                   </div>
                 </div>
 
@@ -293,7 +293,7 @@ export default function WorkPage({ params }: { params: { lang: Lang } }) {
                         <div className="font-display text-[40px] font-black text-b-off leading-none mb-2">
                           {m.n}
                         </div>
-                        <div className="font-mono-bondy text-[9px] tracking-widest uppercase text-b-mid">
+                        <div className="font-mono-bondy text-[11px] tracking-widest uppercase text-b-lgt">
                           {m.label[lang]}
                         </div>
                       </div>
@@ -305,19 +305,19 @@ export default function WorkPage({ params }: { params: { lang: Lang } }) {
                       <div className="font-mono-bondy text-[10px] tracking-widest uppercase text-b-orange mb-5">
                         {c.challenge}
                       </div>
-                      <p className="text-b-mid text-[14px] leading-relaxed font-light">{cs.challenge[lang]}</p>
+                      <p className="text-b-lgt text-[15px] leading-relaxed font-light">{cs.challenge[lang]}</p>
                     </div>
                     <div>
                       <div className="font-mono-bondy text-[10px] tracking-widest uppercase text-b-orange mb-5">
                         {c.approach}
                       </div>
-                      <p className="text-b-mid text-[14px] leading-relaxed font-light">{cs.approach[lang]}</p>
+                      <p className="text-b-lgt text-[15px] leading-relaxed font-light">{cs.approach[lang]}</p>
                     </div>
                     <div>
                       <div className="font-mono-bondy text-[10px] tracking-widest uppercase text-b-orange mb-5">
                         {c.result}
                       </div>
-                      <p className="text-b-mid text-[14px] leading-relaxed font-light">{cs.result[lang]}</p>
+                      <p className="text-b-lgt text-[15px] leading-relaxed font-light">{cs.result[lang]}</p>
                     </div>
                   </div>
 
@@ -325,7 +325,7 @@ export default function WorkPage({ params }: { params: { lang: Lang } }) {
                     {cs.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="font-mono-bondy text-[9px] tracking-widest uppercase text-white/50 border border-white/20 px-3 py-1.5"
+                        className="font-mono-bondy text-[10px] tracking-widest uppercase text-white/70 border border-white/30 px-3 py-1.5"
                       >
                         {tag}
                       </span>
@@ -347,7 +347,7 @@ export default function WorkPage({ params }: { params: { lang: Lang } }) {
           {industries.map((ind) => (
             <span
               key={ind}
-              className="font-mono-bondy text-[10px] tracking-widest uppercase text-b-mid border border-white/10 px-4 py-2 hover:border-white/25 hover:text-b-off transition-colors"
+              className="font-mono-bondy text-[10px] tracking-widest uppercase text-b-lgt border border-white/20 px-4 py-2 hover:border-white/40 hover:text-b-off transition-colors"
             >
               {ind}
             </span>
