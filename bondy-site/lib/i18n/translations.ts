@@ -449,7 +449,7 @@ export const translations = {
         h2_1: 'Contanos qué',
         h2_2: 'necesitás',
         h2_em: 'construir.',
-        body: 'Sin formularios que no llevan a ningún lado. Solo una conversación sobre lo que estás construyendo y quién necesitás.',
+        body: 'Sin formularios que no llevan a ningún lado. Sólo una conversación sobre lo que estás construyendo y quién necesitás.',
         cta: 'Empezá la conversación ↗',
       },
     },
@@ -479,7 +479,7 @@ export const translations = {
         {
           n: '03', title: 'Búsqueda', time: '3–5 días',
           subtitle: 'Sourcing activo. Sin job posts, sin espera pasiva.',
-          body: 'Salimos a buscar a las personas que necesitás. Outreach directo, presentaciones calientes, activación profunda de la red. Cada candidato es evaluado contra el brief — no solo su CV, sino su trayectoria, sus motivaciones y si este rol es genuinamente el próximo paso correcto para ellos. Nosotros entrevistamos antes que vos.',
+          body: 'Salimos a buscar a las personas que necesitás. Outreach directo, presentaciones calientes, activación profunda de la red. Cada candidato es evaluado contra el brief — no sólo su CV, sino su trayectoria, sus motivaciones y si este rol es genuinamente el próximo paso correcto para ellos. Nosotros entrevistamos antes que vos.',
         },
         {
           n: '04', title: 'Terna', time: '5–7 días en total',
