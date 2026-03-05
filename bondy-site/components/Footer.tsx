@@ -30,8 +30,8 @@ export default function Footer({ lang, tr }: FooterProps) {
           <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.35)', fontWeight: 300, lineHeight: 1.7, maxWidth: '200px', marginBottom: '1.5rem' }}>
             {tr.tagline}
           </p>
-          <a href="mailto:hola@wearebondy.com" style={{ display: 'block', fontSize: '13px', color: 'rgba(255,255,255,0.5)', textDecoration: 'none', fontWeight: 300, marginBottom: '0.5rem' }}>
-            hola@wearebondy.com
+          <a href="mailto:hello@wearebondy.com" style={{ display: 'block', fontSize: '13px', color: 'rgba(255,255,255,0.5)', textDecoration: 'none', fontWeight: 300, marginBottom: '0.5rem' }}>
+            hello@wearebondy.com
           </a>
           <a href="https://linkedin.com/company/bondygroup" target="_blank" rel="noopener noreferrer"
             style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', letterSpacing: '0.13em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', textDecoration: 'none' }}>
