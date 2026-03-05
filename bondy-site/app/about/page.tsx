@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export const metadata = {
   title: 'About — Bondy',
-  description: 'Bondy was founded in Buenos Aires in 2008. We\'re a technical recruiting firm run by psychologists and engineers who believe that hiring is a discipline, not a transaction.',
+  description: 'Bondy was founded in Buenos Aires in 2008. We\'re a technical recruiting firm run by psychologists who believe that hiring is a discipline, not a transaction.',
 }
 
 const values = [
@@ -39,8 +39,24 @@ const team = [
   {
     name: 'Mara Schmitman',
     role: 'Founder & Managing Director',
-    bio: 'Licensed psychologist with a specialization in organizational behavior, Mara founded Bondy in Buenos Aires in 2008 with a clear thesis: that the best technical hires come from understanding people deeply, not from processing more resumes faster. After 16 years and hundreds of placements, the thesis still holds. She leads client relationships and every strategic search personally.',
-    detail: 'MSc in Organizational Psychology · Buenos Aires, AR',
+    bio: 'Mara founded Bondy in Buenos Aires in 2008 after a clear observation: technical recruiting was being done by people who didn\'t understand engineers. A licensed psychologist with a specialization in strategic HR management and a Master\'s in Technology Management, she brought a different approach — apply organizational psychology rigor to the search process. Define fit before looking for it. Interview deeply. Send fewer candidates, and better ones. After 16 years, that\'s still exactly what she does. She leads every strategic client relationship personally.',
+    credentials: [
+      'BA in Psychology, Universidad de la Cuenca del Plata',
+      'Specialist in Strategic HR Management, UdeSA',
+      'MSc in Technology Management, ITBA–EOI',
+      'Diploma in Cultural Awareness, MIT',
+    ],
+    initials: 'MS',
+  },
+  {
+    name: 'Lucía Palomeque',
+    role: 'Head of Delivery',
+    bio: 'Lucía joined Bondy as a technical recruiter and became the operational core of the team. A psychologist by training with a specialization in IT selection, she brings a rare combination: deep understanding of candidate motivation and the process discipline to run parallel searches at scale without losing quality. She owns delivery — which at Bondy means owning the standard. If a shortlist leaves the building, Lucía has reviewed it.',
+    credentials: [
+      'BA in Psychology, Universidad de Buenos Aires (UBA)',
+      'Specialist in IT Talent Selection',
+    ],
+    initials: 'LP',
   },
 ]
 
@@ -69,8 +85,8 @@ export default function AboutPage() {
 
       {/* Origin story */}
       <section style={{ background: '#FFFFFF', borderBottom: '1px solid #E8E4DE' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }} className="split-grid">
-          <div style={{ padding: '4.5rem clamp(1.25rem,5vw,4rem)', borderRight: '1px solid #E8E4DE' }}>
+        <div style={{ display: 'grid' }} className="split-grid">
+          <div style={{ padding: '4.5rem clamp(1.25rem,5vw,4rem)', borderRight: '1px solid #E8E4DE' }} className="split-left">
             <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', letterSpacing: '.2em', textTransform: 'uppercase', color: '#C8C5C0', display: 'block', marginBottom: '1.75rem' }}>
               Since 2008
             </span>
@@ -92,7 +108,7 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-          <div style={{ padding: '4.5rem clamp(1.25rem,5vw,4rem)', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '3rem' }}>
+          <div style={{ padding: '4.5rem clamp(1.25rem,5vw,4rem)', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '3rem' }} className="split-right">
             {[
               { n: '16', sup: '+', label: 'Years in technical recruitment' },
               { n: '94', sup: '%', label: 'Retention at 6 months' },
@@ -113,7 +129,7 @@ export default function AboutPage() {
 
       {/* Values */}
       <section style={{ borderBottom: '1px solid #E8E4DE' }}>
-        <div style={{ padding: '4rem clamp(1.25rem,5vw,4rem) 2rem', borderBottom: '1px solid #E8E4DE' }}>
+        <div style={{ padding: '4rem clamp(1.25rem,5vw,4rem) 2rem', background: '#F0EBE3', borderBottom: '1px solid #E8E4DE' }}>
           <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', letterSpacing: '.2em', textTransform: 'uppercase', color: '#C06A2D', display: 'block', marginBottom: '.75rem' }}>
             How we work
           </span>
@@ -152,7 +168,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section style={{ background: '#FFFFFF', borderBottom: '1px solid #E8E4DE' }}>
+      <section style={{ background: '#F0EBE3', borderBottom: '1px solid #E8E4DE' }}>
         <div style={{ padding: '4rem clamp(1.25rem,5vw,4rem) 2rem', borderBottom: '1px solid #E8E4DE' }}>
           <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', letterSpacing: '.2em', textTransform: 'uppercase', color: '#C06A2D', display: 'block', marginBottom: '.75rem' }}>
             The team
@@ -162,54 +178,77 @@ export default function AboutPage() {
           </h2>
         </div>
 
-        {team.map((person) => (
+        {team.map((person, idx) => (
           <div
             key={person.name}
-            style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', borderBottom: '1px solid #E8E4DE' }}
-            className="team-grid"
+            style={{ borderBottom: '1px solid #E8E4DE' }}
           >
-            {/* Photo placeholder */}
-            <div style={{
-              background: '#F0EBE3',
-              borderRight: '1px solid #E8E4DE',
-              minHeight: '420px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              position: 'relative',
-            }}>
-              <div style={{ textAlign: 'center' }}>
-                <div style={{ width: '88px', height: '88px', borderRadius: '50%', background: '#E8E4DE', margin: '0 auto 1.25rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <span style={{ fontFamily: 'Playfair Display, Georgia, serif', fontSize: '2rem', fontWeight: 900, color: '#C8C5C0' }}>
-                    {person.name.split(' ').map(n => n[0]).join('')}
+            <div style={{ display: 'grid' }} className="team-grid">
+              {/* Photo placeholder — left or right depending on index */}
+              <div
+                style={{
+                  background: idx % 2 === 0 ? '#E8E4DE' : '#DEDAD4',
+                  minHeight: '440px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  order: idx % 2 === 0 ? 0 : 1,
+                }}
+                className={idx % 2 !== 0 ? 'team-photo-right' : ''}
+              >
+                <div style={{ textAlign: 'center' }}>
+                  <div style={{
+                    width: '96px', height: '96px', borderRadius: '50%',
+                    background: idx % 2 === 0 ? '#C8C5C0' : '#BDB9B3',
+                    margin: '0 auto 1.25rem',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  }}>
+                    <span style={{ fontFamily: 'Playfair Display, Georgia, serif', fontSize: '1.75rem', fontWeight: 900, color: '#F0EBE3' }}>
+                      {person.initials}
+                    </span>
+                  </div>
+                  <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', letterSpacing: '.13em', textTransform: 'uppercase', color: '#C8C5C0' }}>
+                    Photo coming soon
                   </span>
                 </div>
-                <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', letterSpacing: '.13em', textTransform: 'uppercase', color: '#C8C5C0' }}>
-                  Photo coming soon
-                </span>
               </div>
-            </div>
 
-            {/* Bio */}
-            <div style={{ padding: '4rem clamp(1.25rem,5vw,4rem)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-              <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', letterSpacing: '.18em', textTransform: 'uppercase', color: '#C06A2D', marginBottom: '1.25rem' }}>
-                {person.role}
+              {/* Bio */}
+              <div
+                style={{
+                  padding: '4rem clamp(1.25rem,5vw,4rem)',
+                  display: 'flex', flexDirection: 'column', justifyContent: 'center',
+                  background: '#FFFFFF',
+                  order: idx % 2 === 0 ? 1 : 0,
+                }}
+              >
+                <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', letterSpacing: '.18em', textTransform: 'uppercase', color: '#C06A2D', marginBottom: '1.25rem' }}>
+                  {person.role}
+                </div>
+                <h3 style={{ fontFamily: 'Playfair Display, Georgia, serif', fontSize: 'clamp(26px,3vw,42px)', fontWeight: 900, letterSpacing: '-.02em', color: '#1A1A1A', marginBottom: '1.5rem', lineHeight: 1 }}>
+                  {person.name}
+                </h3>
+                <p style={{ fontSize: '15px', lineHeight: 1.78, color: '#7A7874', fontWeight: 300, marginBottom: '2rem', maxWidth: '440px' }}>
+                  {person.bio}
+                </p>
+                {/* Credentials */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                  {person.credentials.map((c) => (
+                    <div key={c} style={{ display: 'flex', alignItems: 'baseline', gap: '10px' }}>
+                      <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#C06A2D', flexShrink: 0, marginTop: '2px' }} />
+                      <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', letterSpacing: '.1em', color: '#C8C5C0', textTransform: 'uppercase' }}>
+                        {c}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <h3 style={{ fontFamily: 'Playfair Display, Georgia, serif', fontSize: 'clamp(26px,3vw,40px)', fontWeight: 900, letterSpacing: '-.02em', color: '#1A1A1A', marginBottom: '1.5rem', lineHeight: 1 }}>
-                {person.name}
-              </h3>
-              <p style={{ fontSize: '15px', lineHeight: 1.78, color: '#7A7874', fontWeight: 300, marginBottom: '2rem', maxWidth: '440px' }}>
-                {person.bio}
-              </p>
-              <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', letterSpacing: '.14em', color: '#C8C5C0', textTransform: 'uppercase' }}>
-                {person.detail}
-              </span>
             </div>
           </div>
         ))}
 
         {/* Join the team */}
-        <div style={{ padding: '3.5rem clamp(1.25rem,5vw,4rem)', background: '#F0EBE3', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1.5rem' }}>
+        <div style={{ padding: '3.5rem clamp(1.25rem,5vw,4rem)', background: '#F0EBE3', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1.5rem', borderTop: '1px solid #E8E4DE' }}>
           <div>
             <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', letterSpacing: '.18em', textTransform: 'uppercase', color: '#C8C5C0', display: 'block', marginBottom: '.6rem' }}>
               Join the team
@@ -224,9 +263,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* CTA — dark */}
       <section style={{ background: '#1A1A1A', padding: '6rem clamp(1.25rem,5vw,4rem)' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }} className="cta-grid">
+        <div style={{ display: 'grid', gap: '4rem', alignItems: 'center' }} className="cta-grid">
           <h2 style={{ fontFamily: 'Playfair Display, Georgia, serif', fontSize: 'clamp(28px,3.5vw,48px)', fontWeight: 900, lineHeight: 1.05, letterSpacing: '-.02em', color: '#F4F2EE' }}>
             Ready to work<br />with us? Let&apos;s<br /><em style={{ color: '#C06A2D', fontStyle: 'italic' }}>talk.</em>
           </h2>
@@ -249,7 +288,8 @@ export default function AboutPage() {
         .cta-grid { grid-template-columns: 1fr 1fr; }
         @media (max-width: 860px) {
           .split-grid, .team-grid, .cta-grid { grid-template-columns: 1fr !important; }
-          .split-grid > *:first-child, .team-grid > *:first-child { border-right: none !important; border-bottom: 1px solid #E8E4DE; }
+          .split-left { border-right: none !important; border-bottom: 1px solid #E8E4DE; }
+          .team-photo-right { order: 0 !important; }
         }
       `}</style>
     </main>
