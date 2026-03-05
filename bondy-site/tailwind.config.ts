@@ -9,30 +9,39 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'b-black': '#111111',
-        'b-white': '#FFFFFF',
-        'b-off': '#F9F8F6',
-        'b-orange': '#D4770A',
-        'b-mid': '#888885',
-        'b-light': '#D8D6D2',
-        'b-rule': '#EBEBEB',
-        'b-charcoal': '#1A1A1A',
-        // Stone system — light pages
+        // Dark system
+        'b-black': '#0E0E0E',
+        'b-ink':   '#1A1A1A',
+        // Light system
+        'b-off':   '#F4F2EE',
         'b-stone': '#F0EBE3',
-        'b-stone-alt': '#E8E0D5',
-        'b-stone-text': '#1A1614',
-        'b-stone-mid': '#7D7268',
-        'b-stone-light': '#C0B5AA',
-        'b-stone-rule': '#D4CAC0',
+        'b-white': '#FFFFFF',
+        // Sienna accent
+        'b-sie':   '#C06A2D',
+        'b-sie-dk':'#B85020',
+        'b-sie-lt':'#D86830',
+        // Neutrals
+        'b-mid':   '#7A7874',
+        'b-lgt':   '#C8C5C0',
+        'b-rule':  '#E8E4DE',
+        // Brand (logo only)
+        'b-brand-primary':   '#F27122',
+        'b-brand-secondary': '#F6921E',
+        'b-brand-tertiary':  '#FAAF40',
+        'b-brand-gray':      '#58595B',
       },
       fontFamily: {
-        'display': ['var(--font-playfair)', 'Georgia', 'serif'],
-        'body': ['var(--font-dm-sans)', 'system-ui', 'sans-serif'],
-        'mono': ['var(--font-dm-mono)', 'monospace'],
+        'display': ['Playfair Display', 'Georgia', 'serif'],
+        'body':    ['DM Sans', 'system-ui', 'sans-serif'],
+        'mono':    ['DM Mono', 'monospace'],
+      },
+      fontSize: {
+        'label': ['10px', { letterSpacing: '0.13em', lineHeight: '1' }],
       },
       letterSpacing: {
-        'widest2': '0.2em',
-        'widest3': '0.25em',
+        'widest2': '0.13em',
+        'widest3': '0.18em',
+        'widest4': '0.20em',
       },
     },
   },
