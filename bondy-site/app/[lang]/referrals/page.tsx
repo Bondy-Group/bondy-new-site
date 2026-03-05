@@ -66,7 +66,7 @@ const copy = {
     successTitle: 'Listo.',
     successBody: 'Vamos a contactar a tu referido pronto. Si resulta en una colocación, te avisamos a vos también.',
     errorMsg: 'Algo salió mal. Escribinos a hello@wearebondy.com',
-    finePrint: 'El bono se paga una vez que el candidato referido completa 3 meses en el rol. Solo un bono por referido único. Los empleados de Bondy no son elegibles.',
+    finePrint: 'El bono se paga una vez que el candidato referido completa 3 meses en el rol. Sólo un bono por referido único. Los empleados de Bondy no son elegibles.',
   },
 }
 
@@ -204,7 +204,7 @@ export default function ReferralsPage({ params }: { params: { lang: Lang } }) {
               <p className="text-b-mid text-[15px] leading-relaxed font-light max-w-sm">
                 {lang === 'en'
                   ? "We only pursue referrals that are a genuine fit for our active searches. We won't chase someone who doesn't make sense."
-                  : "Solo avanzamos con referidos que son un fit real para nuestras búsquedas activas. No vamos a perseguir a alguien que no tiene sentido."}
+                  : "Sólo avanzamos con referidos que son un fit real para nuestras búsquedas activas. No vamos a perseguir a alguien que no tiene sentido."}
               </p>
             </div>
 
