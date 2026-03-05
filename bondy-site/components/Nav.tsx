@@ -31,29 +31,18 @@ export default function Nav() {
         className="flex items-center justify-between"
         style={{ padding: '0 clamp(1.25rem,5vw,4rem)', height: '60px' }}
       >
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 shrink-0" style={{ textDecoration: 'none' }}>
-          <svg width="26" height="26" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M98 108 L265 108 Q366 108 366 209 Q366 310 265 310 L98 310 Z" fill="#FAAF40"/>
-            <path d="M175 210 L341 210 Q440 210 440 309 Q440 408 341 408 L241 408 Q175 408 175 342 Z" fill="#FAAF40"/>
-            <clipPath id="nav-clip">
-              <path d="M98 108 L265 108 Q366 108 366 209 Q366 310 265 310 L98 310 Z"/>
-            </clipPath>
-            <g clipPath="url(#nav-clip)">
-              <path d="M175 210 L341 210 Q440 210 440 309 Q440 408 341 408 L241 408 Q175 408 175 342 Z" fill="#F27122"/>
-            </g>
-            <circle cx="130" cy="370" r="28" fill="#404041"/>
-          </svg>
+        {/* Logo — wordmark only, no isotipo */}
+        <Link href="/" className="flex items-center shrink-0" style={{ textDecoration: 'none' }}>
           <span
             style={{
               fontFamily: 'Playfair Display, Georgia, serif',
-              fontSize: '17px',
+              fontSize: '20px',
               fontWeight: 900,
               color: '#F4F2EE',
               letterSpacing: '-0.02em',
             }}
           >
-            Bond<em style={{ fontStyle: 'italic', color: '#C06A2D' }}>y</em>.
+            Bond<em style={{ fontStyle: 'italic', color: '#C06A2D' }}>y</em><span style={{ color: '#C06A2D' }}>.</span>
           </span>
         </Link>
 
@@ -77,6 +66,36 @@ export default function Nav() {
               </Link>
             </li>
           ))}
+          {/* ES/EN toggle */}
+          <li style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+            <button
+              style={{
+                fontFamily: 'DM Mono, monospace',
+                fontSize: '10px',
+                letterSpacing: '0.13em',
+                textTransform: 'uppercase',
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                color: '#F4F2EE',
+                padding: 0,
+              }}
+            >EN</button>
+            <span style={{ color: 'rgba(255,255,255,0.18)', fontSize: '9px' }}>/</span>
+            <button
+              style={{
+                fontFamily: 'DM Mono, monospace',
+                fontSize: '10px',
+                letterSpacing: '0.13em',
+                textTransform: 'uppercase',
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                color: 'rgba(255,255,255,0.35)',
+                padding: 0,
+              }}
+            >ES</button>
+          </li>
           <li>
             <Link
               href="/contact"
@@ -143,6 +162,12 @@ export default function Nav() {
               {label}
             </Link>
           ))}
+          {/* Mobile ES/EN */}
+          <div style={{ display: 'flex', gap: '0.75rem', padding: '1rem clamp(1.25rem,5vw,4rem)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+            <button style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.13em', textTransform: 'uppercase', background: 'none', border: 'none', cursor: 'pointer', color: '#F4F2EE', padding: 0 }}>EN</button>
+            <span style={{ color: 'rgba(255,255,255,0.18)' }}>/</span>
+            <button style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.13em', textTransform: 'uppercase', background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.35)', padding: 0 }}>ES</button>
+          </div>
           <Link
             href="/contact"
             onClick={() => setMenuOpen(false)}
