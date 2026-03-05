@@ -174,76 +174,182 @@ const industries = [
 // ── MAP ───────────────────────────────────────────────────────────────
 function WorldMap({ lang }: { lang: Lang }) {
   const [hovered, setHovered] = useState<string | null>(null)
+  const [tooltipPos, setTooltipPos] = useState({ x: 0, y: 0 })
+
+  // viewBox 0 0 1000 500 — equirectangular projection
+  // Dots positioned in % of viewBox (x/10, y/5)
+  const regionDots = [
+    { label: 'United States', projects: 44, cx: 175, cy: 180, },
+    { label: 'Argentina',     projects: 34, cx: 270, cy: 370, },
+    { label: 'Mexico',        projects: 6,  cx: 185, cy: 230, },
+    { label: 'Spain',         projects: 2,  cx: 455, cy: 125, },
+    { label: 'Germany',       projects: 1,  cx: 495, cy: 100, },
+    { label: 'Global/Remote', projects: 60, cx: 500, cy: 60,  },
+  ]
 
   return (
     <div>
-      <div className="relative w-full" style={{ paddingBottom: '48%' }}>
-        <svg viewBox="0 0 100 48" className="absolute inset-0 w-full h-full" fill="none">
-          <path d="M5,8 L22,7 L24,12 L22,20 L20,26 L22,33 L19,38 L15,40 L12,36 L10,28 L7,20 L5,14 Z" fill="#F9F8F6" opacity="0.08" stroke="#F9F8F6" strokeWidth="0.15"/>
-          <path d="M22,38 L32,37 L34,42 L32,46 L28,47 L24,44 L22,40 Z" fill="#F9F8F6" opacity="0.08" stroke="#F9F8F6" strokeWidth="0.15"/>
-          <path d="M44,7 L56,7 L57,13 L54,17 L50,15 L46,17 L43,14 Z" fill="#F9F8F6" opacity="0.08" stroke="#F9F8F6" strokeWidth="0.15"/>
-          <path d="M44,19 L54,19 L56,27 L54,36 L50,40 L46,36 L43,27 Z" fill="#F9F8F6" opacity="0.08" stroke="#F9F8F6" strokeWidth="0.15"/>
-          <path d="M57,7 L82,7 L84,15 L80,21 L72,23 L63,21 L59,16 Z" fill="#F9F8F6" opacity="0.08" stroke="#F9F8F6" strokeWidth="0.15"/>
-          <path d="M74,30 L84,29 L85,37 L77,38 L73,34 Z" fill="#F9F8F6" opacity="0.08" stroke="#F9F8F6" strokeWidth="0.15"/>
+      <div className="relative w-full" style={{ paddingBottom: '50%', background: '#0D0D0D', borderRadius: 2 }}>
+        <svg
+          viewBox="0 0 1000 500"
+          className="absolute inset-0 w-full h-full"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          {/* North America */}
+          <path
+            d="M 80,60 L 100,50 L 130,48 L 155,52 L 175,60 L 195,72 L 210,88 L 218,105 L 215,122 L 205,138 L 190,150 L 175,158 L 158,162 L 140,158 L 122,148 L 108,132 L 98,115 L 90,98 L 82,80 Z M 130,165 L 150,162 L 168,168 L 182,178 L 192,192 L 195,210 L 190,228 L 175,238 L 158,240 L 140,232 L 128,218 L 120,202 L 118,186 Z"
+            fill="#F9F8F6" opacity="0.07" stroke="#F9F8F6" strokeWidth="0.8"
+          />
+          {/* Greenland */}
+          <path
+            d="M 195,22 L 215,18 L 232,22 L 240,34 L 238,48 L 225,56 L 208,52 L 198,40 Z"
+            fill="#F9F8F6" opacity="0.05" stroke="#F9F8F6" strokeWidth="0.6"
+          />
+          {/* South America */}
+          <path
+            d="M 220,248 L 240,240 L 260,242 L 278,250 L 290,265 L 296,285 L 298,308 L 293,332 L 282,355 L 268,374 L 250,388 L 232,392 L 216,384 L 204,368 L 198,348 L 196,326 L 200,305 L 208,285 L 212,265 Z"
+            fill="#F9F8F6" opacity="0.07" stroke="#F9F8F6" strokeWidth="0.8"
+          />
+          {/* Europe */}
+          <path
+            d="M 440,58 L 460,52 L 480,55 L 498,65 L 510,80 L 508,96 L 495,108 L 475,114 L 455,110 L 440,98 L 432,84 L 434,70 Z M 445,118 L 462,114 L 478,118 L 490,128 L 492,142 L 480,152 L 462,155 L 446,148 L 438,136 L 436,124 Z"
+            fill="#F9F8F6" opacity="0.07" stroke="#F9F8F6" strokeWidth="0.8"
+          />
+          {/* Africa */}
+          <path
+            d="M 448,145 L 470,138 L 495,140 L 518,150 L 535,168 L 542,190 L 545,215 L 540,242 L 530,268 L 515,292 L 495,310 L 472,320 L 450,316 L 430,302 L 416,280 L 408,255 L 406,228 L 410,202 L 418,178 L 428,160 Z"
+            fill="#F9F8F6" opacity="0.07" stroke="#F9F8F6" strokeWidth="0.8"
+          />
+          {/* Asia (main) */}
+          <path
+            d="M 505,48 L 565,38 L 635,35 L 710,38 L 778,45 L 830,55 L 862,70 L 872,88 L 860,108 L 835,122 L 800,132 L 758,140 L 712,148 L 665,152 L 620,150 L 578,142 L 540,130 L 515,115 L 502,98 L 498,78 L 498,62 Z"
+            fill="#F9F8F6" opacity="0.07" stroke="#F9F8F6" strokeWidth="0.8"
+          />
+          {/* Southeast Asia + India */}
+          <path
+            d="M 618,158 L 648,155 L 675,162 L 692,178 L 695,198 L 682,215 L 660,220 L 638,214 L 622,198 L 616,178 Z M 555,140 L 572,150 L 580,168 L 575,188 L 560,198 L 542,195 L 530,180 L 530,162 L 540,150 Z"
+            fill="#F9F8F6" opacity="0.06" stroke="#F9F8F6" strokeWidth="0.7"
+          />
+          {/* Australia */}
+          <path
+            d="M 728,292 L 768,280 L 808,282 L 840,295 L 858,315 L 858,340 L 842,360 L 815,372 L 782,372 L 750,358 L 728,336 L 718,312 L 718,298 Z"
+            fill="#F9F8F6" opacity="0.07" stroke="#F9F8F6" strokeWidth="0.8"
+          />
+          {/* New Zealand */}
+          <path
+            d="M 880,342 L 892,335 L 902,342 L 905,355 L 898,365 L 886,362 L 878,352 Z"
+            fill="#F9F8F6" opacity="0.05" stroke="#F9F8F6" strokeWidth="0.6"
+          />
+          {/* Japan */}
+          <path
+            d="M 828,95 L 840,88 L 850,92 L 852,104 L 844,112 L 832,108 Z"
+            fill="#F9F8F6" opacity="0.05" stroke="#F9F8F6" strokeWidth="0.6"
+          />
+
+          {/* Grid lines - very subtle */}
+          <line x1="0" y1="250" x2="1000" y2="250" stroke="#F9F8F6" strokeWidth="0.3" opacity="0.05"/>
+          <line x1="500" y1="0" x2="500" y2="500" stroke="#F9F8F6" strokeWidth="0.3" opacity="0.05"/>
+
+          {/* Dots */}
+          {regionDots.map((r) => {
+            const isHovered = hovered === r.label
+            const baseR = Math.max(8, Math.min(20, r.projects / 2.5))
+            return (
+              <g
+                key={r.label}
+                style={{ cursor: 'pointer' }}
+                onMouseEnter={(e) => {
+                  setHovered(r.label)
+                  const svg = (e.currentTarget as SVGGElement).ownerSVGElement!
+                  const rect = svg.getBoundingClientRect()
+                  setTooltipPos({
+                    x: (r.cx / 1000) * 100,
+                    y: (r.cy / 500) * 100,
+                  })
+                }}
+                onMouseLeave={() => setHovered(null)}
+              >
+                {/* Pulse ring */}
+                <circle
+                  cx={r.cx} cy={r.cy}
+                  r={baseR * 2}
+                  fill="#C06A2D"
+                  opacity={isHovered ? 0.15 : 0.05}
+                />
+                {/* Main dot */}
+                <circle
+                  cx={r.cx} cy={r.cy}
+                  r={baseR}
+                  fill={isHovered ? '#C06A2D' : '#E05C00'}
+                  opacity={0.9}
+                  style={{ filter: isHovered ? 'drop-shadow(0 0 8px #C06A2D80)' : 'none' }}
+                />
+                {/* Inner highlight */}
+                <circle
+                  cx={r.cx - baseR * 0.25} cy={r.cy - baseR * 0.25}
+                  r={baseR * 0.35}
+                  fill="white"
+                  opacity={0.25}
+                />
+              </g>
+            )
+          })}
         </svg>
 
-        {regions.map((r) => {
-          const isHovered = hovered === r.label
-          const size = Math.max(6, Math.min(16, r.projects / 3.5))
+        {/* Tooltip — positioned absolute over the map */}
+        {hovered && (() => {
+          const r = regionDots.find(d => d.label === hovered)!
           return (
             <div
-              key={r.label}
-              className="absolute cursor-pointer"
-              style={{ left: `${r.x}%`, top: `${r.y}%`, transform: 'translate(-50%, -50%)' }}
-              onMouseEnter={() => setHovered(r.label)}
-              onMouseLeave={() => setHovered(null)}
+              className="absolute z-20 pointer-events-none"
+              style={{
+                left: `${(r.cx / 1000) * 100}%`,
+                top: `${(r.cy / 500) * 100}%`,
+                transform: 'translate(-50%, -130%)',
+              }}
             >
-              <div
-                className="absolute rounded-full animate-ping"
-                style={{
-                  width: size * 2, height: size * 2,
-                  top: -size / 2, left: -size / 2,
-                  background: '#C06A2D',
-                  opacity: isHovered ? 0.3 : 0.1,
-                }}
-              />
-              <div
-                className="relative rounded-full transition-all duration-200"
-                style={{
-                  width: size, height: size,
-                  background: isHovered ? '#C06A2D' : '#E05C00',
-                  boxShadow: isHovered ? '0 0 14px #C06A2D60' : 'none',
-                }}
-              />
-              {isHovered && (
-                <div
-                  className="absolute z-20 whitespace-nowrap pointer-events-none"
-                  style={{
-                    bottom: '140%', left: '50%', transform: 'translateX(-50%)',
-                    background: '#1A1A1A', border: '1px solid rgba(255,255,255,0.12)',
-                    padding: '8px 12px',
-                  }}
-                >
-                  <div className="font-mono-bondy text-[9px] tracking-widest uppercase text-b-orange mb-1">{r.label}</div>
-                  <div className="font-display text-sm font-bold text-b-off">
-                    {r.projects} {lang === 'es' ? 'proyectos' : 'projects'}
-                  </div>
+              <div style={{
+                background: '#1A1A1A',
+                border: '1px solid rgba(255,255,255,0.12)',
+                padding: '8px 14px',
+                whiteSpace: 'nowrap',
+              }}>
+                <div className="font-mono-bondy text-[9px] tracking-widest uppercase text-b-orange mb-1">
+                  {r.label}
                 </div>
-              )}
+                <div className="font-display text-sm font-bold text-b-off">
+                  {r.projects} {lang === 'es' ? 'proyectos' : 'projects'}
+                </div>
+              </div>
+              {/* Arrow */}
+              <div style={{
+                width: 0, height: 0,
+                borderLeft: '6px solid transparent',
+                borderRight: '6px solid transparent',
+                borderTop: '6px solid rgba(255,255,255,0.12)',
+                margin: '0 auto',
+              }}/>
             </div>
           )
-        })}
+        })()}
       </div>
 
+      {/* Legend */}
       <div className="mt-6 flex flex-wrap gap-5">
-        {regions.map((r) => (
-          <div key={r.label} className="flex items-center gap-2">
+        {regionDots.map((r) => (
+          <div
+            key={r.label}
+            className="flex items-center gap-2 cursor-pointer"
+            onMouseEnter={() => setHovered(r.label)}
+            onMouseLeave={() => setHovered(null)}
+          >
             <div
-              className="rounded-full flex-shrink-0"
+              className="rounded-full flex-shrink-0 transition-all duration-150"
               style={{
-                width: Math.max(5, Math.min(10, r.projects / 5)),
-                height: Math.max(5, Math.min(10, r.projects / 5)),
-                background: '#E05C00',
+                width: Math.max(5, Math.min(11, r.projects / 5)),
+                height: Math.max(5, Math.min(11, r.projects / 5)),
+                background: hovered === r.label ? '#C06A2D' : '#E05C00',
               }}
             />
             <span className="font-mono-bondy text-[10px] tracking-widest text-b-mid">
