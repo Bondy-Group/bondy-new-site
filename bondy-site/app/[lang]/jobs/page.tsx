@@ -174,10 +174,6 @@ export default function JobsPage({ params }: { params: { lang: Lang } }) {
     }
   }
 
-  const inputClass = "w-full bg-transparent border-b py-4 text-b-off text-[15px] font-light placeholder-b-mid/40 focus:outline-none transition-colors"
-  const inputStyle = { borderColor: 'rgba(255,255,255,0.15)' }
-  const labelClass = "font-mono-bondy text-[10px] tracking-widest uppercase block mb-3 text-b-orange"
-
   const inputStyle: React.CSSProperties = {
     width: '100%',
     background: 'transparent',
