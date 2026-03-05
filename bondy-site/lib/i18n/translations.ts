@@ -44,7 +44,7 @@ export const translations = {
         description: "We don't send you candidates. We send you the right one. Bondy has been placing senior engineers at high-growth tech companies since 2008.",
       },
       topbar: {
-        left: 'Since 2008 · Technical Hiring',
+        left: 'The standard for technical hiring.',
         right: 'Buenos Aires · Global',
       },
       hero: {
@@ -370,7 +370,7 @@ export const translations = {
         description: 'No te mandamos candidatos. Te mandamos el correcto. Bondy lleva 16 años colocando ingenieros senior en empresas tech de alto crecimiento.',
       },
       topbar: {
-        left: 'Desde 2008 · Contratación técnica',
+        left: 'El estándar en contratación técnica.',
         right: 'Buenos Aires · Global',
       },
       hero: {

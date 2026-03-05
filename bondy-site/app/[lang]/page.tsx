@@ -18,10 +18,10 @@ export default function Home({ params }: { params: { lang: Lang } }) {
       <section className="min-h-screen flex flex-col pt-[60px]">
         {/* Top bar */}
         <div className="border-b border-white/10 px-8 md:px-16 py-3 flex justify-between items-center">
-          <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)' }}>
+          <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '12px', letterSpacing: '0.13em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)' }}>
             {h.topbar.left}
           </span>
-          <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)' }} className="hidden md:block">
+          <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '12px', letterSpacing: '0.13em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.45)' }} className="hidden md:block">
             {h.topbar.right}
           </span>
         </div>
@@ -74,7 +74,7 @@ export default function Home({ params }: { params: { lang: Lang } }) {
                   <div className="font-display font-black leading-none text-b-off tracking-tight" style={{ fontSize: 'clamp(56px,7vw,80px)' }}>
                     {s.value}<span style={{ color: '#C06A2D', fontSize: '0.45em' }}>{s.sup}</span>
                   </div>
-                  <div style={{ color: '#AEADA9', fontSize: '14px', fontWeight: 300, marginTop: '8px', lineHeight: 1.55 }}>{s.desc}</div>
+                  <div style={{ color: '#AEADA9', fontSize: '16px', fontWeight: 300, marginTop: '8px', lineHeight: 1.55 }}>{s.desc}</div>
                 </div>
               </div>
             ))}
@@ -84,7 +84,7 @@ export default function Home({ params }: { params: { lang: Lang } }) {
                 <div className="font-display font-black leading-none tracking-tight" style={{ fontSize: 'clamp(38px,4vw,52px)', color: '#C06A2D' }}>
                   {h.stats.method.title.split('\n').map((line, i) => <span key={i}>{line}{i === 0 && <br />}</span>)}
                 </div>
-                <div style={{ color: '#AEADA9', fontSize: '14px', fontWeight: 300, marginTop: '8px', lineHeight: 1.55 }}>{h.stats.method.desc}</div>
+                <div style={{ color: '#AEADA9', fontSize: '16px', fontWeight: 300, marginTop: '8px', lineHeight: 1.55 }}>{h.stats.method.desc}</div>
               </div>
             </div>
           </div>
@@ -102,8 +102,8 @@ export default function Home({ params }: { params: { lang: Lang } }) {
             {h.statement.h2_2} <em style={{ color: '#C06A2D', fontStyle: 'italic' }}>{h.statement.h2_em}</em>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            <p style={{ color: '#AEADA9', fontSize: '15px', lineHeight: 1.75, fontWeight: 300 }}>{h.statement.p1}</p>
-            <p style={{ color: '#AEADA9', fontSize: '15px', lineHeight: 1.75, fontWeight: 300 }}>{h.statement.p2}</p>
+            <p style={{ color: '#AEADA9', fontSize: '16px', lineHeight: 1.75, fontWeight: 300 }}>{h.statement.p1}</p>
+            <p style={{ color: '#AEADA9', fontSize: '16px', lineHeight: 1.75, fontWeight: 300 }}>{h.statement.p2}</p>
           </div>
         </div>
       </section>
@@ -123,7 +123,7 @@ export default function Home({ params }: { params: { lang: Lang } }) {
                 <h3 className="font-display font-bold text-b-off mb-5 leading-tight tracking-tight" style={{ fontSize: '28px' }}>
                   {svc.title.split('\n').map((line, j) => <span key={j}>{line}{j < svc.title.split('\n').length - 1 && <br />}</span>)}
                 </h3>
-                <p style={{ color: '#AEADA9', fontSize: '14px', lineHeight: 1.75, fontWeight: 300 }}>{svc.body}</p>
+                <p style={{ color: '#AEADA9', fontSize: '16px', lineHeight: 1.75, fontWeight: 300 }}>{svc.body}</p>
               </div>
               <Link href={lk(`/services#${['hunting', 'pipeline', 'rpo'][i]}`)} style={{ marginTop: '2.5rem', fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.4)', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
                 {svc.cta}
@@ -143,8 +143,8 @@ export default function Home({ params }: { params: { lang: Lang } }) {
             <h2 className="font-display font-black leading-tight tracking-tight text-b-off mb-8" style={{ fontSize: 'clamp(36px,4vw,56px)' }}>
               {h.method.h2_1}<br />{h.method.h2_2} <em style={{ color: '#C06A2D', fontStyle: 'italic' }}>{h.method.h2_em}</em>
             </h2>
-            <p style={{ color: '#AEADA9', fontSize: '15px', lineHeight: 1.75, fontWeight: 300, marginBottom: '1.5rem', maxWidth: '360px' }}>{h.method.p1}</p>
-            <p style={{ color: '#AEADA9', fontSize: '15px', lineHeight: 1.75, fontWeight: 300, marginBottom: '3rem', maxWidth: '360px' }}>{h.method.p2}</p>
+            <p style={{ color: '#AEADA9', fontSize: '16px', lineHeight: 1.75, fontWeight: 300, marginBottom: '1.5rem', maxWidth: '360px' }}>{h.method.p1}</p>
+            <p style={{ color: '#AEADA9', fontSize: '16px', lineHeight: 1.75, fontWeight: 300, marginBottom: '3rem', maxWidth: '360px' }}>{h.method.p2}</p>
             <Link href={lk('/method')} style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C06A2D', textDecoration: 'none', borderBottom: '1px solid rgba(192,106,45,0.4)', paddingBottom: '2px' }}>
               {h.method.cta}
             </Link>
@@ -155,7 +155,7 @@ export default function Home({ params }: { params: { lang: Lang } }) {
                 <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', color: '#C06A2D', letterSpacing: '0.15em', marginTop: '2px', flexShrink: 0 }}>{step.n}</span>
                 <div>
                   <div className="font-display font-bold text-b-off mb-2 tracking-tight" style={{ fontSize: '18px' }}>{step.title}</div>
-                  <div style={{ color: '#B8B6B2', fontSize: '14px', fontWeight: 300, lineHeight: 1.72 }}>{step.desc}</div>
+                  <div style={{ color: '#B8B6B2', fontSize: '16px', fontWeight: 300, lineHeight: 1.72 }}>{step.desc}</div>
                 </div>
               </div>
             ))}
@@ -175,8 +175,8 @@ export default function Home({ params }: { params: { lang: Lang } }) {
             </h2>
           </div>
           <div>
-            <p style={{ color: '#AEADA9', fontSize: '15px', lineHeight: 1.75, fontWeight: 300, marginBottom: '1.5rem' }}>{h.vc.p1}</p>
-            <p style={{ color: '#AEADA9', fontSize: '15px', lineHeight: 1.75, fontWeight: 300, marginBottom: '2.5rem' }}>{h.vc.p2}</p>
+            <p style={{ color: '#AEADA9', fontSize: '16px', lineHeight: 1.75, fontWeight: 300, marginBottom: '1.5rem' }}>{h.vc.p1}</p>
+            <p style={{ color: '#AEADA9', fontSize: '16px', lineHeight: 1.75, fontWeight: 300, marginBottom: '2.5rem' }}>{h.vc.p2}</p>
             <Link href={lk('/contact')} style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C06A2D', textDecoration: 'none', borderBottom: '1px solid rgba(192,106,45,0.4)', paddingBottom: '2px' }}>
               {h.vc.cta}
             </Link>
@@ -192,7 +192,7 @@ export default function Home({ params }: { params: { lang: Lang } }) {
         <h2 className="font-display font-black leading-tight tracking-tight text-b-off mb-6" style={{ fontSize: 'clamp(40px,6vw,80px)' }}>
           {h.finalCta.h2_1}<br />{h.finalCta.h2_2} <em style={{ color: '#C06A2D', fontStyle: 'italic' }}>{h.finalCta.h2_em}</em>
         </h2>
-        <p style={{ color: '#AEADA9', fontSize: '15px', fontWeight: 300, marginBottom: '3rem', maxWidth: '420px', margin: '0 auto 3rem', lineHeight: 1.75 }}>
+        <p style={{ color: '#AEADA9', fontSize: '16px', fontWeight: 300, marginBottom: '3rem', maxWidth: '420px', margin: '0 auto 3rem', lineHeight: 1.75 }}>
           {h.finalCta.body}
         </p>
         <Link href={lk('/contact')} style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', background: '#C06A2D', color: '#0E0E0E', fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', padding: '16px 40px', textDecoration: 'none', fontWeight: 500 }}>

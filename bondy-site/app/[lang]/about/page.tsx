@@ -80,7 +80,7 @@ export default function AboutPage({ params }: { params: { lang: Lang } }) {
           </div>
           <div style={{ padding: '4rem clamp(1.25rem,5vw,4rem)', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
             {[a.origin.p1, a.origin.p2, a.origin.p3, a.origin.p4].map((p, i) => (
-              <p key={i} style={{ fontSize: '15px', lineHeight: 1.8, fontWeight: 300, color: '#6B6966' }}>{p}</p>
+              <p key={i} style={{ fontSize: '16px', lineHeight: 1.8, fontWeight: 300, color: '#6B6966' }}>{p}</p>
             ))}
           </div>
         </div>
@@ -102,7 +102,7 @@ export default function AboutPage({ params }: { params: { lang: Lang } }) {
               <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', color: '#C06A2D', letterSpacing: '0.1em', paddingTop: '3px' }}>{v.n}</span>
               <div>
                 <div style={{ fontSize: '16px', fontWeight: 600, color: '#1A1A1A', marginBottom: '0.6rem' }}>{v.title}</div>
-                <p style={{ fontSize: '14px', lineHeight: 1.78, fontWeight: 300, color: '#6B6966', maxWidth: '600px' }}>{v.body}</p>
+                <p style={{ fontSize: '16px', lineHeight: 1.78, fontWeight: 300, color: '#6B6966', maxWidth: '600px' }}>{v.body}</p>
               </div>
             </div>
           ))}
@@ -137,7 +137,7 @@ export default function AboutPage({ params }: { params: { lang: Lang } }) {
                 </div>
 
                 {/* Bio */}
-                <p style={{ fontSize: '14px', lineHeight: 1.85, fontWeight: 300, color: '#5A5754', marginBottom: '2rem' }}>
+                <p style={{ fontSize: '16px', lineHeight: 1.85, fontWeight: 300, color: '#5A5754', marginBottom: '2rem' }}>
                   {person.bio[lang]}
                 </p>
 
@@ -187,7 +187,7 @@ export default function AboutPage({ params }: { params: { lang: Lang } }) {
               <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C06A2D', marginBottom: '0.75rem' }}>
                 {a.team.joinLabel}
               </div>
-              <p style={{ fontSize: '14px', lineHeight: 1.78, fontWeight: 300, color: '#6B6966' }}>{a.team.joinBody}</p>
+              <p style={{ fontSize: '16px', lineHeight: 1.78, fontWeight: 300, color: '#6B6966' }}>{a.team.joinBody}</p>
             </div>
             <div>
               <a href="mailto:hola@wearebondy.com?subject=sumarse" style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C06A2D', textDecoration: 'none', borderBottom: '1px solid rgba(192,106,45,0.35)', paddingBottom: '2px' }}>
@@ -205,7 +205,7 @@ export default function AboutPage({ params }: { params: { lang: Lang } }) {
             {a.cta.h2_1}<br />{a.cta.h2_2} <em style={{ color: '#C06A2D', fontStyle: 'italic' }}>{a.cta.h2_em}</em>
           </h2>
           <div>
-            <p style={{ fontSize: '15px', lineHeight: 1.78, fontWeight: 300, color: 'rgba(255,255,255,0.5)', marginBottom: '2rem' }}>{a.cta.body}</p>
+            <p style={{ fontSize: '16px', lineHeight: 1.78, fontWeight: 300, color: 'rgba(255,255,255,0.5)', marginBottom: '2rem' }}>{a.cta.body}</p>
             <Link href={lk('/contact')} style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', background: '#C06A2D', color: '#0E0E0E', fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', padding: '14px 32px', textDecoration: 'none', fontWeight: 500 }}>
               {a.cta.cta}
             </Link>

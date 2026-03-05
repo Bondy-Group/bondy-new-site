@@ -40,10 +40,10 @@ export default function ServicesPage({ params }: { params: { lang: Lang } }) {
               <h2 className="font-display font-black leading-tight tracking-tight text-b-off mb-6" style={{ fontSize: 'clamp(36px,4vw,56px)' }}>
                 {item.title.split('\n').map((line, i) => <span key={i}>{line}{i < item.title.split('\n').length - 1 && <br />}</span>)}
               </h2>
-              <p style={{ color: '#AEADA9', fontSize: '15px', lineHeight: 1.75, fontWeight: 300, marginBottom: '1.5rem' }}>
+              <p style={{ color: '#AEADA9', fontSize: '16px', lineHeight: 1.75, fontWeight: 300, marginBottom: '1.5rem' }}>
                 {item.lead}
               </p>
-              <p style={{ color: '#AEADA9', fontSize: '15px', lineHeight: 1.75, fontWeight: 300 }}>
+              <p style={{ color: '#AEADA9', fontSize: '16px', lineHeight: 1.75, fontWeight: 300 }}>
                 {item.body}
               </p>
             </div>
@@ -52,7 +52,7 @@ export default function ServicesPage({ params }: { params: { lang: Lang } }) {
                 {item.details.map((d) => (
                   <div key={d.label} style={{ borderLeft: '2px solid rgba(192,106,45,0.3)', paddingLeft: '20px' }}>
                     <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C06A2D', marginBottom: '8px' }}>{d.label}</div>
-                    <p style={{ color: '#AEADA9', fontSize: '14px', fontWeight: 300, lineHeight: 1.72 }}>{d.text}</p>
+                    <p style={{ color: '#AEADA9', fontSize: '16px', fontWeight: 300, lineHeight: 1.72 }}>{d.text}</p>
                   </div>
                 ))}
               </div>
@@ -87,7 +87,7 @@ export default function ServicesPage({ params }: { params: { lang: Lang } }) {
         <h2 className="font-display font-black leading-tight tracking-tight text-b-off mb-6" style={{ fontSize: 'clamp(36px,5vw,64px)' }}>
           {s.bottomCta.h2.split('\n').map((line, i) => <span key={i}>{line}{i === 0 && <br />}</span>)} <em style={{ color: '#C06A2D', fontStyle: 'italic' }}>{s.bottomCta.h2_em}</em>
         </h2>
-        <p style={{ color: '#AEADA9', fontSize: '15px', fontWeight: 300, marginBottom: '2.5rem', maxWidth: '420px', margin: '0 auto 2.5rem', lineHeight: 1.75 }}>
+        <p style={{ color: '#AEADA9', fontSize: '16px', fontWeight: 300, marginBottom: '2.5rem', maxWidth: '420px', margin: '0 auto 2.5rem', lineHeight: 1.75 }}>
           {s.bottomCta.body}
         </p>
         <Link href={lk('/contact')} style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', background: '#C06A2D', color: '#0E0E0E', fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', padding: '16px 40px', textDecoration: 'none', fontWeight: 500 }}>

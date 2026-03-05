@@ -40,10 +40,10 @@ export default function MethodPage({ params }: { params: { lang: Lang } }) {
               <h2 className="font-display font-bold tracking-tight mb-3" style={{ fontSize: 'clamp(28px,3vw,38px)', color: '#1A1A1A' }}>
                 {step.title}
               </h2>
-              <div style={{ fontSize: '15px', fontWeight: 500, marginBottom: '1.25rem', color: '#1A1A1A' }}>
+              <div style={{ fontSize: '16px', fontWeight: 500, marginBottom: '1.25rem', color: '#1A1A1A' }}>
                 {step.subtitle}
               </div>
-              <p style={{ fontSize: '14px', lineHeight: 1.8, fontWeight: 300, maxWidth: '560px', color: '#6B6966' }}>
+              <p style={{ fontSize: '16px', lineHeight: 1.8, fontWeight: 300, maxWidth: '560px', color: '#6B6966' }}>
                 {step.body}
               </p>
             </div>
@@ -66,7 +66,7 @@ export default function MethodPage({ params }: { params: { lang: Lang } }) {
             </h2>
           </div>
           <div>
-            <p style={{ fontSize: '15px', lineHeight: 1.75, fontWeight: 300, marginBottom: '2rem', color: '#6B6966' }}>
+            <p style={{ fontSize: '16px', lineHeight: 1.75, fontWeight: 300, marginBottom: '2rem', color: '#6B6966' }}>
               {m.cta.body}
             </p>
             <Link href={lk('/contact')} style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', background: '#C06A2D', color: '#1A1A1A', fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', padding: '14px 32px', textDecoration: 'none', fontWeight: 500 }}>
