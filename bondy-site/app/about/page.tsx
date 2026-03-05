@@ -45,8 +45,10 @@ const team = [
       'Specialist in Strategic HR Management, UdeSA',
       'MSc in Technology Management, ITBA–EOI',
       'Diploma in Cultural Awareness, MIT',
+      'Top 95 HR Influencers in Latin America · Go Integro (3 consecutive years)',
     ],
-    initials: 'MS',
+    location: 'Buenos Aires, AR',
+    since: '2008',
   },
   {
     name: 'Lucía Palomeque',
@@ -56,7 +58,8 @@ const team = [
       'BA in Psychology, Universidad de Buenos Aires (UBA)',
       'Specialist in IT Talent Selection',
     ],
-    initials: 'LP',
+    location: 'Buenos Aires, AR',
+    since: '2019',
   },
 ]
 
@@ -179,64 +182,105 @@ export default function AboutPage() {
         </div>
 
         {team.map((person, idx) => (
-          <div
-            key={person.name}
-            style={{ borderBottom: '1px solid #E8E4DE' }}
-          >
+          <div key={person.name} style={{ borderBottom: '1px solid #E8E4DE' }}>
             <div style={{ display: 'grid' }} className="team-grid">
-              {/* Photo placeholder — left or right depending on index */}
+
+              {/* Editorial name panel — left for even, right for odd */}
               <div
                 style={{
-                  background: idx % 2 === 0 ? '#E8E4DE' : '#DEDAD4',
-                  minHeight: '440px',
+                  background: idx % 2 === 0 ? '#1A1A1A' : '#F0EBE3',
+                  minHeight: '480px',
                   display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                  padding: '3.5rem clamp(1.25rem,4vw,3.5rem)',
                   order: idx % 2 === 0 ? 0 : 1,
+                  position: 'relative',
+                  overflow: 'hidden',
                 }}
-                className={idx % 2 !== 0 ? 'team-photo-right' : ''}
+                className={idx % 2 !== 0 ? 'team-panel-right' : ''}
               >
-                <div style={{ textAlign: 'center' }}>
+                {/* Large watermark initial */}
+                <div style={{
+                  position: 'absolute',
+                  bottom: '-0.15em',
+                  right: '-0.05em',
+                  fontFamily: 'Playfair Display, Georgia, serif',
+                  fontSize: 'clamp(160px,22vw,260px)',
+                  fontWeight: 900,
+                  lineHeight: 1,
+                  color: idx % 2 === 0 ? 'rgba(255,255,255,0.04)' : 'rgba(0,0,0,0.04)',
+                  letterSpacing: '-.04em',
+                  pointerEvents: 'none',
+                  userSelect: 'none',
+                }}>
+                  {person.name.split(' ').map(w => w[0]).join('')}
+                </div>
+
+                {/* Top: role label */}
+                <span style={{
+                  fontFamily: 'DM Mono, monospace',
+                  fontSize: '9px',
+                  letterSpacing: '.2em',
+                  textTransform: 'uppercase',
+                  color: idx % 2 === 0 ? 'rgba(255,255,255,0.3)' : '#C8C5C0',
+                }}>
+                  {person.role}
+                </span>
+
+                {/* Bottom: name + meta */}
+                <div>
                   <div style={{
-                    width: '96px', height: '96px', borderRadius: '50%',
-                    background: idx % 2 === 0 ? '#C8C5C0' : '#BDB9B3',
-                    margin: '0 auto 1.25rem',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontFamily: 'Playfair Display, Georgia, serif',
+                    fontSize: 'clamp(28px,3.5vw,46px)',
+                    fontWeight: 900,
+                    letterSpacing: '-.02em',
+                    lineHeight: 1,
+                    color: idx % 2 === 0 ? '#F4F2EE' : '#1A1A1A',
+                    marginBottom: '1.5rem',
                   }}>
-                    <span style={{ fontFamily: 'Playfair Display, Georgia, serif', fontSize: '1.75rem', fontWeight: 900, color: '#F0EBE3' }}>
-                      {person.initials}
-                    </span>
+                    {person.name}
                   </div>
-                  <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', letterSpacing: '.13em', textTransform: 'uppercase', color: '#C8C5C0' }}>
-                    Photo coming soon
-                  </span>
+                  <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#C06A2D' }} />
+                      <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', letterSpacing: '.12em', textTransform: 'uppercase', color: idx % 2 === 0 ? 'rgba(255,255,255,0.25)' : '#C8C5C0' }}>
+                        {person.location}
+                      </span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                      <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#C06A2D' }} />
+                      <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', letterSpacing: '.12em', textTransform: 'uppercase', color: idx % 2 === 0 ? 'rgba(255,255,255,0.25)' : '#C8C5C0' }}>
+                        Bondy since {person.since}
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {/* Bio */}
+              {/* Bio panel */}
               <div
                 style={{
                   padding: '4rem clamp(1.25rem,5vw,4rem)',
-                  display: 'flex', flexDirection: 'column', justifyContent: 'center',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
                   background: '#FFFFFF',
                   order: idx % 2 === 0 ? 1 : 0,
                 }}
               >
-                <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', letterSpacing: '.18em', textTransform: 'uppercase', color: '#C06A2D', marginBottom: '1.25rem' }}>
-                  {person.role}
-                </div>
-                <h3 style={{ fontFamily: 'Playfair Display, Georgia, serif', fontSize: 'clamp(26px,3vw,42px)', fontWeight: 900, letterSpacing: '-.02em', color: '#1A1A1A', marginBottom: '1.5rem', lineHeight: 1 }}>
-                  {person.name}
-                </h3>
-                <p style={{ fontSize: '15px', lineHeight: 1.78, color: '#7A7874', fontWeight: 300, marginBottom: '2rem', maxWidth: '440px' }}>
+                <p style={{ fontSize: '15px', lineHeight: 1.82, color: '#7A7874', fontWeight: 300, marginBottom: '2.5rem', maxWidth: '440px' }}>
                   {person.bio}
                 </p>
                 {/* Credentials */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', borderTop: '1px solid #F0EBE3', paddingTop: '1.75rem' }}>
+                  <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', letterSpacing: '.18em', textTransform: 'uppercase', color: '#C06A2D', marginBottom: '4px' }}>
+                    Background
+                  </span>
                   {person.credentials.map((c) => (
-                    <div key={c} style={{ display: 'flex', alignItems: 'baseline', gap: '10px' }}>
-                      <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#C06A2D', flexShrink: 0, marginTop: '2px' }} />
-                      <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', letterSpacing: '.1em', color: '#C8C5C0', textTransform: 'uppercase' }}>
+                    <div key={c} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                      <div style={{ width: '3px', height: '3px', borderRadius: '50%', background: '#C06A2D', flexShrink: 0, marginTop: '5px' }} />
+                      <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', letterSpacing: '.09em', color: '#C8C5C0', textTransform: 'uppercase', lineHeight: 1.55 }}>
                         {c}
                       </span>
                     </div>
@@ -248,7 +292,7 @@ export default function AboutPage() {
         ))}
 
         {/* Join the team */}
-        <div style={{ padding: '3.5rem clamp(1.25rem,5vw,4rem)', background: '#F0EBE3', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1.5rem', borderTop: '1px solid #E8E4DE' }}>
+        <div style={{ padding: '3.5rem clamp(1.25rem,5vw,4rem)', background: '#F0EBE3', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1.5rem' }}>
           <div>
             <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', letterSpacing: '.18em', textTransform: 'uppercase', color: '#C8C5C0', display: 'block', marginBottom: '.6rem' }}>
               Join the team
@@ -289,7 +333,7 @@ export default function AboutPage() {
         @media (max-width: 860px) {
           .split-grid, .team-grid, .cta-grid { grid-template-columns: 1fr !important; }
           .split-left { border-right: none !important; border-bottom: 1px solid #E8E4DE; }
-          .team-photo-right { order: 0 !important; }
+          .team-panel-right { order: 0 !important; }
         }
       `}</style>
     </main>
