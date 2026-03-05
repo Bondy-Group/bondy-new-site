@@ -81,7 +81,7 @@ export default function ContactPage({ params }: { params: { lang: Lang } }) {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                 <div>
                   <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: '8px' }}>{c.emailLabel}</div>
-                  <a href="mailto:hola@wearebondy.com" style={{ color: '#F4F2EE', fontSize: '16px', fontWeight: 300, textDecoration: 'none' }}>hola@wearebondy.com</a>
+                  <a href="mailto:hello@wearebondy.com" style={{ color: '#F4F2EE', fontSize: '16px', fontWeight: 300, textDecoration: 'none' }}>hello@wearebondy.com</a>
                 </div>
                 <div>
                   <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.3)', marginBottom: '8px' }}>{c.linkedinLabel}</div>
