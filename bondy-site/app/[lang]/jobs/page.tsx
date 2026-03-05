@@ -76,11 +76,11 @@ const copy = {
     what: [
       {
         title: 'Curiosidad intelectual',
-        body: 'Leés sobre las empresas con las que trabajás. Te importa qué construyen, no solo qué necesitan contratar.',
+        body: 'Leés sobre las empresas con las que trabajás. Te importa qué construyen, no sólo qué necesitan contratar.',
       },
       {
         title: 'Pensamiento diagnóstico',
-        body: 'Preguntás por qué antes de preguntar cómo. Cuando una búsqueda no funciona, buscás la causa raíz — no solo el funnel de sourcing.',
+        body: 'Preguntás por qué antes de preguntar cómo. Cuando una búsqueda no funciona, buscás la causa raíz — no sólo el funnel de sourcing.',
       },
       {
         title: 'Comunicación honesta',
