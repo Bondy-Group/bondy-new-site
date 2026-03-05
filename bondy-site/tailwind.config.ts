@@ -9,39 +9,35 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Dark system
-        'b-black': '#0E0E0E',
-        'b-ink':   '#1A1A1A',
-        // Light system
-        'b-off':   '#F4F2EE',
-        'b-stone': '#F0EBE3',
-        'b-white': '#FFFFFF',
-        // Sienna accent
-        'b-sie':   '#C06A2D',
-        'b-sie-dk':'#B85020',
-        'b-sie-lt':'#D86830',
-        // Neutrals
-        'b-mid':   '#7A7874',
-        'b-lgt':   '#C8C5C0',
-        'b-rule':  '#E8E4DE',
-        // Brand (logo only)
-        'b-brand-primary':   '#F27122',
-        'b-brand-secondary': '#F6921E',
-        'b-brand-tertiary':  '#FAAF40',
-        'b-brand-gray':      '#58595B',
+        // Base
+        'b-black':   '#111111',
+        'b-white':   '#FFFFFF',
+        'b-off':     '#F9F8F6',
+        'b-stone':   '#F0EBE3',
+        // Text
+        'b-ink':     '#1A1A1A',
+        'b-mid':     '#888885',
+        'b-light':   '#D8D6D2',
+        // Borders
+        'b-rule':    '#E8E2DA',
+        'b-charcoal':'#1A1A1A',
+        // Sienna accent palette (primary accent direction)
+        'b-sie':     '#C06A2D',   // primary sienna
+        'b-sie-lt':  '#D86830',   // lighter sienna
+        'b-sie-xl':  '#F09060',   // extra light
+        'b-sie-faint':'#FBF0EB',  // faint tint
+        'b-sie-dk':  '#8C3C14',   // dark sienna
+        // Legacy orange (kept for transition — use b-sie instead)
+        'b-orange':  '#C06A2D',   // now points to sienna
       },
       fontFamily: {
-        'display': ['Playfair Display', 'Georgia', 'serif'],
-        'body':    ['DM Sans', 'system-ui', 'sans-serif'],
-        'mono':    ['DM Mono', 'monospace'],
-      },
-      fontSize: {
-        'label': ['10px', { letterSpacing: '0.13em', lineHeight: '1' }],
+        'display': ['var(--font-playfair)', 'Georgia', 'serif'],
+        'body':    ['var(--font-dm-sans)', 'system-ui', 'sans-serif'],
+        'mono':    ['var(--font-dm-mono)', 'monospace'],
       },
       letterSpacing: {
-        'widest2': '0.13em',
-        'widest3': '0.18em',
-        'widest4': '0.20em',
+        'widest2': '0.2em',
+        'widest3': '0.25em',
       },
     },
   },
