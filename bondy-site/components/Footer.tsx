@@ -1,38 +1,52 @@
 import Link from 'next/link'
+import type { Lang, Translations } from '@/lib/i18n/translations'
 
-export default function Footer() {
+type FooterProps = {
+  lang: Lang
+  tr: Translations['footer']
+}
+
+export default function Footer({ lang, tr }: FooterProps) {
+  const lk = (href: string) => `/${lang}${href}`
+
   return (
-    <footer className="bg-[#111111] border-t border-white/10">
+    <footer style={{ background: '#111111', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
       <div className="px-8 md:px-16 py-16 grid grid-cols-1 md:grid-cols-4 gap-12">
 
         {/* Brand */}
         <div className="md:col-span-1">
           <div className="mb-5">
-            <span className="font-display text-lg font-bold tracking-tight text-[#F9F8F6]">
-              Bond<em className="italic text-[#C06A2D]">y</em><span className="text-[#C06A2D]">.</span>
-            </span>
+            <Link href={lk('/')} style={{ textDecoration: 'none' }}>
+              <span style={{
+                fontFamily: 'Playfair Display, Georgia, serif',
+                fontSize: '20px',
+                fontWeight: 900,
+                color: '#F4F2EE',
+                letterSpacing: '-0.02em',
+              }}>
+                Bond<em style={{ fontStyle: 'italic', color: '#C06A2D' }}>y</em><span style={{ color: '#C06A2D' }}>.</span>
+              </span>
+            </Link>
           </div>
-          <p className="text-[#888885] text-sm leading-relaxed font-light max-w-[180px]">
-            The standard for technical hiring.<br />Since 2008.
+          <p style={{ color: '#888885', fontSize: '14px', lineHeight: 1.7, fontWeight: 300, maxWidth: '180px' }}>
+            {tr.tagline}
           </p>
         </div>
 
-        {/* Navigation */}
+        {/* Company */}
         <div>
-          <div className="font-mono-bondy text-[10px] tracking-widest uppercase text-[#888885] mb-5">Navigation</div>
-          <ul className="flex flex-col gap-3">
+          <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#888885', marginBottom: '1.25rem' }}>
+            {tr.colCompany}
+          </div>
+          <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             {[
-              { href: '/method',    label: 'Method'    },
-              { href: '/services',  label: 'Services'  },
-              { href: '/work',      label: 'Work'      },
-              { href: '/thinking',  label: 'Thinking'  },
-              { href: '/about',     label: 'About'     },
+              { href: '/about',    label: tr.links.about    },
+              { href: '/method',   label: tr.links.method   },
+              { href: '/thinking', label: tr.links.thinking },
+              { href: '/work',     label: tr.links.work     },
             ].map(({ href, label }) => (
               <li key={href}>
-                <Link
-                  href={href}
-                  className="text-sm text-[#888885] hover:text-[#F9F8F6] transition-colors font-light"
-                >
+                <Link href={lk(href)} style={{ fontSize: '14px', color: '#888885', fontWeight: 300, textDecoration: 'none' }}>
                   {label}
                 </Link>
               </li>
@@ -42,19 +56,18 @@ export default function Footer() {
 
         {/* Services */}
         <div>
-          <div className="font-mono-bondy text-[10px] tracking-widest uppercase text-[#888885] mb-5">Services</div>
-          <ul className="flex flex-col gap-3">
+          <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#888885', marginBottom: '1.25rem' }}>
+            {tr.colServices}
+          </div>
+          <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
             {[
-              { href: '/services#hunting',  label: 'Hunting'           },
-              { href: '/services#pipeline', label: 'Talent Pipeline'   },
-              { href: '/services#rpo',      label: 'Embedded Recruiter'},
-              { href: '/referrals',         label: 'Referrals'         },
+              { href: '/services#hunting',  label: tr.links.hunting  },
+              { href: '/services#pipeline', label: tr.links.pipeline },
+              { href: '/services#rpo',      label: tr.links.embedded },
+              { href: '/referrals',         label: tr.links.referrals },
             ].map(({ href, label }) => (
               <li key={href}>
-                <Link
-                  href={href}
-                  className="text-sm text-[#888885] hover:text-[#F9F8F6] transition-colors font-light"
-                >
+                <Link href={lk(href)} style={{ fontSize: '14px', color: '#888885', fontWeight: 300, textDecoration: 'none' }}>
                   {label}
                 </Link>
               </li>
@@ -64,10 +77,12 @@ export default function Footer() {
 
         {/* Contact */}
         <div>
-          <div className="font-mono-bondy text-[10px] tracking-widest uppercase text-[#888885] mb-5">Get in touch</div>
+          <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#888885', marginBottom: '1.25rem' }}>
+            Get in touch
+          </div>
           <a
             href="mailto:hola@wearebondy.com"
-            className="text-sm text-[#F9F8F6] hover:text-[#C06A2D] transition-colors font-light block mb-3"
+            style={{ fontSize: '14px', color: '#F4F2EE', fontWeight: 300, textDecoration: 'none', display: 'block', marginBottom: '0.75rem' }}
           >
             hola@wearebondy.com
           </a>
@@ -75,7 +90,7 @@ export default function Footer() {
             href="https://www.linkedin.com/company/bondygroup"
             target="_blank"
             rel="noopener noreferrer"
-            className="font-mono-bondy text-[10px] tracking-widest uppercase text-[#888885] hover:text-[#C06A2D] transition-colors"
+            style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#888885', textDecoration: 'none' }}
           >
             LinkedIn ↗
           </a>
@@ -83,11 +98,11 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/10 px-8 md:px-16 py-5 flex justify-between items-center">
-        <span className="font-mono-bondy text-[10px] tracking-wider text-white/20">
-          © {new Date().getFullYear()} Bondy Group. All rights reserved.
+      <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', padding: '1.25rem clamp(1.25rem,5vw,4rem)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.2)' }}>
+          © {new Date().getFullYear()} {tr.copyright}
         </span>
-        <span className="font-mono-bondy text-[10px] tracking-wider text-white/20">
+        <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.2)' }}>
           Buenos Aires · Global
         </span>
       </div>
