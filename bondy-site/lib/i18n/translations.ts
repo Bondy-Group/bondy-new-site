@@ -1,0 +1,659 @@
+// /lib/i18n/translations.ts
+// Central translations file for EN/ES
+
+export type Lang = 'en' | 'es'
+
+export const translations = {
+  en: {
+    // ── NAV ──
+    nav: {
+      method: 'Method',
+      services: 'Services',
+      work: 'Work',
+      about: 'About',
+      thinking: 'Thinking',
+      cta: 'Work with us →',
+    },
+
+    // ── FOOTER ──
+    footer: {
+      tagline: 'The standard for technical hiring. Since 2008.',
+      colCompany: 'Company',
+      colServices: 'Services',
+      colResources: 'Resources',
+      copyright: 'Bondy Group. All rights reserved.',
+      links: {
+        about: 'About',
+        method: 'Method',
+        thinking: 'Thinking',
+        work: 'Work',
+        hunting: 'Hunting',
+        pipeline: 'Talent Pipeline',
+        embedded: 'Embedded Recruiter',
+        resources: 'Resources & Tools',
+        tools: 'Tools ↗',
+        roles: 'Open Roles',
+        referrals: 'Referrals',
+      },
+    },
+
+    // ── HOMEPAGE ──
+    home: {
+      meta: {
+        title: 'Bondy — The standard for technical hiring',
+        description: "We don't send you candidates. We send you the right one. Bondy has been placing senior engineers at high-growth tech companies since 2008.",
+      },
+      topbar: {
+        left: 'Since 2008 · Technical Hiring',
+        right: 'Buenos Aires · Global',
+      },
+      hero: {
+        label: 'The standard for technical hiring',
+        h1_1: 'The last',
+        h1_2: 'recruiter',
+        h1_3: "you'll",
+        h1_em1: 'ever',
+        h1_em2: 'need.',
+        body: "Most recruiters send you candidates. We send you the right one. There's a significant difference — and we've spent 16 years perfecting it.",
+        cta_primary: 'Talk to us ↗',
+        cta_secondary: 'Our method →',
+      },
+      stats: {
+        experience: { label: 'Experience', value: '16', sup: '+', desc: 'years in technical recruitment' },
+        speed:      { label: 'Speed',      value: '5–7', sup: 'd', desc: 'to your first qualified candidate' },
+        retention:  { label: 'Retention',  value: '94', sup: '%', desc: 'of placements still in role at 6 months' },
+        method:     { label: 'Method',     title: 'The Bondy\nMethod™', desc: 'A proprietary framework for technical hiring' },
+      },
+      statement: {
+        label: 'Our position',
+        h2_1: "We don't move fast.",
+        h2_2: 'We move',
+        h2_em: 'right.',
+        p1: "Most companies treat recruitment as a numbers game — more resumes, more calls, more volume. We've always believed the opposite. Every search starts with a hypothesis and ends with certainty.",
+        p2: "That's why our clients don't come back looking for another recruiter. They come back because the hire worked — and they want that again.",
+      },
+      services: {
+        label: '02 — Services',
+        items: [
+          {
+            n: '01', title: 'Hunting',
+            body: "You need someone hired. Not eventually — this quarter. We take ownership of the entire search and deliver a shortlist of pre-interviewed candidates within 5 to 7 business days. With a 3-month guarantee on every placement.",
+            cta: 'Learn more →',
+          },
+          {
+            n: '02', title: 'Talent\nPipeline',
+            body: "You have the process. You have the interviewers. What you need is a shortlist that doesn't waste everyone's time. We build you a curated list of pre-vetted, ready-to-contact candidates — selected to spec, not to volume.",
+            cta: 'Learn more →',
+          },
+          {
+            n: '03', title: 'Embedded\nRecruiter',
+            body: "A Bondy recruiter, inside your team, for as long as you need. Market insights in real time, full transparency, no agency markup. For companies with aggressive hiring plans that need both quality and market intelligence.",
+            cta: 'Learn more →',
+          },
+        ],
+      },
+      method: {
+        label: '03 — The Bondy Method™',
+        h2_1: 'Every search',
+        h2_2: 'is a',
+        h2_em: 'project.',
+        p1: "We run recruitment the way great engineering teams run sprints — with a hypothesis, a strategy, measurable checkpoints, and a clear definition of done.",
+        p2: 'Not "we\'ll keep looking". Done.',
+        cta: 'Read the full method →',
+        steps: [
+          { n: '01', title: 'Brief',     desc: "We pressure-test the role before opening the search. Most hiring failures happen here." },
+          { n: '02', title: 'Strategy',  desc: "We design the sourcing approach for this specific profile — not a template." },
+          { n: '03', title: 'Search',    desc: "Active sourcing, direct outreach, and qualification. No job posts, no passive waiting." },
+          { n: '04', title: 'Shortlist', desc: "A curated list of pre-interviewed candidates with full reports. Not resumes." },
+        ],
+      },
+      vc: {
+        label: 'For venture capital',
+        h2_1: 'Your portfolio needs teams.',
+        h2_em: 'Good',
+        h2_2: 'ones.\nWe know the difference.',
+        p1: "We work with VC-backed companies at every stage — from the first engineering hire to scaling a team from 5 to 50. We understand the velocity you need and the quality you can't compromise on.",
+        p2: "We also work directly with funds that want a trusted technical recruiting partner across their portfolio.",
+        cta: 'Talk to us about your portfolio →',
+      },
+      finalCta: {
+        label: 'Ready?',
+        h2_1: 'Tell us what',
+        h2_2: 'you need to',
+        h2_em: 'build.',
+        body: "No forms. No RFP. Just a conversation about what you're building and who you need.",
+        cta: 'Start the conversation ↗',
+      },
+    },
+
+    // ── METHOD PAGE ──
+    method: {
+      meta: {
+        title: 'The Bondy Method™ — How we think about technical hiring',
+        description: 'We run recruitment the way great engineering teams run sprints. Every search is a project with a hypothesis, a strategy, and a clear definition of done.',
+      },
+      label: 'The Bondy Method™',
+      h1_1: 'Every search',
+      h1_2: 'is a',
+      h1_em: 'project.',
+      intro: "We run recruitment the way great engineering teams run sprints — with a hypothesis, a strategy, measurable checkpoints, and a clear definition of done. Not \"we'll keep looking\". Done.",
+      timelineLabel: 'Timeline',
+      steps: [
+        {
+          n: '01', title: 'Brief', time: '1–2 days',
+          subtitle: "We don't start recruiting. We start thinking.",
+          body: "Before we open any search, we sit with you and pressure-test the brief. Most hiring failures happen at the definition stage — not the sourcing stage. What level of seniority? What work modality? What skills are truly essential versus nice-to-have? What offer will be attractive to the right person? We help you answer all of this before we move.",
+        },
+        {
+          n: '02', title: 'Strategy', time: '1–2 days',
+          subtitle: 'Every profile requires a different approach.',
+          body: "We analyze the labor market for this specific profile and design a sourcing strategy accordingly. We select the right channels, build a target list, and develop a plan to approach the highest-potential candidates. There are no templates here. A senior Rust engineer and a Head of Engineering require completely different strategies — and we know the difference.",
+        },
+        {
+          n: '03', title: 'Search', time: '3–5 days',
+          subtitle: 'Active sourcing. No job posts, no passive waiting.',
+          body: "We go find the people you need. Direct outreach, warm introductions, deep network activation. Every candidate is assessed against the brief — not just their resume, but their trajectory, their motivations, and whether this role is genuinely the right next step for them. We interview before you do.",
+        },
+        {
+          n: '04', title: 'Shortlist', time: '5–7 days total',
+          subtitle: 'Not resumes. Candidates.',
+          body: "What you receive is a curated shortlist of pre-interviewed candidates, each with a full report that covers what the CV never shows. Their technical depth, their communication style, what they're optimizing for in their next role, and why we believe they're the right fit. You walk into every interview knowing exactly who you're talking to.",
+        },
+        {
+          n: '05', title: 'Close', time: 'Until done',
+          subtitle: "We don't disappear after the shortlist.",
+          body: "We stay through the offer stage. We help you calibrate the offer, anticipate counteroffers, and navigate the final decision. Every placed candidate comes with a 3-month guarantee — because we stand behind our work. And because we've been wrong before, and learned exactly how to be less wrong.",
+        },
+      ],
+      cta: {
+        h2_1: 'Ready to run your',
+        h2_2: 'first',
+        h2_em: 'Bondy search?',
+        body: "Tell us about the role, the team, and what you've tried before. We'll tell you honestly whether we can help and how long it'll take.",
+        cta: 'Start a search ↗',
+      },
+    },
+
+    // ── SERVICES PAGE ──
+    services: {
+      meta: {
+        title: 'Services — Bondy',
+        description: 'Three ways to work with Bondy: Hunting, Talent Pipeline, and Embedded Recruiter.',
+      },
+      label: 'Services',
+      h1_1: 'Three ways',
+      h1_2: 'we can',
+      h1_em: 'work together.',
+      intro: "Different hiring challenges require different approaches. We've designed each service around a specific type of need.",
+      items: [
+        {
+          n: '01', id: 'hunting', title: 'Hunting',
+          lead: "You need someone hired. Not eventually — this quarter.",
+          body: "We take full ownership of the search, from brief to signed offer. You get a curated shortlist of pre-interviewed candidates within 5 to 7 business days, each with a detailed report. We stay through the close. Every placement comes with a 3-month guarantee — if it doesn't work out, we search again at no extra cost.",
+          details: [
+            { label: "What's included", text: "Full brief, sourcing strategy, direct search, candidate interviews, detailed reports, offer support." },
+            { label: 'Timeline',        text: '5–7 business days to first qualified shortlist. Offer close typically within 3–5 weeks.' },
+            { label: 'Guarantee',       text: "3-month placement warranty. We search again if the hire doesn't work out." },
+            { label: 'Best for',        text: 'Specific roles that need to be filled urgently. Senior or hard-to-find profiles.' },
+          ],
+          cta: 'Start a search ↗',
+          ctaStyle: 'primary',
+        },
+        {
+          n: '02', id: 'pipeline', title: 'Talent\nPipeline',
+          lead: "You have the process. You have the interviewers. What you need is a shortlist that doesn't waste everyone's time.",
+          body: "We build you a curated list of pre-vetted, ready-to-contact candidates — selected to spec, not to volume. You run the interviews. We make sure the people in the room are worth interviewing.",
+          details: [
+            { label: "What's included", text: "Candidate sourcing, profile qualification, lightweight reports, and a curated delivery." },
+            { label: 'Timeline',        text: 'Typically 3–5 days to first pipeline delivery.' },
+            { label: 'Best for',        text: 'Companies with strong internal interview processes that need better top-of-funnel quality.' },
+            { label: 'Difference vs Hunting', text: 'We handle sourcing and qualification. You handle interviews and close.' },
+          ],
+          cta: 'Learn more →',
+          ctaStyle: 'secondary',
+        },
+        {
+          n: '03', id: 'rpo', title: 'Embedded\nRecruiter',
+          lead: "A Bondy recruiter, inside your team, for as long as you need.",
+          body: "Market insights in real time, full transparency, no agency markup. For companies with aggressive hiring plans that need both quality and market intelligence. The recruiter works as part of your team, understands your culture deeply, and brings the full weight of the Bondy network.",
+          details: [
+            { label: "What's included", text: "Full-time or part-time embedded recruiter, market salary reports, hiring strategy advisory." },
+            { label: 'Engagement',      text: 'Minimum 3 months. Month-to-month renewable.' },
+            { label: 'Best for',        text: 'Series A+ companies scaling from 10 to 50+ engineers. High-velocity hiring plans.' },
+            { label: 'Advantage',       text: 'You get agency-quality sourcing with in-house commitment and market data.' },
+          ],
+          cta: 'Learn more →',
+          ctaStyle: 'secondary',
+        },
+      ],
+      bottomCta: {
+        h2: "Not sure which\nservice fits?",
+        h2_em: 'Ask us.',
+        body: "We'll tell you honestly. Sometimes the answer is none of them — and we'd rather tell you now than waste your time.",
+        cta: 'Start the conversation ↗',
+      },
+    },
+
+    // ── CONTACT PAGE ──
+    contact: {
+      meta: {
+        title: 'Contact — Bondy',
+        description: "Tell us what you're building. We'll get back to you within one business day.",
+      },
+      label: 'Get in touch',
+      h1_1: 'Tell us what',
+      h1_2: "you're",
+      h1_em: 'building.',
+      intro: "No forms that go nowhere. No automated responses. Someone from the Bondy team will read this and reply within one business day.",
+      emailLabel: 'Email',
+      linkedinLabel: 'LinkedIn',
+      joiningLabel: 'Also hiring?',
+      joiningBody: "If you're a recruiter interested in joining the Bondy team, drop us a note at the same address with \"join\" in the subject.",
+      form: {
+        serviceLabel: 'Service',
+        servicePlaceholder: 'What are you looking for?',
+        serviceOptions: [
+          { value: 'hunting',  label: 'Hunting — Fill a specific role' },
+          { value: 'pipeline', label: 'Talent Pipeline — Improve top of funnel' },
+          { value: 'rpo',      label: 'Embedded Recruiter — Scale hiring' },
+          { value: 'vc',       label: 'VC / Portfolio partnership' },
+          { value: 'other',    label: 'Not sure yet' },
+        ],
+        nameLabel: 'Your name',
+        namePlaceholder: 'Name',
+        emailLabel: 'Work email',
+        emailPlaceholder: 'you@company.com',
+        companyLabel: 'Company',
+        companyPlaceholder: 'Company name',
+        roleLabel: 'Your role',
+        rolePlaceholder: 'VP of Eng, CTO...',
+        messageLabel: 'Tell us about the hire',
+        messagePlaceholder: "What role? What's the context? What have you tried?",
+        submit: 'Send ↗',
+        sending: 'Sending...',
+        errorMsg: 'Something went wrong. Try emailing us directly.',
+      },
+      success: {
+        title: 'Got it.',
+        body: "We'll get back to you within one business day. In the meantime, feel free to read about our method or browse our thinking.",
+      },
+    },
+
+    // ── ABOUT PAGE ──
+    about: {
+      meta: {
+        title: 'About — Bondy',
+        description: "Founded in Buenos Aires in 2008. A technical recruiting firm built on the conviction that hiring is a discipline, not a transaction.",
+      },
+      label: 'About Bondy',
+      h1_1: 'We believe hiring',
+      h1_2: 'is a',
+      h1_em: 'discipline.',
+      intro: "Founded in Buenos Aires in 2008, Bondy is a technical recruiting firm built on a simple conviction: that the quality of a hire is determined long before the offer letter — in how you define the role, how you evaluate the market, and how carefully you assess fit.",
+      origin: {
+        label: 'Since 2008',
+        h2: 'Why we started —\nand why it still matters.',
+        p1: "Bondy was founded with a specific frustration: that technical recruiting was being done by people who didn't understand engineers, for companies that didn't understand what they were really looking for.",
+        p2: "The result was predictable — high volume, low quality, short tenures. A $30,000 mistake dressed up as a service.",
+        p3: "We started with a different approach: apply the rigor of organizational psychology to the search process. Define what \"fit\" actually means before looking for it. Interview deeply. Send fewer candidates — and better ones.",
+        p4: "Sixteen years later, 94% of the people we place are still in role at 6 months. That number is the only metric we care about.",
+      },
+      values: {
+        label: 'How we work',
+        h2: 'Five things we believe.',
+        items: [
+          { n: '01', title: 'Diagnostic before prescription', body: "We don't open a search without understanding why it's being opened. The problem a company thinks it has is often not the problem it actually has. We take the time to find out." },
+          { n: '02', title: 'Fewer, better candidates',      body: "Volume is not a strategy. Every candidate we send is one we would hire ourselves if we were in your seat. This standard makes us slower and better." },
+          { n: '03', title: 'Radical honesty with clients',  body: "If your offer isn't competitive, we'll tell you. If the role definition is attracting the wrong profiles, we'll tell that too. Our job is to help you hire well — not to confirm your assumptions." },
+          { n: '04', title: 'We stand behind our work',      body: "Every placement comes with a 3-month guarantee. Not because we're required to offer it, but because it forces us to be honest about fit. If it doesn't work out, we search again." },
+          { n: '05', title: 'Recruiting is a discipline',    body: "We approach technical hiring as applied organizational psychology — with hypotheses, data, and rigorous analysis. Not gut feel, not hustle, not volume. A method." },
+        ],
+      },
+      team: {
+        label: 'The team',
+        h2_1: 'The people behind',
+        h2_2: 'every',
+        h2_em: 'search.',
+        joinLabel: 'Join the team',
+        joinBody: "We're occasionally looking for senior recruiters who combine technical understanding with genuine curiosity about people. If that's you, write to us.",
+        joinCta: 'Write to us →',
+        since: 'Bondy since',
+        background: 'Background',
+      },
+      cta: {
+        h2_1: 'Ready to work',
+        h2_2: "with us? Let's",
+        h2_em: 'talk.',
+        body: "Tell us what you're building and who you need. We'll tell you honestly whether we can help — and how.",
+        cta: 'Start the conversation ↗',
+      },
+    },
+  },
+
+  // ─────────────────────────────────────────
+  // ESPAÑOL
+  // ─────────────────────────────────────────
+  es: {
+    nav: {
+      method: 'Método',
+      services: 'Servicios',
+      work: 'Casos',
+      about: 'Nosotros',
+      thinking: 'Ideas',
+      cta: 'Trabajá con nosotros →',
+    },
+
+    footer: {
+      tagline: 'El estándar en contratación técnica. Desde 2008.',
+      colCompany: 'Empresa',
+      colServices: 'Servicios',
+      colResources: 'Recursos',
+      copyright: 'Bondy Group. Todos los derechos reservados.',
+      links: {
+        about: 'Nosotros',
+        method: 'Método',
+        thinking: 'Ideas',
+        work: 'Casos',
+        hunting: 'Hunting',
+        pipeline: 'Pipeline de Talento',
+        embedded: 'Recruiter Embebido',
+        resources: 'Recursos y herramientas',
+        tools: 'Tools ↗',
+        roles: 'Búsquedas abiertas',
+        referrals: 'Referidos',
+      },
+    },
+
+    home: {
+      meta: {
+        title: 'Bondy — El estándar en contratación técnica',
+        description: 'No te mandamos candidatos. Te mandamos el correcto. Bondy lleva 16 años colocando ingenieros senior en empresas tech de alto crecimiento.',
+      },
+      topbar: {
+        left: 'Desde 2008 · Contratación técnica',
+        right: 'Buenos Aires · Global',
+      },
+      hero: {
+        label: 'El estándar en contratación técnica',
+        h1_1: 'El último',
+        h1_2: 'recruiter que',
+        h1_3: 'vas a',
+        h1_em1: 'necesitar',
+        h1_em2: 'alguna vez.',
+        body: 'La mayoría de los recruiters te mandan candidatos. Nosotros te mandamos el indicado. La diferencia es enorme — y llevamos 16 años perfeccionándola.',
+        cta_primary: 'Hablemos ↗',
+        cta_secondary: 'Nuestro método →',
+      },
+      stats: {
+        experience: { label: 'Experiencia', value: '16', sup: '+', desc: 'años en reclutamiento técnico' },
+        speed:      { label: 'Velocidad',    value: '5–7', sup: 'd', desc: 'hasta tu primera terna calificada' },
+        retention:  { label: 'Retención',    value: '94', sup: '%', desc: 'de los perfiles siguen en el puesto a los 6 meses' },
+        method:     { label: 'Método',       title: 'El Método\nBondy™', desc: 'Un framework propietario de contratación técnica' },
+      },
+      statement: {
+        label: 'Nuestra posición',
+        h2_1: 'No nos movemos rápido.',
+        h2_2: 'Nos movemos',
+        h2_em: 'bien.',
+        p1: 'La mayoría de las empresas tratan el reclutamiento como un juego de volumen — más CVs, más llamadas, más candidatos. Nosotros siempre creímos lo contrario. Cada búsqueda empieza con una hipótesis y termina con certeza.',
+        p2: 'Por eso nuestros clientes no vuelven buscando otro recruiter. Vuelven porque la contratación funcionó — y quieren que eso se repita.',
+      },
+      services: {
+        label: '02 — Servicios',
+        items: [
+          {
+            n: '01', title: 'Hunting',
+            body: 'Necesitás contratar. No eventualmente — este trimestre. Nos hacemos cargo de toda la búsqueda y entregamos una terna de candidatos pre-entrevistados en 5 a 7 días hábiles. Con garantía de 3 meses en cada colocación.',
+            cta: 'Ver más →',
+          },
+          {
+            n: '02', title: 'Pipeline\nde Talento',
+            body: 'Tenés el proceso. Tenés los entrevistadores. Lo que necesitás es una terna que no le haga perder el tiempo a nadie. Te armamos una lista curada de candidatos pre-evaluados, seleccionados por fit, no por volumen.',
+            cta: 'Ver más →',
+          },
+          {
+            n: '03', title: 'Recruiter\nEmbebido',
+            body: 'Un recruiter de Bondy dentro de tu equipo, por el tiempo que necesites. Información de mercado en tiempo real, transparencia total, sin markup de agencia. Para empresas con planes de contratación agresivos que necesitan calidad e inteligencia de mercado.',
+            cta: 'Ver más →',
+          },
+        ],
+      },
+      method: {
+        label: '03 — El Método Bondy™',
+        h2_1: 'Cada búsqueda',
+        h2_2: 'es un',
+        h2_em: 'proyecto.',
+        p1: 'Manejamos el reclutamiento como los mejores equipos de ingeniería manejan sus sprints — con una hipótesis, una estrategia, checkpoints medibles y una definición clara de "listo".',
+        p2: 'No "seguimos buscando". Listo.',
+        cta: 'Leer el método completo →',
+        steps: [
+          { n: '01', title: 'Brief',      desc: 'Antes de abrir la búsqueda, ponemos a prueba la definición del rol. La mayoría de los fracasos en contratación ocurren aquí.' },
+          { n: '02', title: 'Estrategia', desc: 'Diseñamos el approach de sourcing para este perfil específico — no usamos templates.' },
+          { n: '03', title: 'Búsqueda',   desc: 'Sourcing activo, outreach directo y calificación. Sin job posts, sin espera pasiva.' },
+          { n: '04', title: 'Terna',      desc: 'Una lista curada de candidatos pre-entrevistados con reportes completos. No CVs.' },
+        ],
+      },
+      vc: {
+        label: 'Para venture capital',
+        h2_1: 'Tu portfolio necesita equipos.',
+        h2_em: 'Buenos',
+        h2_2: ' de verdad.\nSabemos la diferencia.',
+        p1: 'Trabajamos con empresas respaldadas por VC en todas las etapas — desde la primera contratación de ingeniería hasta escalar un equipo de 5 a 50. Entendemos la velocidad que necesitás y la calidad que no podés resignar.',
+        p2: 'También trabajamos directamente con fondos que buscan un socio de reclutamiento técnico confiable para todo su portfolio.',
+        cta: 'Hablemos sobre tu portfolio →',
+      },
+      finalCta: {
+        label: '¿Listo?',
+        h2_1: 'Contanos qué',
+        h2_2: 'necesitás',
+        h2_em: 'construir.',
+        body: 'Sin formularios que no llevan a ningún lado. Solo una conversación sobre lo que estás construyendo y quién necesitás.',
+        cta: 'Empezá la conversación ↗',
+      },
+    },
+
+    method: {
+      meta: {
+        title: 'El Método Bondy™ — Cómo pensamos la contratación técnica',
+        description: 'Manejamos el reclutamiento como los mejores equipos de ingeniería manejan sus sprints. Cada búsqueda es un proyecto con hipótesis, estrategia y una definición clara de listo.',
+      },
+      label: 'El Método Bondy™',
+      h1_1: 'Cada búsqueda',
+      h1_2: 'es un',
+      h1_em: 'proyecto.',
+      intro: 'Manejamos el reclutamiento como los mejores equipos de ingeniería manejan sus sprints — con una hipótesis, una estrategia, checkpoints medibles y una definición clara de "listo". No "seguimos buscando". Listo.',
+      timelineLabel: 'Timeline',
+      steps: [
+        {
+          n: '01', title: 'Brief', time: '1–2 días',
+          subtitle: 'No empezamos a reclutar. Empezamos a pensar.',
+          body: 'Antes de abrir cualquier búsqueda, nos sentamos con vos a poner a prueba el brief. La mayoría de los fracasos en contratación ocurren en la etapa de definición — no en el sourcing. ¿Qué nivel de seniority? ¿Qué modalidad de trabajo? ¿Qué habilidades son realmente esenciales y cuáles son nice-to-have? ¿Qué oferta va a ser atractiva para la persona correcta? Te ayudamos a responder todo esto antes de movernos.',
+        },
+        {
+          n: '02', title: 'Estrategia', time: '1–2 días',
+          subtitle: 'Cada perfil requiere un approach diferente.',
+          body: 'Analizamos el mercado laboral para este perfil específico y diseñamos una estrategia de sourcing en consecuencia. Seleccionamos los canales correctos, construimos una lista de targets y desarrollamos un plan para abordar a los candidatos de mayor potencial. No hay templates acá. Un ingeniero senior de Rust y un Head of Engineering requieren estrategias completamente diferentes — y sabemos la diferencia.',
+        },
+        {
+          n: '03', title: 'Búsqueda', time: '3–5 días',
+          subtitle: 'Sourcing activo. Sin job posts, sin espera pasiva.',
+          body: 'Salimos a buscar a las personas que necesitás. Outreach directo, presentaciones calientes, activación profunda de la red. Cada candidato es evaluado contra el brief — no solo su CV, sino su trayectoria, sus motivaciones y si este rol es genuinamente el próximo paso correcto para ellos. Nosotros entrevistamos antes que vos.',
+        },
+        {
+          n: '04', title: 'Terna', time: '5–7 días en total',
+          subtitle: 'No CVs. Candidatos.',
+          body: 'Lo que recibís es una terna curada de candidatos pre-entrevistados, cada uno con un reporte completo que cubre lo que el CV nunca muestra. Su profundidad técnica, su estilo de comunicación, qué están optimizando en su próximo rol y por qué creemos que son el fit correcto. Entrás a cada entrevista sabiendo exactamente con quién estás hablando.',
+        },
+        {
+          n: '05', title: 'Cierre', time: 'Hasta que esté listo',
+          subtitle: 'No desaparecemos después de la terna.',
+          body: 'Nos quedamos hasta la etapa de oferta. Te ayudamos a calibrar la propuesta, anticipar contraofertas y navegar la decisión final. Cada candidato colocado tiene una garantía de 3 meses — porque respaldamos nuestro trabajo. Y porque nos hemos equivocado antes, y aprendimos exactamente cómo equivocarnos menos.',
+        },
+      ],
+      cta: {
+        h2_1: '¿Listo para tu primera',
+        h2_2: 'búsqueda',
+        h2_em: 'con Bondy?',
+        body: 'Contanos sobre el rol, el equipo y lo que intentaste antes. Te diremos honestamente si podemos ayudar y cuánto va a llevar.',
+        cta: 'Empezar una búsqueda ↗',
+      },
+    },
+
+    services: {
+      meta: {
+        title: 'Servicios — Bondy',
+        description: 'Tres formas de trabajar con Bondy: Hunting, Pipeline de Talento y Recruiter Embebido.',
+      },
+      label: 'Servicios',
+      h1_1: 'Tres formas',
+      h1_2: 'de',
+      h1_em: 'trabajar juntos.',
+      intro: 'Diferentes desafíos de contratación requieren diferentes enfoques. Diseñamos cada servicio en torno a un tipo específico de necesidad.',
+      items: [
+        {
+          n: '01', id: 'hunting', title: 'Hunting',
+          lead: 'Necesitás contratar. No eventualmente — este trimestre.',
+          body: 'Nos hacemos cargo de toda la búsqueda, desde el brief hasta la oferta firmada. Recibís una terna curada de candidatos pre-entrevistados en 5 a 7 días hábiles, cada uno con un reporte detallado. Nos quedamos hasta el cierre. Cada colocación tiene una garantía de 3 meses — si no funciona, buscamos de nuevo sin costo adicional.',
+          details: [
+            { label: 'Qué incluye',  text: 'Brief completo, estrategia de sourcing, búsqueda directa, entrevistas de candidatos, reportes detallados, soporte en la oferta.' },
+            { label: 'Timeline',     text: '5–7 días hábiles hasta la primera terna calificada. Cierre de oferta típicamente en 3–5 semanas.' },
+            { label: 'Garantía',     text: 'Garantía de 3 meses. Si la contratación no funciona, buscamos de nuevo.' },
+            { label: 'Ideal para',   text: 'Roles específicos que necesitan cubrirse con urgencia. Perfiles senior o difíciles de encontrar.' },
+          ],
+          cta: 'Iniciar una búsqueda ↗',
+          ctaStyle: 'primary',
+        },
+        {
+          n: '02', id: 'pipeline', title: 'Pipeline\nde Talento',
+          lead: 'Tenés el proceso. Tenés los entrevistadores. Lo que necesitás es una terna que no le haga perder el tiempo a nadie.',
+          body: 'Te armamos una lista curada de candidatos pre-evaluados, listos para contactar — seleccionados por fit, no por volumen. Vos manejás las entrevistas. Nosotros nos aseguramos de que las personas en la sala valgan la pena.',
+          details: [
+            { label: 'Qué incluye',             text: 'Sourcing de candidatos, calificación de perfiles, reportes livianos y entrega curada.' },
+            { label: 'Timeline',                text: 'Típicamente 3–5 días hasta la primera entrega.' },
+            { label: 'Ideal para',              text: 'Empresas con procesos de entrevistas sólidos que necesitan mejor calidad en el top del funnel.' },
+            { label: 'Diferencia con Hunting',  text: 'Nosotros manejamos el sourcing y la calificación. Vos manejás las entrevistas y el cierre.' },
+          ],
+          cta: 'Más información →',
+          ctaStyle: 'secondary',
+        },
+        {
+          n: '03', id: 'rpo', title: 'Recruiter\nEmbebido',
+          lead: 'Un recruiter de Bondy dentro de tu equipo, por el tiempo que necesites.',
+          body: 'Información de mercado en tiempo real, transparencia total, sin markup de agencia. Para empresas con planes de contratación agresivos que necesitan calidad e inteligencia de mercado. El recruiter trabaja como parte de tu equipo, entiende tu cultura en profundidad y trae el peso total de la red de Bondy.',
+          details: [
+            { label: 'Qué incluye',  text: 'Recruiter embebido full-time o part-time, reportes de salarios de mercado, asesoría en estrategia de contratación.' },
+            { label: 'Compromiso',   text: 'Mínimo 3 meses. Renovable mes a mes.' },
+            { label: 'Ideal para',   text: 'Empresas Series A+ escalando de 10 a 50+ ingenieros. Planes de contratación de alta velocidad.' },
+            { label: 'Ventaja',      text: 'Obtenés sourcing de calidad de agencia con el compromiso de un recruiter in-house y datos de mercado.' },
+          ],
+          cta: 'Más información →',
+          ctaStyle: 'secondary',
+        },
+      ],
+      bottomCta: {
+        h2: '¿No sabés qué\nservicio te conviene?',
+        h2_em: 'Preguntanos.',
+        body: 'Te lo decimos honestamente. A veces la respuesta es ninguno — y preferimos decírtelo ahora que hacerte perder el tiempo.',
+        cta: 'Empezá la conversación ↗',
+      },
+    },
+
+    contact: {
+      meta: {
+        title: 'Contacto — Bondy',
+        description: 'Contanos qué estás construyendo. Te respondemos en un día hábil.',
+      },
+      label: 'Contacto',
+      h1_1: 'Contanos qué',
+      h1_2: 'estás',
+      h1_em: 'construyendo.',
+      intro: 'Sin formularios que no llevan a ningún lado. Sin respuestas automáticas. Alguien del equipo de Bondy va a leer esto y te va a responder en un día hábil.',
+      emailLabel: 'Email',
+      linkedinLabel: 'LinkedIn',
+      joiningLabel: '¿Querés sumarte?',
+      joiningBody: 'Si sos recruiter y te interesa unirte al equipo de Bondy, escribinos al mismo email con "sumarse" en el asunto.',
+      form: {
+        serviceLabel: 'Servicio',
+        servicePlaceholder: '¿Qué estás buscando?',
+        serviceOptions: [
+          { value: 'hunting',  label: 'Hunting — Cubrir un rol específico' },
+          { value: 'pipeline', label: 'Pipeline de Talento — Mejorar el top del funnel' },
+          { value: 'rpo',      label: 'Recruiter Embebido — Escalar la contratación' },
+          { value: 'vc',       label: 'VC / Alianza de portfolio' },
+          { value: 'other',    label: 'Todavía no lo sé' },
+        ],
+        nameLabel: 'Tu nombre',
+        namePlaceholder: 'Nombre',
+        emailLabel: 'Email laboral',
+        emailPlaceholder: 'vos@empresa.com',
+        companyLabel: 'Empresa',
+        companyPlaceholder: 'Nombre de la empresa',
+        roleLabel: 'Tu rol',
+        rolePlaceholder: 'VP de Eng, CTO...',
+        messageLabel: 'Contanos sobre la búsqueda',
+        messagePlaceholder: '¿Qué rol? ¿Cuál es el contexto? ¿Qué intentaste antes?',
+        submit: 'Enviar ↗',
+        sending: 'Enviando...',
+        errorMsg: 'Algo salió mal. Intentá escribirnos directamente.',
+      },
+      success: {
+        title: 'Recibido.',
+        body: 'Te respondemos en un día hábil. Mientras tanto, podés leer sobre nuestro método o explorar nuestras ideas.',
+      },
+    },
+
+    about: {
+      meta: {
+        title: 'Nosotros — Bondy',
+        description: 'Fundada en Buenos Aires en 2008. Una firma de reclutamiento técnico construida sobre la convicción de que contratar es una disciplina, no una transacción.',
+      },
+      label: 'Sobre Bondy',
+      h1_1: 'Creemos que contratar',
+      h1_2: 'es una',
+      h1_em: 'disciplina.',
+      intro: 'Fundada en Buenos Aires en 2008, Bondy es una firma de reclutamiento técnico construida sobre una convicción simple: que la calidad de una contratación se determina mucho antes de la carta oferta — en cómo definís el rol, cómo evaluás el mercado y con qué cuidado evaluás el fit.',
+      origin: {
+        label: 'Desde 2008',
+        h2: 'Por qué empezamos —\ny por qué sigue importando.',
+        p1: 'Bondy nació de una frustración concreta: el reclutamiento técnico lo hacían personas que no entendían a los ingenieros, para empresas que no sabían bien qué estaban buscando.',
+        p2: 'El resultado era predecible — alto volumen, baja calidad, rotación temprana. Un error de 30.000 dólares disfrazado de servicio.',
+        p3: 'Empezamos con un enfoque diferente: aplicar el rigor de la psicología organizacional al proceso de búsqueda. Definir qué significa "fit" antes de ir a buscarlo. Entrevistar en profundidad. Mandar menos candidatos — y mejores.',
+        p4: 'Dieciséis años después, el 94% de las personas que colocamos siguen en el puesto a los 6 meses. Ese número es la única métrica que nos importa.',
+      },
+      values: {
+        label: 'Cómo trabajamos',
+        h2: 'Cinco cosas en las que creemos.',
+        items: [
+          { n: '01', title: 'Diagnóstico antes que prescripción',  body: 'No abrimos una búsqueda sin entender por qué se está abriendo. El problema que una empresa cree tener a menudo no es el problema real. Nos tomamos el tiempo de descubrirlo.' },
+          { n: '02', title: 'Menos candidatos, mejores candidatos', body: 'El volumen no es una estrategia. Cada candidato que enviamos es uno que contrataríamos nosotros si estuviéramos en tu lugar. Este estándar nos hace más lentos y mejores.' },
+          { n: '03', title: 'Honestidad radical con los clientes',  body: 'Si tu oferta no es competitiva, te lo decimos. Si la definición del rol está atrayendo los perfiles equivocados, también. Nuestro trabajo es ayudarte a contratar bien — no confirmar tus suposiciones.' },
+          { n: '04', title: 'Respaldamos nuestro trabajo',          body: 'Cada colocación tiene una garantía de 3 meses. No porque lo tengamos que ofrecer, sino porque nos obliga a ser honestos sobre el fit. Si no funciona, buscamos de nuevo.' },
+          { n: '05', title: 'Contratar es una disciplina',          body: 'Abordamos la contratación técnica como psicología organizacional aplicada — con hipótesis, datos y análisis riguroso. No intuición, no volumen. Un método.' },
+        ],
+      },
+      team: {
+        label: 'El equipo',
+        h2_1: 'Las personas detrás',
+        h2_2: 'de cada',
+        h2_em: 'búsqueda.',
+        joinLabel: 'Sumate al equipo',
+        joinBody: 'Ocasionalmente buscamos recruiters senior que combinen comprensión técnica con genuina curiosidad por las personas. Si eso sos vos, escribinos.',
+        joinCta: 'Escribinos →',
+        since: 'En Bondy desde',
+        background: 'Formación',
+      },
+      cta: {
+        h2_1: '¿Listo para',
+        h2_2: 'trabajar',
+        h2_em: 'con nosotros?',
+        body: 'Contanos qué estás construyendo y quién necesitás. Te decimos honestamente si podemos ayudar — y cómo.',
+        cta: 'Empezá la conversación ↗',
+      },
+    },
+  },
+} as const
+
+export type Translations = typeof translations.en
+export function t(lang: Lang): Translations {
+  return translations[lang] as unknown as Translations
+}
