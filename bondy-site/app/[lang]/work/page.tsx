@@ -5,6 +5,7 @@ import Footer from '@/components/Footer'
 import Link from 'next/link'
 import { useState } from 'react'
 import type { Lang } from '@/lib/i18n/translations'
+import { t } from '@/lib/i18n/translations'
 
 // ── COPY ─────────────────────────────────────────────────────────────
 const copy = {
@@ -365,12 +366,14 @@ function WorldMap({ lang }: { lang: Lang }) {
 // ── PAGE ──────────────────────────────────────────────────────────────
 export default function WorkPage({ params }: { params: { lang: Lang } }) {
   const lang = params.lang
+  const tr = t(lang)
+  const lk = (href: string) => `/${lang}${href}`
   const c = copy[lang]
   const [openCase, setOpenCase] = useState<string | null>(null)
 
   return (
     <main className="bg-b-black min-h-screen">
-      <Nav />
+      <Nav lang={lang} tr={tr.nav} />
 
       {/* ── HEADER + STATS ── */}
       <section className="pt-[73px] border-b border-white/10">
@@ -559,7 +562,7 @@ export default function WorkPage({ params }: { params: { lang: Lang } }) {
         </Link>
       </section>
 
-      <Footer />
+      <Footer lang={lang} tr={tr.footer} />
     </main>
   )
 }
