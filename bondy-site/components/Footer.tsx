@@ -81,10 +81,10 @@ export default function Footer({ lang, tr }: FooterProps) {
             Get in touch
           </div>
           <a
-            href="mailto:hola@wearebondy.com"
+            href="mailto:hello@wearebondy.com"
             style={{ fontSize: '14px', color: '#F4F2EE', fontWeight: 300, textDecoration: 'none', display: 'block', marginBottom: '0.75rem' }}
           >
-            hola@wearebondy.com
+            hello@wearebondy.com
           </a>
           <a
             href="https://www.linkedin.com/company/bondygroup"
