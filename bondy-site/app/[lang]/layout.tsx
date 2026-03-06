@@ -19,12 +19,12 @@ export async function generateMetadata({
     openGraph: {
       title: 'Bondy',
       description: tr.home.meta.description,
-      url: 'https://newbondy.wearebondy.com',
+      url: 'https://wearebondy.com',
       siteName: 'Bondy',
       locale: params.lang === 'es' ? 'es_AR' : 'en_US',
       type: 'website',
     },
-    robots: { index: false, follow: false },
+    robots: { index: true, follow: true },
   }
 }
 
