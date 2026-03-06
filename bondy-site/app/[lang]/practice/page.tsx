@@ -424,9 +424,9 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
             ))}
           </div>
 
-          <Link href={lk('/contact')} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '.13em', textTransform: 'uppercase', background: '#C06A2D', color: '#fff', padding: '13px 26px', textDecoration: 'none' }}>
+          <a href="https://calendar.app.google/gthsXL3grcJiTxda6" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '.13em', textTransform: 'uppercase', background: '#C06A2D', color: '#fff', padding: '13px 26px', textDecoration: 'none' }}>
             Book a free 30-min call →
-          </Link>
+          </a>
         </div>
       </section>
 
