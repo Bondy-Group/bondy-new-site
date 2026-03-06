@@ -20,12 +20,12 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
         <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(192,106,45,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(192,106,45,.035) 1px, transparent 1px)', backgroundSize: '60px 60px', pointerEvents: 'none' }} />
 
         {/* watermark */}
-        <div style={{ position: 'absolute', fontFamily: 'Playfair Display, Georgia, serif', fontWeight: 900, fontSize: 'clamp(8rem,20vw,18rem)', letterSpacing: '-.04em', lineHeight: '.85', color: 'rgba(244,242,238,.03)', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', whiteSpace: 'nowrap', pointerEvents: 'none', userSelect: 'none' }}>
+        <div className="mob-hide" style={{ position: 'absolute', fontFamily: 'Playfair Display, Georgia, serif', fontWeight: 900, fontSize: 'clamp(8rem,20vw,18rem)', letterSpacing: '-.04em', lineHeight: '.85', color: 'rgba(244,242,238,.03)', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', whiteSpace: 'nowrap', pointerEvents: 'none', userSelect: 'none' }}>
           The Practice
         </div>
 
         {/* product nav pills */}
-        <div style={{ position: 'absolute', top: 'calc(60px + 3rem)', left: 'clamp(1.5rem,5vw,3rem)', display: 'flex', gap: '2px', zIndex: 1 }}>
+        <div className="hero-pills" style={{ position: 'absolute', top: 'calc(60px + 3rem)', left: 'clamp(1.5rem,5vw,3rem)', display: 'flex', gap: '2px', zIndex: 1 }}>
           {['Talent OS', 'Workshops', 'Market Intel', 'Tablero'].map((label, i) => {
             const anchors = ['talent-os', 'workshops', 'market-intelligence', 'tablero']
             return (
@@ -36,7 +36,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
           })}
         </div>
 
-        <div style={{ position: 'relative', zIndex: 1, padding: '0 clamp(1.5rem,5vw,3rem) 5rem', display: 'grid', gridTemplateColumns: '1fr clamp(280px,35vw,420px)', gap: '5rem', alignItems: 'end', borderTop: '1px solid rgba(255,255,255,.07)' }}>
+        <div className="hero-content-grid" style={{ position: 'relative', zIndex: 1, padding: '0 clamp(1.5rem,5vw,3rem) 5rem', display: 'grid', gridTemplateColumns: '1fr clamp(280px,35vw,420px)', gap: '5rem', alignItems: 'end', borderTop: '1px solid rgba(255,255,255,.07)' }}>
           <div>
             {/* badge */}
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', border: '1px solid rgba(192,106,45,.3)', padding: '6px 14px', marginBottom: '2.5rem' }}>
@@ -92,12 +92,12 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
       {/* ══════════════════════════════════════════════ */}
       {/* PRODUCT 1: TALENT OS */}
       {/* ══════════════════════════════════════════════ */}
-      <section id="talent-os" style={{ background: '#0E0E0E', padding: '8rem clamp(1.5rem,5vw,3rem)', position: 'relative', overflow: 'hidden', scrollMarginTop: '60px' }}>
-        <div style={{ position: 'absolute', right: 'clamp(1.5rem,5vw,3rem)', top: '5rem', fontFamily: 'Playfair Display, Georgia, serif', fontWeight: 900, fontSize: 'clamp(8rem,16vw,14rem)', color: 'rgba(244,242,238,.03)', lineHeight: 1, pointerEvents: 'none', userSelect: 'none' }}>01</div>
+      <section id="talent-os" className="practice-section" style={{ background: '#0E0E0E', padding: '8rem clamp(1.5rem,5vw,3rem)', position: 'relative', overflow: 'hidden', scrollMarginTop: '60px' }}>
+        <div className="mob-hide" style={{ position: 'absolute', right: 'clamp(1.5rem,5vw,3rem)', top: '5rem', fontFamily: 'Playfair Display, Georgia, serif', fontWeight: 900, fontSize: 'clamp(8rem,16vw,14rem)', color: 'rgba(244,242,238,.03)', lineHeight: 1, pointerEvents: 'none', userSelect: 'none' }}>01</div>
 
         <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
           {/* header */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 360px', gap: '5rem', alignItems: 'start', marginBottom: '5rem' }}>
+          <div className="mob-col" style={{ display: 'grid', gridTemplateColumns: '1fr 360px', gap: '5rem', alignItems: 'start', marginBottom: '5rem' }}>
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.5rem' }}>
                 <div style={{ width: '22px', height: '1px', background: '#C06A2D' }} />
@@ -128,7 +128,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
           </div>
 
           {/* phases */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '1px', background: 'rgba(255,255,255,.06)', border: '1px solid rgba(255,255,255,.06)', marginBottom: '4rem' }}>
+          <div className="mob-col-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '1px', background: 'rgba(255,255,255,.06)', border: '1px solid rgba(255,255,255,.06)', marginBottom: '4rem' }}>
             {[
               { n: '01 —', days: 'Days 1–30', title: 'Foundation', items: ['Current-state audit', 'Culture DNA: values → behaviors', 'Legal compliance baseline'] },
               { n: '02 —', days: 'Days 31–70', title: 'Build', items: ['Hiring engine + scorecards', '30-day onboarding playbook', 'Compensation philosophy + bands'] },
@@ -150,7 +150,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
             ))}
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '2rem' }}>
+          <div className="mob-stack" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '2rem' }}>
             <p style={{ fontFamily: 'Playfair Display, Georgia, serif', fontWeight: 700, fontStyle: 'italic', fontSize: '1.2rem', color: 'rgba(244,242,238,.5)', maxWidth: '480px', lineHeight: 1.4 }}>
               Not a PDF. A <strong style={{ color: '#C06A2D', fontWeight: 900 }}>living system</strong> your team uses on day 101 — without us.
             </p>
@@ -164,11 +164,11 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
       {/* ══════════════════════════════════════════════ */}
       {/* PRODUCT 2: WORKSHOPS */}
       {/* ══════════════════════════════════════════════ */}
-      <section id="workshops" style={{ background: '#FFFFFF', padding: '8rem clamp(1.5rem,5vw,3rem)', position: 'relative', overflow: 'hidden', scrollMarginTop: '60px' }}>
-        <div style={{ position: 'absolute', right: 'clamp(1.5rem,5vw,3rem)', top: '5rem', fontFamily: 'Playfair Display, Georgia, serif', fontWeight: 900, fontSize: 'clamp(8rem,16vw,14rem)', color: 'rgba(14,14,14,.04)', lineHeight: 1, pointerEvents: 'none', userSelect: 'none' }}>02</div>
+      <section id="workshops" className="practice-section" style={{ background: '#FFFFFF', padding: '8rem clamp(1.5rem,5vw,3rem)', position: 'relative', overflow: 'hidden', scrollMarginTop: '60px' }}>
+        <div className="mob-hide" style={{ position: 'absolute', right: 'clamp(1.5rem,5vw,3rem)', top: '5rem', fontFamily: 'Playfair Display, Georgia, serif', fontWeight: 900, fontSize: 'clamp(8rem,16vw,14rem)', color: 'rgba(14,14,14,.04)', lineHeight: 1, pointerEvents: 'none', userSelect: 'none' }}>02</div>
 
         <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', marginBottom: '4rem', alignItems: 'end' }}>
+          <div className="mob-col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', marginBottom: '4rem', alignItems: 'end' }}>
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.5rem' }}>
                 <div style={{ width: '22px', height: '1px', background: '#C06A2D' }} />
@@ -184,7 +184,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
           </div>
 
           {/* workshop cards */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '1px', background: '#E8E4DE', border: '1px solid #E8E4DE', marginBottom: '3rem' }}>
+          <div className="mob-col-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '1px', background: '#E8E4DE', border: '1px solid #E8E4DE', marginBottom: '3rem' }}>
             {[
               {
                 tag: 'For hiring managers',
@@ -230,7 +230,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
           </div>
 
           {/* Disbyte case */}
-          <div style={{ background: '#F0EBE3', borderLeft: '2px solid rgba(192,106,45,.3)', padding: '1.5rem 2rem', display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '2rem', alignItems: 'center' }}>
+          <div className="mob-col-auto" style={{ background: '#F0EBE3', borderLeft: '2px solid rgba(192,106,45,.3)', padding: '1.5rem 2rem', display: 'grid', gridTemplateColumns: 'auto 1fr', gap: '2rem', alignItems: 'center' }}>
             <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '8.5px', letterSpacing: '.14em', textTransform: 'uppercase', color: '#C06A2D', whiteSpace: 'nowrap' }}>Case — Disbyte</div>
             <div style={{ fontSize: '13.5px', lineHeight: 1.6, fontWeight: 300, color: '#7A7874' }}>
               We ran a <strong style={{ color: '#1A1A1A', fontWeight: 400 }}>multi-session program</strong> for the entire Disbyte organization — from founders to recruiters — covering role definition, structured interviewing, culture-based evaluation, scorecards, and onboarding design. Every level of the company left with a shared language for hiring.
@@ -242,11 +242,11 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
       {/* ══════════════════════════════════════════════ */}
       {/* PRODUCT 3: MARKET INTELLIGENCE */}
       {/* ══════════════════════════════════════════════ */}
-      <section id="market-intelligence" style={{ background: '#F0EBE3', padding: '8rem clamp(1.5rem,5vw,3rem)', position: 'relative', overflow: 'hidden', scrollMarginTop: '60px' }}>
-        <div style={{ position: 'absolute', right: 'clamp(1.5rem,5vw,3rem)', top: '5rem', fontFamily: 'Playfair Display, Georgia, serif', fontWeight: 900, fontSize: 'clamp(8rem,16vw,14rem)', color: 'rgba(14,14,14,.04)', lineHeight: 1, pointerEvents: 'none', userSelect: 'none' }}>03</div>
+      <section id="market-intelligence" className="practice-section" style={{ background: '#F0EBE3', padding: '8rem clamp(1.5rem,5vw,3rem)', position: 'relative', overflow: 'hidden', scrollMarginTop: '60px' }}>
+        <div className="mob-hide" style={{ position: 'absolute', right: 'clamp(1.5rem,5vw,3rem)', top: '5rem', fontFamily: 'Playfair Display, Georgia, serif', fontWeight: 900, fontSize: 'clamp(8rem,16vw,14rem)', color: 'rgba(14,14,14,.04)', lineHeight: 1, pointerEvents: 'none', userSelect: 'none' }}>03</div>
 
         <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', marginBottom: '4rem', alignItems: 'end' }}>
+          <div className="mob-col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', marginBottom: '4rem', alignItems: 'end' }}>
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.5rem' }}>
                 <div style={{ width: '22px', height: '1px', background: '#C06A2D' }} />
@@ -261,7 +261,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: '1px', background: '#E8E4DE', border: '1px solid #E8E4DE', marginBottom: '3rem' }}>
+          <div className="mob-col" style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: '1px', background: '#E8E4DE', border: '1px solid #E8E4DE', marginBottom: '3rem' }}>
             {[
               { cat: 'Compensation Reports', title: 'Salary Benchmarks by Role + Stack', desc: 'Compensation ranges by seniority, technology, and geography. Updated with real market data — not self-reported surveys.', items: ['Engineering roles (FE, BE, Fullstack, Data, DevOps)', 'Seniority: Jr / Mid / Sr / Staff / Principal', 'LATAM + Global remote benchmarks', 'Equity ranges for VC-backed companies'] },
               { cat: 'Talent Availability', title: 'Profile Scarcity + Time-to-Hire Maps', desc: 'How hard is it to find a senior Rust engineer in Argentina? How long does it realistically take? We have the data.', items: ['Availability by stack and country', 'Realistic time-to-hire estimates', 'Candidate drop-off by process stage', 'Competing offers landscape'] },
@@ -285,7 +285,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
           </div>
 
           {/* credibility bar */}
-          <div style={{ background: '#1A1A1A', padding: '2.5rem 3rem', display: 'grid', gridTemplateColumns: 'repeat(3,1fr)' }}>
+          <div className="mob-col-cred" style={{ background: '#1A1A1A', padding: '2.5rem 3rem', display: 'grid', gridTemplateColumns: 'repeat(3,1fr)' }}>
             {[
               { num: '17', sup: '+', label: 'Years of real placement data' },
               { num: '1', sup: ' in 4', label: 'Our benchmark for search quality' },
@@ -305,11 +305,11 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
       {/* ══════════════════════════════════════════════ */}
       {/* PRODUCT 4: TABLERO DE COMANDO */}
       {/* ══════════════════════════════════════════════ */}
-      <section id="tablero" style={{ background: '#1A1A1A', padding: '8rem clamp(1.5rem,5vw,3rem)', position: 'relative', overflow: 'hidden', scrollMarginTop: '60px' }}>
-        <div style={{ position: 'absolute', right: 'clamp(1.5rem,5vw,3rem)', top: '5rem', fontFamily: 'Playfair Display, Georgia, serif', fontWeight: 900, fontSize: 'clamp(8rem,16vw,14rem)', color: 'rgba(244,242,238,.025)', lineHeight: 1, pointerEvents: 'none', userSelect: 'none' }}>04</div>
+      <section id="tablero" className="practice-section" style={{ background: '#1A1A1A', padding: '8rem clamp(1.5rem,5vw,3rem)', position: 'relative', overflow: 'hidden', scrollMarginTop: '60px' }}>
+        <div className="mob-hide" style={{ position: 'absolute', right: 'clamp(1.5rem,5vw,3rem)', top: '5rem', fontFamily: 'Playfair Display, Georgia, serif', fontWeight: 900, fontSize: 'clamp(8rem,16vw,14rem)', color: 'rgba(244,242,238,.025)', lineHeight: 1, pointerEvents: 'none', userSelect: 'none' }}>04</div>
 
         <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', marginBottom: '4rem', alignItems: 'start' }}>
+          <div className="mob-col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', marginBottom: '4rem', alignItems: 'start' }}>
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.5rem' }}>
                 <div style={{ width: '22px', height: '1px', background: '#C06A2D' }} />
@@ -333,7 +333,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
                 <div style={{ flex: 1, textAlign: 'center', fontFamily: 'DM Mono, monospace', fontSize: '9px', letterSpacing: '.1em', color: 'rgba(255,255,255,.2)' }}>Tablero de Comando</div>
               </div>
               <div style={{ padding: '1.5rem' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '1px', background: 'rgba(255,255,255,.05)', marginBottom: '1rem' }}>
+                <div className="mob-col-kpi" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '1px', background: 'rgba(255,255,255,.05)', marginBottom: '1rem' }}>
                   {[
                     { label: 'Open roles', val: '8', color: '#C06A2D', delta: '+3 vs last qtr' },
                     { label: 'Avg time-to-hire', val: '47d', color: '#C06A2D', delta: '+12d vs benchmark' },
@@ -347,7 +347,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
                     </div>
                   ))}
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', background: 'rgba(255,255,255,.05)' }}>
+                <div className="mob-col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', background: 'rgba(255,255,255,.05)' }}>
                   <div style={{ background: '#191919', padding: '1rem' }}>
                     <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '7.5px', letterSpacing: '.12em', textTransform: 'uppercase', color: 'rgba(192,106,45,.6)', marginBottom: '.75rem' }}>Funnel by stage</div>
                     {[['Sourced','100%','240'],['Screened','54%','130'],['Technical','25%','60'],['Offer','10%','24']].map(([label,w,v]) => (
@@ -377,7 +377,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
             </div>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: '1px', background: 'rgba(255,255,255,.06)', border: '1px solid rgba(255,255,255,.06)' }}>
+          <div className="mob-col" style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: '1px', background: 'rgba(255,255,255,.06)', border: '1px solid rgba(255,255,255,.06)' }}>
             {[
               { label: 'Current state', text: 'Full audit of your team structure, seniority distribution, and flight risk. Who are your key people, and what would it cost to lose them?' },
               { label: 'Hiring funnel analysis', text: "Where are you losing candidates? We map your pipeline against market benchmarks and identify the exact friction points." },
@@ -409,7 +409,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
             We&apos;ll tell you. Book a 30-minute call with no agenda other than understanding your situation — and we&apos;ll point you to what actually makes sense.
           </p>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', background: 'rgba(255,255,255,.07)', border: '1px solid rgba(255,255,255,.07)', marginBottom: '2.5rem' }}>
+          <div className="mob-col" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1px', background: 'rgba(255,255,255,.07)', border: '1px solid rgba(255,255,255,.07)', marginBottom: '2.5rem' }}>
             {[
               { tag: 'For startups post-ronda', title: 'Need to build hiring infrastructure from scratch', desc: '→ Talent OS is probably your product.' },
               { tag: 'For scale-ups with teams', title: 'Need to upskill your people or get market clarity', desc: '→ Workshops or Market Intelligence.' },
@@ -433,135 +433,90 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
       <Footer lang={lang} tr={tr.footer} />
 
       <style>{`
+        /* ── MOBILE RESPONSIVE ── */
         @media (max-width: 768px) {
-          /* Force all grid layouts to single column */
-          [style*="gridTemplateColumns"] {
+
+          /* Hide decorative watermarks */
+          .mob-hide { display: none !important; }
+
+          /* Hero */
+          .hero-content-grid {
+            grid-template-columns: 1fr !important;
+            padding: 0 1.5rem 3rem !important;
+            gap: 2rem !important;
+          }
+          .hero-pills { display: none !important; }
+
+          /* Product index: 2 cols */
+          .practice-index {
+            grid-template-columns: 1fr 1fr !important;
+          }
+
+          /* All section grids: 1 col */
+          .mob-col {
             grid-template-columns: 1fr !important;
             gap: 1.5rem !important;
           }
 
-          /* Hero content stacking */
-          header > div:last-child {
+          /* 3-col grids */
+          .mob-col-3 {
             grid-template-columns: 1fr !important;
-            padding: 0 1.5rem 3rem !important;
+            gap: 1px !important;
           }
 
-          /* Hero product pills - hide on mobile */
-          header > div:first-child {
-            display: none !important;
-          }
-
-          /* Hero title size */
-          header h1 {
-            font-size: clamp(2.8rem, 12vw, 4rem) !important;
-          }
-
-          /* Hero watermark - hide on mobile */
-          header > div[style*="pointer-events: none"] {
-            display: none !important;
-          }
-
-          /* Section product index - 2 col on mobile */
-          section:nth-of-type(1) > div {
+          /* KPI grid: keep 2 cols */
+          .mob-col-kpi {
             grid-template-columns: 1fr 1fr !important;
           }
 
-          /* All product sections padding */
-          #talent-os, #workshops, #market-intelligence, #tablero {
-            padding: 4rem 1.5rem !important;
-          }
-
-          /* Big watermark numbers - hide */
-          #talent-os > div > div[style*="pointer-events"],
-          #workshops > div > div[style*="pointer-events"],
-          #market-intelligence > div > div[style*="pointer-events"],
-          #tablero > div > div[style*="pointer-events"] {
-            display: none !important;
-          }
-
-          /* Phases strip - single column */
-          #talent-os [style*="repeat(3,1fr)"] {
-            grid-template-columns: 1fr !important;
-          }
-
-          /* Workshop cards - single column */
-          #workshops [style*="repeat(3,1fr)"] {
-            grid-template-columns: 1fr !important;
-          }
-
-          /* Data cards - single column */
-          #market-intelligence [style*="repeat(2,1fr)"] {
-            grid-template-columns: 1fr !important;
-          }
-
-          /* Credibility bar - single column */
-          #market-intelligence [style*="repeat(3,1fr)"] {
+          /* Credibility stats */
+          .mob-col-cred {
             grid-template-columns: 1fr !important;
             padding: 1.5rem !important;
           }
-          #market-intelligence [style*="repeat(3,1fr)"] > div {
-            padding: 1rem 0 !important;
+          .mob-col-cred > div {
+            padding: 0.75rem 0 !important;
             border-right: none !important;
-            border-bottom: 1px solid rgba(255,255,255,.08);
+            border-bottom: 1px solid rgba(255,255,255,.08) !important;
             text-align: left !important;
           }
-
-          /* Dashboard mockup - dashboard kpis 2 col */
-          #tablero [style*="repeat(4,1fr)"] {
-            grid-template-columns: 1fr 1fr !important;
+          .mob-col-cred > div:last-child {
+            border-bottom: none !important;
           }
 
-          /* Tablero includes */
-          #tablero [style*="repeat(2,1fr)"] {
-            grid-template-columns: 1fr !important;
-          }
-
-          /* CTA options - single column */
-          [style*="grid-template-columns: 1fr 1fr"][style*="marginBottom: '2.5rem'"] {
-            grid-template-columns: 1fr !important;
-          }
-
-          /* Disbyte callout - stack */
-          [style*="gridTemplateColumns: 'auto 1fr'"] {
+          /* Disbyte callout */
+          .mob-col-auto {
             grid-template-columns: 1fr !important;
             gap: 0.75rem !important;
           }
 
-          /* Talent OS footer row - stack */
-          #talent-os [style*="justifyContent: 'space-between'"] {
+          /* Talent OS footer CTA row */
+          .mob-stack {
             flex-direction: column !important;
             align-items: flex-start !important;
             gap: 1.5rem !important;
           }
 
-          /* Section headings size */
-          #talent-os h2, #workshops h2, #market-intelligence h2, #tablero h2 {
-            font-size: clamp(2rem, 8vw, 3rem) !important;
+          /* Section padding */
+          .practice-section {
+            padding: 4rem 1.5rem !important;
           }
 
-          /* CTA section */
-          .global-cta h2 {
-            font-size: clamp(1.8rem, 7vw, 2.5rem) !important;
-          }
-
-          /* Product index cards - 2 cols */
-          .practice-index {
-            grid-template-columns: 1fr 1fr !important;
-          }
-
-          /* Padding adjustments */
-          header, #talent-os, #workshops, #market-intelligence, #tablero {
-            overflow-x: hidden;
+          /* Headings */
+          .practice-section h2 {
+            font-size: clamp(1.9rem, 8vw, 2.8rem) !important;
           }
         }
 
         @media (max-width: 480px) {
-          /* Product index - single col on very small screens */
-          section:nth-of-type(1) > div {
+          .practice-index {
+            grid-template-columns: 1fr !important;
+          }
+          .mob-col-kpi {
             grid-template-columns: 1fr !important;
           }
         }
-      \`}</style>
+      `}</style>
     </main>
   )
 }
