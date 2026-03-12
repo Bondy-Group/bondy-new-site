@@ -39,6 +39,70 @@ export async function generateMetadata({
   }
 }
 
+const schemaOrg = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://wearebondy.com/#organization',
+      name: 'Bondy Group',
+      url: 'https://wearebondy.com',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://wearebondy.com/icon.svg',
+      },
+      foundingDate: '2008',
+      founder: {
+        '@type': 'Person',
+        name: 'Mara Schmitman',
+        jobTitle: 'Founder & Managing Director',
+        sameAs: 'https://www.linkedin.com/in/mara-schmitman2/',
+      },
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Buenos Aires',
+        addressCountry: 'AR',
+      },
+      contactPoint: {
+        '@type': 'ContactPoint',
+        email: 'hello@wearebondy.com',
+        contactType: 'customer service',
+      },
+      sameAs: [
+        'https://www.linkedin.com/company/bondygroup',
+      ],
+      description:
+        'Bondy is a technical recruiting firm based in Buenos Aires, specializing in finding and placing software engineers, backend developers, and tech talent across Argentina and LATAM.',
+      knowsAbout: [
+        'Technical Recruiting',
+        'Software Engineer Hiring',
+        'IT Staffing',
+        'Executive Search',
+        'RPO',
+        'LATAM Tech Talent',
+      ],
+    },
+    {
+      '@type': 'ProfessionalService',
+      '@id': 'https://wearebondy.com/#service',
+      name: 'Bondy — Technical Recruiting',
+      url: 'https://wearebondy.com',
+      image: 'https://wearebondy.com/icon.svg',
+      priceRange: '$$',
+      areaServed: [
+        { '@type': 'Country', name: 'Argentina' },
+        { '@type': 'Place', name: 'Latin America' },
+      ],
+      serviceType: [
+        'Technical Recruiting',
+        'IT Headhunting',
+        'RPO',
+        'Tech Staffing',
+      ],
+    },
+  ],
+}
+
 export default function LangLayout({
   children,
   params,
@@ -48,6 +112,12 @@ export default function LangLayout({
 }) {
   return (
     <html lang={params.lang}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
+        />
+      </head>
       <body>{children}</body>
     </html>
   )
