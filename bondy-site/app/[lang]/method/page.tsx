@@ -9,7 +9,7 @@ import type { Metadata } from 'next'
 const pageMeta = {
   en: {
     title: 'The Bondy Method — How We Hire Engineers Right',
-    description: 'We don't move fast. We move right. Learn the process Bondy uses to find, evaluate, and place technical talent in engineering teams across LATAM.',
+    description: 'We don\'t move fast. We move right. Learn the process Bondy uses to find, evaluate, and place technical talent in engineering teams across LATAM.',
   },
   es: {
     title: 'El Método Bondy — Cómo Contratamos Ingenieros Bien',

@@ -6,18 +6,6 @@ import { useState } from 'react'
 import type { Lang } from '@/lib/i18n/translations'
 import { t } from '@/lib/i18n/translations'
 
-import type { Metadata } from 'next'
-
-const pageMeta = {
-  en: {
-    title: 'Contact Bondy — Start a Technical Search in Argentina or LATAM',
-    description: 'Ready to hire engineers in Argentina or LATAM? Tell us what you need to build. Bondy responds within 24 hours.',
-  },
-  es: {
-    title: 'Contacto — Iniciá una Búsqueda Técnica en Argentina o LATAM | Bondy',
-    description: '¿Necesitás contratar ingenieros en Argentina o LATAM? Contanos qué necesitás construir. Bondy responde en 24 horas.',
-  },
-}
 
 export async function generateMetadata({
   params,
