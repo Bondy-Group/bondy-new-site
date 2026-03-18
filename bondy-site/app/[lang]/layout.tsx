@@ -1,30 +1,7 @@
 import type { Metadata } from 'next'
 import type { Lang } from '@/lib/i18n/translations'
 import { t } from '@/lib/i18n/translations'
-import { Playfair_Display, DM_Sans, DM_Mono } from 'next/font/google'
 import '../globals.css'
-
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  weight: ['700', '900'],
-  style: ['normal', 'italic'],
-  variable: '--font-playfair',
-  display: 'swap',
-})
-
-const dmSans = DM_Sans({
-  subsets: ['latin'],
-  weight: ['300', '400', '500'],
-  variable: '--font-dm-sans',
-  display: 'swap',
-})
-
-const dmMono = DM_Mono({
-  subsets: ['latin'],
-  weight: ['300', '400', '500'],
-  variable: '--font-dm-mono',
-  display: 'swap',
-})
 
 export async function generateStaticParams() {
   return [{ lang: 'en' }, { lang: 'es' }]
@@ -153,8 +130,14 @@ export default function LangLayout({
   params: { lang: Lang }
 }) {
   return (
-    <html lang={params.lang} className={`${playfair.variable} ${dmSans.variable} ${dmMono.variable}`}>
+    <html lang={params.lang}>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap"
+          rel="stylesheet"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}

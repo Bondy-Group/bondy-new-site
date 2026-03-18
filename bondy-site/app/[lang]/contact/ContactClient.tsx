@@ -10,6 +10,17 @@ type FormData = {
   name: string; email: string; company: string; role: string; message: string; service: string
 }
 
+const tw = {
+  bg: '#FEFCF9', ink: '#1A1A1A', inkMid: '#3A3530', inkSub: '#5A5550',
+  inkFaint: '#7A7874', rule: '#E8E4DE', white: '#FFFFFF', green: '#4A8C40',
+}
+const notebookBg = [
+  'linear-gradient(90deg, transparent 68px, rgba(210,100,80,0.10) 68px, rgba(210,100,80,0.10) 69.5px, transparent 69.5px)',
+  'repeating-linear-gradient(180deg, transparent 0px, transparent 31px, rgba(100,140,200,0.09) 31px, rgba(100,140,200,0.09) 32px)',
+].join(',')
+const serif = "'Special Elite', Georgia, serif"
+const mono  = "'Courier Prime', Courier, monospace"
+
 export default function ContactClient({ params }: { params: { lang: Lang } }) {
   const lang = params.lang
   const tr = t(lang)
@@ -41,94 +52,92 @@ export default function ContactClient({ params }: { params: { lang: Lang } }) {
   const inputStyle: React.CSSProperties = {
     width: '100%',
     background: 'transparent',
-    borderBottom: '1px solid #DDD8D0',
+    borderBottom: `1px solid ${tw.rule}`,
     padding: '14px 0',
-    color: '#1A1A1A',
-    fontSize: '16px',
-    fontWeight: 300,
+    color: tw.ink,
+    fontFamily: mono,
+    fontSize: '15px',
     outline: 'none',
     transition: 'border-color 0.2s',
   }
 
   const labelStyle: React.CSSProperties = {
-    fontFamily: 'DM Mono, monospace',
+    fontFamily: mono,
     fontSize: '10px',
     letterSpacing: '0.18em',
     textTransform: 'uppercase' as const,
-    color: '#C06A2D',
+    color: tw.green,
     display: 'block',
     marginBottom: '10px',
   }
 
   return (
-    <main style={{ background: '#F0EBE3', minHeight: '100vh' }}>
+    <main style={{ backgroundColor: tw.bg, backgroundImage: notebookBg, minHeight: '100vh' }}>
       <Nav lang={lang} tr={tr.nav} />
 
-      {/* Header — blanco puro */}
-      <header style={{ paddingTop: '60px', background: '#FFFFFF', borderBottom: '1px solid #E8E4DE' }}>
+      {/* Header */}
+      <header style={{ background: tw.white, borderBottom: `1px solid ${tw.rule}` }}>
         <div style={{ padding: '4.5rem clamp(1.25rem,5vw,4rem) 4rem', maxWidth: '760px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '2rem' }}>
-            <div style={{ width: '22px', height: '1px', background: '#C06A2D', flexShrink: 0 }} />
-            <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C06A2D' }}>
+            <div style={{ width: '22px', height: '1px', background: tw.green }} />
+            <span style={{ fontFamily: mono, fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: tw.green }}>
               {c.label}
             </span>
-            <div style={{ width: '22px', height: '1px', background: 'rgba(192,106,45,0.4)', flexShrink: 0 }} />
           </div>
-          <h1 style={{ fontFamily: 'Playfair Display, Georgia, serif', fontSize: 'clamp(40px,5vw,68px)', fontWeight: 900, lineHeight: 1.05, letterSpacing: '-0.02em', color: '#1A1A1A', marginBottom: '1.5rem' }}>
-            {c.h1_1}<br />{c.h1_2} <em style={{ color: '#C06A2D', fontStyle: 'italic' }}>{c.h1_em}</em>
+          <h1 style={{ fontFamily: serif, fontSize: 'clamp(2.5rem,5vw,4.5rem)', lineHeight: 1.05, color: tw.inkMid, marginBottom: '0.5rem' }} className="tw-ink-heavy">
+            {c.h1_1}<br />{c.h1_2} {c.h1_em}
           </h1>
-          <p style={{ fontSize: '17px', lineHeight: 1.78, fontWeight: 300, maxWidth: '520px', color: '#6B6966' }}>
+          <svg width="240" height="8" viewBox="0 0 240 8" fill="none" style={{ display: 'block', marginBottom: '2rem' }}>
+            <path d="M0 4 Q60 1 120 4 Q180 7 240 4" stroke="#4A8C40" strokeWidth="2" fill="none" strokeLinecap="round"/>
+          </svg>
+          <p style={{ fontFamily: mono, fontSize: '15px', lineHeight: 1.78, maxWidth: '520px', color: tw.inkSub }}>
             {c.intro}
           </p>
         </div>
       </header>
 
-      {/* Main — split: datos de contacto (stone) / form (blanco) */}
+      {/* Split */}
       <section>
-        <div className="contact-split-grid" style={{ borderBottom: '1px solid #E0DBD3' }}>
+        <div className="contact-split-grid" style={{ borderBottom: `1px solid ${tw.rule}` }}>
 
-          {/* Left — info (stone) */}
-          <div style={{ background: '#F0EBE3', borderRight: '1px solid #E0DBD3', padding: '4rem clamp(1.25rem,4vw,3.5rem)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-            <div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
-                <div>
-                  <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#A09D99', marginBottom: '8px' }}>
-                    {c.emailLabel}
-                  </div>
-                  <a href="mailto:hello@wearebondy.com" style={{ fontSize: '16px', fontWeight: 300, color: '#1A1A1A', textDecoration: 'none' }}>
-                    hello@wearebondy.com
-                  </a>
+          {/* Left — info */}
+          <div style={{ background: tw.bg, borderRight: `1px solid ${tw.rule}`, padding: '4rem clamp(1.25rem,4vw,3.5rem)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
+              <div>
+                <div style={{ fontFamily: mono, fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: tw.inkFaint, marginBottom: '8px' }}>
+                  {c.emailLabel}
                 </div>
-                <div>
-                  <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#A09D99', marginBottom: '8px' }}>
-                    {c.linkedinLabel}
-                  </div>
-                  <a href="https://linkedin.com/company/bondygroup" target="_blank" rel="noopener noreferrer" style={{ fontSize: '16px', fontWeight: 300, color: '#6B6966', textDecoration: 'none' }}>
-                    /company/bondygroup ↗
-                  </a>
+                <a href="mailto:hello@wearebondy.com" style={{ fontFamily: mono, fontSize: '15px', color: tw.green, textDecoration: 'none' }}>
+                  hello@wearebondy.com
+                </a>
+              </div>
+              <div>
+                <div style={{ fontFamily: mono, fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: tw.inkFaint, marginBottom: '8px' }}>
+                  {c.linkedinLabel}
                 </div>
+                <a href="https://linkedin.com/company/bondygroup" target="_blank" rel="noopener noreferrer" style={{ fontFamily: mono, fontSize: '14px', color: tw.inkSub, textDecoration: 'none' }}>
+                  /company/bondygroup ↗
+                </a>
               </div>
             </div>
-
-            {/* Join strip */}
-            <div style={{ marginTop: '4rem', borderTop: '1px solid #DDD8D0', paddingTop: '2.5rem' }}>
-              <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C06A2D', marginBottom: '0.75rem' }}>
+            <div style={{ marginTop: '4rem', borderTop: `1px solid ${tw.rule}`, paddingTop: '2.5rem' }}>
+              <div style={{ fontFamily: mono, fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: tw.green, marginBottom: '0.75rem' }}>
                 {c.joiningLabel}
               </div>
-              <p style={{ fontSize: '15px', fontWeight: 300, lineHeight: 1.75, color: '#6B6966' }}>
+              <p style={{ fontFamily: mono, fontSize: '14px', lineHeight: 1.75, color: tw.inkSub }}>
                 {c.joiningBody}
               </p>
             </div>
           </div>
 
-          {/* Right — form (blanco) */}
-          <div style={{ background: '#FFFFFF', padding: '4rem clamp(1.25rem,4vw,3.5rem)' }}>
+          {/* Right — form */}
+          <div style={{ background: tw.white, padding: '4rem clamp(1.25rem,4vw,3.5rem)' }}>
             {status === 'success' ? (
               <div style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                <div style={{ fontFamily: 'Playfair Display, Georgia, serif', fontSize: '42px', fontWeight: 900, color: '#1A1A1A', marginBottom: '1rem' }}>
+                <div style={{ fontFamily: serif, fontSize: '2.5rem', color: tw.inkMid, marginBottom: '1rem' }} className="tw-ink">
                   {c.success.title}
                 </div>
-                <p style={{ fontSize: '16px', fontWeight: 300, lineHeight: 1.75, maxWidth: '360px', color: '#6B6966' }}>
+                <p style={{ fontFamily: mono, fontSize: '15px', lineHeight: 1.75, maxWidth: '360px', color: tw.inkSub }}>
                   {c.success.body}
                 </p>
               </div>
@@ -175,12 +184,18 @@ export default function ContactClient({ params }: { params: { lang: Lang } }) {
                   <button
                     type="submit"
                     disabled={status === 'loading'}
-                    style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', background: '#C06A2D', color: '#0E0E0E', fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', padding: '14px 32px', border: 'none', cursor: 'pointer', fontWeight: 500, opacity: status === 'loading' ? 0.5 : 1 }}
+                    style={{
+                      display: 'inline-flex', alignItems: 'center', gap: '10px',
+                      background: tw.green, color: '#fff',
+                      fontFamily: mono, fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase',
+                      padding: '13px 28px', border: 'none', cursor: 'pointer',
+                      opacity: status === 'loading' ? 0.5 : 1,
+                    }}
                   >
                     {status === 'loading' ? c.form.sending : c.form.submit}
                   </button>
                   {status === 'error' && (
-                    <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', color: '#C0392B', letterSpacing: '0.1em' }}>
+                    <span style={{ fontFamily: mono, fontSize: '10px', color: '#C0392B', letterSpacing: '0.1em' }}>
                       {c.form.errorMsg}
                     </span>
                   )}
@@ -206,7 +221,7 @@ export default function ContactClient({ params }: { params: { lang: Lang } }) {
         }
         @media (max-width: 768px) {
           .contact-split-grid { grid-template-columns: 1fr !important; }
-          .contact-split-grid > div:first-child { border-right: none !important; border-bottom: 1px solid #E0DBD3; }
+          .contact-split-grid > div:first-child { border-right: none !important; border-bottom: 1px solid #E8E4DE; }
           .form-two-col { grid-template-columns: 1fr !important; gap: 2rem; }
         }
       `}</style>

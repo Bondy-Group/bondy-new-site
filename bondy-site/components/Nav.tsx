@@ -10,6 +10,24 @@ type NavProps = {
   tr: Translations['nav']
 }
 
+/* ── Logo SVG — 4 asientos (Brand v4) ── */
+function BondyLogo({ size = 22 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 40 40" fill="none" aria-hidden="true">
+      <rect x="4"  y="5"  width="14" height="12" rx="2.5" fill="#1A1A1A" />
+      <rect x="22" y="5"  width="14" height="12" rx="2.5" fill="#1A1A1A" opacity=".18" />
+      <rect x="4"  y="22" width="14" height="12" rx="2.5" fill="#1A1A1A" opacity=".42" />
+      <rect x="22" y="22" width="14" height="12" rx="2.5" fill="#4A8C40" />
+    </svg>
+  )
+}
+
+/* ── Notebook background CSS ── */
+const notebookBg = [
+  'linear-gradient(90deg, transparent 68px, rgba(210,100,80,0.10) 68px, rgba(210,100,80,0.10) 69.5px, transparent 69.5px)',
+  'repeating-linear-gradient(180deg, transparent 0px, transparent 31px, rgba(100,140,200,0.09) 31px, rgba(100,140,200,0.09) 32px)',
+].join(',')
+
 export default function Nav({ lang, tr }: NavProps) {
   const [menuOpen, setMenuOpen] = useState(false)
   const pathname = usePathname()
@@ -17,72 +35,79 @@ export default function Nav({ lang, tr }: NavProps) {
 
   const otherLang: Lang = lang === 'en' ? 'es' : 'en'
 
-  // Switch language: replace /en/ with /es/ or vice versa
   const switchLang = () => {
-    // Set cookie so middleware remembers preference
     document.cookie = `lang=${otherLang};path=/;max-age=31536000`
     const newPath = pathname.replace(`/${lang}`, `/${otherLang}`)
     router.push(newPath)
   }
 
-  // Path helper — strips lang prefix for comparison
   const isActive = (href: string) => {
     const cleanPath = pathname.replace(`/${lang}`, '') || '/'
     return cleanPath === href || cleanPath.startsWith(href + '/')
   }
 
-  // Link helper — adds lang prefix
   const lk = (href: string) => `/${lang}${href}`
 
   const navLinks = [
-    { href: '/method',    label: tr.method },
-    { href: '/services',  label: tr.services },
-    { href: '/work',      label: tr.work },
-    { href: '/about',     label: tr.about },
-    { href: '/thinking',  label: tr.thinking },
-    { href: '/jobs',      label: tr.jobs },
-    { href: '/practice',  label: tr.practice },
+    { href: '/method',   label: tr.method   },
+    { href: '/services', label: tr.services },
+    { href: '/work',     label: tr.work     },
+    { href: '/practice', label: tr.practice },
   ]
 
   return (
     <nav
-      className="fixed top-0 left-0 right-0 z-50"
       style={{
-        background: 'rgba(14,14,14,0.97)',
-        backdropFilter: 'blur(16px)',
-        borderBottom: '1px solid rgba(255,255,255,0.07)',
+        position: 'sticky',
+        top: 0,
+        zIndex: 100,
+        height: '60px',
+        backgroundColor: 'rgba(254,252,249,0.97)',
+        backgroundImage: notebookBg,
+        backdropFilter: 'blur(12px)',
+        borderBottom: '1px solid #E8E4DE',
       }}
     >
       <div
-        className="flex items-center justify-between"
-        style={{ padding: '0 clamp(1.25rem,5vw,4rem)', height: '60px' }}
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          height: '100%',
+          padding: '0 clamp(1.25rem,5vw,4rem)',
+        }}
       >
-        {/* Logo */}
-        <Link href={lk('/')} className="flex items-center shrink-0" style={{ textDecoration: 'none' }}>
+        {/* Wordmark */}
+        <Link
+          href={lk('/')}
+          style={{ display: 'flex', alignItems: 'center', gap: '9px', textDecoration: 'none' }}
+        >
+          <BondyLogo size={22} />
           <span style={{
-            fontFamily: 'Playfair Display, Georgia, serif',
-            fontSize: '20px',
-            fontWeight: 900,
-            color: '#F4F2EE',
-            letterSpacing: '-0.02em',
+            fontFamily: "'Special Elite', Georgia, serif",
+            fontSize: '17px',
+            color: '#1A1A1A',
+            letterSpacing: '0.04em',
           }}>
-            Bond<em style={{ fontStyle: 'italic', color: '#C06A2D' }}>y</em><span style={{ color: '#C06A2D' }}>.</span>
+            BONDY
           </span>
         </Link>
 
         {/* Desktop links */}
-        <ul className="hidden md:flex items-center" style={{ gap: '2.5rem', listStyle: 'none', margin: 0, padding: 0 }}>
+        <ul
+          className="hidden md:flex"
+          style={{ alignItems: 'center', gap: '2rem', listStyle: 'none', margin: 0, padding: 0 }}
+        >
           {navLinks.map(({ href, label }) => (
             <li key={href}>
               <Link
                 href={lk(href)}
                 style={{
-                  fontFamily: 'DM Mono, monospace',
-                  fontSize: '10px',
-                  letterSpacing: '0.13em',
-                  textTransform: 'uppercase',
+                  fontFamily: "'Courier Prime', Courier, monospace",
+                  fontSize: '14px',
+                  letterSpacing: '0.04em',
                   textDecoration: 'none',
-                  color: isActive(href) ? '#F4F2EE' : 'rgba(255,255,255,0.4)',
+                  color: isActive(href) ? '#1A1A1A' : '#7A7874',
                   transition: 'color 0.18s',
                 }}
               >
@@ -93,21 +118,27 @@ export default function Nav({ lang, tr }: NavProps) {
 
           {/* Lang toggle */}
           <li style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-            <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.13em', textTransform: 'uppercase', color: '#F4F2EE' }}>
+            <span style={{
+              fontFamily: "'Courier Prime', Courier, monospace",
+              fontSize: '11px',
+              letterSpacing: '0.13em',
+              textTransform: 'uppercase',
+              color: '#1A1A1A',
+            }}>
               {lang.toUpperCase()}
             </span>
-            <span style={{ color: 'rgba(255,255,255,0.18)', fontSize: '9px', margin: '0 2px' }}>/</span>
+            <span style={{ color: '#E8E4DE', fontSize: '9px', margin: '0 2px' }}>/</span>
             <button
               onClick={switchLang}
               style={{
-                fontFamily: 'DM Mono, monospace',
-                fontSize: '10px',
+                fontFamily: "'Courier Prime', Courier, monospace",
+                fontSize: '11px',
                 letterSpacing: '0.13em',
                 textTransform: 'uppercase',
                 background: 'none',
                 border: 'none',
                 cursor: 'pointer',
-                color: 'rgba(255,255,255,0.35)',
+                color: '#7A7874',
                 padding: 0,
                 transition: 'color 0.18s',
               }}
@@ -120,17 +151,15 @@ export default function Nav({ lang, tr }: NavProps) {
             <Link
               href={lk('/contact')}
               style={{
-                fontFamily: 'DM Mono, monospace',
-                fontSize: '10px',
-                letterSpacing: '0.13em',
+                fontFamily: "'Courier Prime', Courier, monospace",
+                fontSize: '11px',
+                letterSpacing: '0.10em',
                 textTransform: 'uppercase',
                 textDecoration: 'none',
-                color: '#C06A2D',
-                borderBottom: '1px solid rgba(192,106,45,0.35)',
-                paddingBottom: '2px',
+                color: '#4A8C40',
               }}
             >
-              {tr.cta}
+              {tr.cta} →
             </Link>
           </li>
         </ul>
@@ -140,7 +169,7 @@ export default function Nav({ lang, tr }: NavProps) {
           className="md:hidden"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
-          style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'rgba(255,255,255,0.5)', padding: 0 }}
+          style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#5A5550', padding: 0 }}
         >
           <svg width="20" height="14" viewBox="0 0 20 14" fill="none">
             {menuOpen ? (
@@ -160,7 +189,11 @@ export default function Nav({ lang, tr }: NavProps) {
       {menuOpen && (
         <div
           className="md:hidden flex flex-col"
-          style={{ borderTop: '1px solid rgba(255,255,255,0.07)', background: '#0E0E0E' }}
+          style={{
+            borderTop: '1px solid #E8E4DE',
+            backgroundColor: '#FEFCF9',
+            backgroundImage: notebookBg,
+          }}
         >
           {navLinks.map(({ href, label }) => (
             <Link
@@ -168,33 +201,31 @@ export default function Nav({ lang, tr }: NavProps) {
               href={lk(href)}
               onClick={() => setMenuOpen(false)}
               style={{
-                fontFamily: 'DM Mono, monospace',
-                fontSize: '11px',
-                letterSpacing: '0.13em',
-                textTransform: 'uppercase',
+                fontFamily: "'Courier Prime', Courier, monospace",
+                fontSize: '14px',
+                letterSpacing: '0.04em',
                 textDecoration: 'none',
-                color: isActive(href) ? '#F4F2EE' : 'rgba(255,255,255,0.45)',
+                color: isActive(href) ? '#1A1A1A' : '#7A7874',
                 padding: '1rem clamp(1.25rem,5vw,4rem)',
-                borderBottom: '1px solid rgba(255,255,255,0.06)',
+                borderBottom: '1px solid #E8E4DE',
+                display: 'block',
               }}
             >
               {label}
             </Link>
           ))}
-          {/* Mobile lang switch */}
           <button
             onClick={() => { switchLang(); setMenuOpen(false) }}
             style={{
-              fontFamily: 'DM Mono, monospace',
-              fontSize: '11px',
-              letterSpacing: '0.13em',
-              textTransform: 'uppercase',
+              fontFamily: "'Courier Prime', Courier, monospace",
+              fontSize: '14px',
+              letterSpacing: '0.04em',
               background: 'none',
               border: 'none',
               cursor: 'pointer',
-              color: 'rgba(255,255,255,0.35)',
+              color: '#7A7874',
               padding: '1rem clamp(1.25rem,5vw,4rem)',
-              borderBottom: '1px solid rgba(255,255,255,0.06)',
+              borderBottom: '1px solid #E8E4DE',
               textAlign: 'left',
             }}
           >
@@ -204,16 +235,16 @@ export default function Nav({ lang, tr }: NavProps) {
             href={lk('/contact')}
             onClick={() => setMenuOpen(false)}
             style={{
-              fontFamily: 'DM Mono, monospace',
-              fontSize: '11px',
-              letterSpacing: '0.13em',
-              textTransform: 'uppercase',
+              fontFamily: "'Courier Prime', Courier, monospace",
+              fontSize: '14px',
+              letterSpacing: '0.04em',
               textDecoration: 'none',
-              color: '#C06A2D',
+              color: '#4A8C40',
               padding: '1rem clamp(1.25rem,5vw,4rem)',
+              display: 'block',
             }}
           >
-            {tr.cta}
+            {tr.cta} →
           </Link>
         </div>
       )}

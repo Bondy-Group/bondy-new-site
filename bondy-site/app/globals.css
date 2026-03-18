@@ -3,37 +3,36 @@
 @tailwind utilities;
 
 :root {
-  --font-playfair: 'Playfair Display', Georgia, serif;
-  --font-dm-sans:  'DM Sans', system-ui, sans-serif;
-  --font-dm-mono:  'DM Mono', monospace;
+  /* ── Sistema Typewriter (Brand v4) ── */
+  --tw-bg:         #FEFCF9;
+  --tw-ink:        #1A1A1A;
+  --tw-ink-mid:    #3A3530;
+  --tw-ink-sub:    #5A5550;
+  --tw-ink-faint:  #7A7874;
+  --tw-rule:       #E8E4DE;
+  --tw-white:      #FFFFFF;
+  --tw-green:      #4A8C40;
+  --tw-margin:     rgba(210,100,80,0.10);
+  --tw-lines:      rgba(100,140,200,0.09);
 
-  /* Sienna accent system */
-  --sie:       #C06A2D;
-  --sie-lt:    #D86830;
-  --sie-xl:    #F09060;
-  --sie-faint: #FBF0EB;
-  --sie-dk:    #8C3C14;
-
-  /* Neutral palette */
-  --ink:       #1A1A1A;
-  --mid:       #888885;
-  --stone:     #F0EBE3;
-  --off:       #F9F8F6;
-  --rule:      #E8E2DA;
+  /* Fuentes */
+  --font-special-elite: 'Special Elite', Georgia, serif;
+  --font-courier:       'Courier Prime', Courier, monospace;
 }
 
 @layer base {
   html {
-    font-family: var(--font-dm-sans);
-    font-weight: 300;
-    color: #1A1A1A;
-    background: #111111;
+    font-family: var(--font-courier);
+    font-weight: 400;
+    color: var(--tw-ink);
+    background: var(--tw-bg);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   body {
-    background: #111111;
+    background: var(--tw-bg);
+    color: var(--tw-ink);
   }
 
   * {
@@ -42,26 +41,35 @@
 }
 
 @layer utilities {
+  /* Tipografías */
   .font-display {
-    font-family: var(--font-playfair);
+    font-family: var(--font-special-elite);
   }
 
-  .font-mono-bondy {
-    font-family: var(--font-dm-mono);
+  .font-body {
+    font-family: var(--font-courier);
+  }
+
+  /* Fondo cuaderno */
+  .notebook-bg {
+    background-color: var(--tw-bg);
+    background-image:
+      linear-gradient(90deg, transparent 68px, var(--tw-margin) 68px, var(--tw-margin) 69.5px, transparent 69.5px),
+      repeating-linear-gradient(180deg, transparent 0px, transparent 31px, var(--tw-lines) 31px, var(--tw-lines) 32px);
+  }
+
+  /* Efectos de tinta (solo en Special Elite) */
+  .tw-ink {
+    opacity: 0.88;
+    text-shadow: 0.3px 0.3px 0px rgba(0,0,0,0.15);
+  }
+
+  .tw-ink-heavy {
+    opacity: 0.95;
+    text-shadow: 0.5px 0.5px 0px rgba(0,0,0,0.25);
   }
 
   .text-balance {
     text-wrap: balance;
-  }
-
-  /* Light page utility — use on <main> for interior pages */
-  .page-light {
-    background: var(--stone);
-    color: var(--ink);
-  }
-
-  /* Sienna accent text */
-  .text-sie {
-    color: var(--sie);
   }
 }

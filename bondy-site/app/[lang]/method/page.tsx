@@ -3,13 +3,12 @@ import Footer from '@/components/Footer'
 import Link from 'next/link'
 import type { Lang } from '@/lib/i18n/translations'
 import { t } from '@/lib/i18n/translations'
-
 import type { Metadata } from 'next'
 
 const pageMeta = {
   en: {
     title: 'The Bondy Method — How We Hire Engineers Right',
-    description: 'We don\'t move fast. We move right. Learn the process Bondy uses to find, evaluate, and place technical talent in engineering teams across LATAM.',
+    description: "We don't move fast. We move right. Learn the process Bondy uses to find, evaluate, and place technical talent in engineering teams across LATAM.",
   },
   es: {
     title: 'El Método Bondy — Cómo Contratamos Ingenieros Bien',
@@ -17,35 +16,27 @@ const pageMeta = {
   },
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { lang: 'en' | 'es' }
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { lang: 'en' | 'es' } }): Promise<Metadata> {
   const baseUrl = 'https://wearebondy.com'
   const meta = pageMeta[params.lang] ?? pageMeta.en
   const canonical = `${baseUrl}/${params.lang}/method`
   return {
-    title: meta.title,
-    description: meta.description,
-    alternates: {
-      canonical,
-      languages: {
-        en: `${baseUrl}/en/method`,
-        es: `${baseUrl}/es/method`,
-      },
-    },
-    openGraph: {
-      title: meta.title,
-      description: meta.description,
-      url: canonical,
-      siteName: 'Bondy',
-      locale: params.lang === 'es' ? 'es_AR' : 'en_US',
-      type: 'website',
-    },
+    title: meta.title, description: meta.description,
+    alternates: { canonical, languages: { en: `${baseUrl}/en/method`, es: `${baseUrl}/es/method` } },
+    openGraph: { title: meta.title, description: meta.description, url: canonical, siteName: 'Bondy', locale: params.lang === 'es' ? 'es_AR' : 'en_US', type: 'website' },
   }
 }
 
+const tw = {
+  bg: '#FEFCF9', ink: '#1A1A1A', inkMid: '#3A3530', inkSub: '#5A5550',
+  inkFaint: '#7A7874', rule: '#E8E4DE', white: '#FFFFFF', green: '#4A8C40',
+}
+const notebookBg = [
+  'linear-gradient(90deg, transparent 68px, rgba(210,100,80,0.10) 68px, rgba(210,100,80,0.10) 69.5px, transparent 69.5px)',
+  'repeating-linear-gradient(180deg, transparent 0px, transparent 31px, rgba(100,140,200,0.09) 31px, rgba(100,140,200,0.09) 32px)',
+].join(',')
+const serif = "'Special Elite', Georgia, serif"
+const mono  = "'Courier Prime', Courier, monospace"
 
 export default function MethodPage({ params }: { params: { lang: Lang } }) {
   const lang = params.lang
@@ -54,65 +45,62 @@ export default function MethodPage({ params }: { params: { lang: Lang } }) {
   const lk = (href: string) => `/${lang}${href}`
 
   return (
-    <main style={{ background: '#F0EBE3', minHeight: '100vh' }}>
+    <main style={{ backgroundColor: tw.bg, backgroundImage: notebookBg, minHeight: '100vh' }}>
       <Nav lang={lang} tr={tr.nav} />
 
-      {/* Header — blanco puro */}
-      <header style={{ paddingTop: '60px', background: '#FFFFFF', borderBottom: '1px solid #E8E4DE' }}>
+      {/* Header */}
+      <header style={{ background: tw.white, borderBottom: `1px solid ${tw.rule}` }}>
         <div style={{ padding: '4.5rem clamp(1.25rem,5vw,4rem) 4rem', maxWidth: '860px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '2rem' }}>
-            <div style={{ width: '22px', height: '1px', background: '#C06A2D', flexShrink: 0 }} />
-            <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C06A2D' }}>
+            <div style={{ width: '22px', height: '1px', background: tw.green }} />
+            <span style={{ fontFamily: mono, fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: tw.green }}>
               {m.label}
             </span>
-            <div style={{ width: '22px', height: '1px', background: 'rgba(192,106,45,0.4)', flexShrink: 0 }} />
           </div>
-          <h1 style={{ fontFamily: 'Playfair Display, Georgia, serif', fontSize: 'clamp(48px,6vw,80px)', fontWeight: 900, lineHeight: 1.05, letterSpacing: '-0.02em', color: '#1A1A1A', marginBottom: '2rem' }}>
-            {m.h1_1}<br />{m.h1_2} <em style={{ color: '#C06A2D', fontStyle: 'italic' }}>{m.h1_em}</em>
+          <h1 style={{ fontFamily: serif, fontSize: 'clamp(2.5rem,6vw,5rem)', lineHeight: 1.05, color: tw.inkMid, marginBottom: '0.5rem' }} className="tw-ink-heavy">
+            {m.h1_1}<br />{m.h1_2} {m.h1_em}
           </h1>
-          <p style={{ fontSize: '17px', lineHeight: 1.78, fontWeight: 300, maxWidth: '580px', color: '#6B6966' }}>
+          <svg width="280" height="8" viewBox="0 0 280 8" fill="none" style={{ display: 'block', marginBottom: '2rem' }}>
+            <path d="M0 4 Q70 1 140 4 Q210 7 280 4" stroke="#4A8C40" strokeWidth="2" fill="none" strokeLinecap="round"/>
+          </svg>
+          <p style={{ fontFamily: mono, fontSize: '15px', lineHeight: 1.78, maxWidth: '580px', color: tw.inkSub }}>
             {m.intro}
           </p>
         </div>
       </header>
 
-      {/* Steps — alternando stone / blanco */}
+      {/* Steps */}
       <section>
         {m.steps.map((step, i) => (
           <div
             key={step.n}
             style={{
-              background: i % 2 === 0 ? '#F0EBE3' : '#FFFFFF',
-              borderBottom: '1px solid #E0DBD3',
+              background: i % 2 === 0 ? tw.bg : tw.white,
+              borderBottom: `1px solid ${tw.rule}`,
               padding: '3.5rem clamp(1.25rem,5vw,4rem)',
             }}
           >
             <div className="method-step-grid">
-              {/* Número */}
-              <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.15em', color: '#C06A2D', paddingTop: '4px' }}>
+              <div style={{ fontFamily: mono, fontSize: '11px', letterSpacing: '0.15em', color: tw.green, paddingTop: '4px' }}>
                 {step.n}
               </div>
-
-              {/* Contenido */}
               <div>
-                <h2 style={{ fontFamily: 'Playfair Display, Georgia, serif', fontSize: 'clamp(28px,3vw,42px)', fontWeight: 900, lineHeight: 1.15, letterSpacing: '-0.01em', color: '#1A1A1A', marginBottom: '0.6rem' }}>
+                <h2 style={{ fontFamily: serif, fontSize: 'clamp(1.5rem,3vw,2.4rem)', lineHeight: 1.15, color: tw.inkMid, marginBottom: '0.6rem' }} className="tw-ink">
                   {step.title}
                 </h2>
-                <div style={{ fontSize: '15px', fontWeight: 600, color: '#3A3836', marginBottom: '1.25rem' }}>
+                <div style={{ fontFamily: mono, fontSize: '14px', fontWeight: 700, color: tw.inkSub, marginBottom: '1.25rem' }}>
                   {step.subtitle}
                 </div>
-                <p style={{ fontSize: '16px', lineHeight: 1.82, fontWeight: 300, maxWidth: '580px', color: '#6B6966' }}>
+                <p style={{ fontFamily: mono, fontSize: '15px', lineHeight: 1.82, maxWidth: '580px', color: tw.inkSub }}>
                   {step.body}
                 </p>
               </div>
-
-              {/* Timeline badge */}
               <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'flex-start' }}>
-                <div style={{ border: '1px solid #DDD8D0', padding: '10px 18px', background: i % 2 === 0 ? '#FFFFFF' : '#F8F4EF' }}>
-                  <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '9px', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#C4BFB8', marginBottom: '5px' }}>
+                <div style={{ border: `1px solid ${tw.rule}`, padding: '10px 18px', background: i % 2 === 0 ? tw.white : tw.bg }}>
+                  <div style={{ fontFamily: mono, fontSize: '9px', letterSpacing: '0.18em', textTransform: 'uppercase', color: tw.inkFaint, marginBottom: '5px' }}>
                     {m.timelineLabel}
                   </div>
-                  <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '11px', color: '#6B6966' }}>
+                  <div style={{ fontFamily: mono, fontSize: '11px', color: tw.inkSub }}>
                     {step.time}
                   </div>
                 </div>
@@ -122,39 +110,44 @@ export default function MethodPage({ params }: { params: { lang: Lang } }) {
         ))}
       </section>
 
-      {/* Franja sienna — el "1 in 4 rule" o principio clave */}
-      <section style={{ background: '#C06A2D', padding: '3.5rem clamp(1.25rem,5vw,4rem)', borderBottom: '1px solid #A85820' }}>
-        <div style={{ maxWidth: '760px', display: 'flex', gap: '2.5rem', alignItems: 'flex-start' }} className="principle-grid">
-          <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.6)', flexShrink: 0, paddingTop: '4px' }}>
+      {/* 1 in 4 Principle */}
+      <section style={{ background: tw.white, padding: '3.5rem clamp(1.25rem,5vw,4rem)', borderBottom: `1px solid ${tw.rule}`, borderTop: `1px solid ${tw.rule}` }}>
+        <div style={{ maxWidth: '760px', display: 'flex', gap: '2.5rem', alignItems: 'flex-start' }}>
+          <div style={{ fontFamily: mono, fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: tw.green, flexShrink: 0, paddingTop: '4px' }}>
             {lang === 'es' ? 'Principio' : 'Principle'}
           </div>
-          <div>
-            <p style={{ fontFamily: 'Playfair Display, Georgia, serif', fontSize: 'clamp(20px,2.5vw,28px)', fontWeight: 700, lineHeight: 1.4, color: '#FFFFFF', marginBottom: '1rem' }}>
+          <div style={{ borderLeft: `2px solid rgba(74,140,64,0.35)`, paddingLeft: '1.5rem' }}>
+            <p style={{ fontFamily: serif, fontSize: 'clamp(1.1rem,2vw,1.5rem)', lineHeight: 1.4, color: tw.inkMid, marginBottom: '0.75rem' }} className="tw-ink">
               {lang === 'es'
                 ? 'Si menos de 1 de cada 4 candidatos avanza, pausamos la búsqueda.'
                 : 'If fewer than 1 in 4 candidates advance, we stop the search.'}
             </p>
-            <p style={{ fontSize: '15px', lineHeight: 1.75, fontWeight: 300, color: 'rgba(255,255,255,0.75)' }}>
+            <p style={{ fontFamily: mono, fontSize: '14px', lineHeight: 1.75, color: tw.inkSub }}>
               {lang === 'es'
                 ? 'No mandamos más volumen. Nos sentamos con el cliente a realinear el brief. Es la única forma de proteger la calidad del proceso.'
-                : 'We don\'t send more volume. We sit with the client to realign the brief. It\'s the only way to protect the quality of the process.'}
+                : "We don't send more volume. We sit with the client to realign the brief. It's the only way to protect the quality of the process."}
             </p>
           </div>
         </div>
       </section>
 
-      {/* CTA final — negro */}
-      <section style={{ background: '#1A1A1A', padding: '5rem clamp(1.25rem,5vw,4rem)' }}>
+      {/* CTA final */}
+      <section style={{ background: tw.bg, padding: '5rem clamp(1.25rem,5vw,4rem)' }}>
         <div style={{ display: 'grid', gap: '3rem', alignItems: 'center', maxWidth: '900px' }} className="cta-grid">
-          <h2 style={{ fontFamily: 'Playfair Display, Georgia, serif', fontSize: 'clamp(32px,4vw,54px)', fontWeight: 900, lineHeight: 1.1, letterSpacing: '-0.01em', color: '#F4F2EE' }}>
-            {m.cta.h2_1}<br />{m.cta.h2_2} <em style={{ color: '#C06A2D', fontStyle: 'italic' }}>{m.cta.h2_em}</em>
+          <h2 style={{ fontFamily: serif, fontSize: 'clamp(2rem,4vw,3.5rem)', lineHeight: 1.1, color: tw.inkMid }} className="tw-ink">
+            {m.cta.h2_1}<br />{m.cta.h2_2} {m.cta.h2_em}
           </h2>
           <div>
-            <p style={{ fontSize: '16px', lineHeight: 1.78, fontWeight: 300, color: 'rgba(255,255,255,0.5)', marginBottom: '2rem' }}>
+            <p style={{ fontFamily: mono, fontSize: '15px', lineHeight: 1.78, color: tw.inkSub, marginBottom: '2rem' }}>
               {m.cta.body}
             </p>
-            <Link href={lk('/contact')} style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', background: '#C06A2D', color: '#0E0E0E', fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', padding: '14px 32px', textDecoration: 'none', fontWeight: 500 }}>
-              {m.cta.cta}
+            <Link href={lk('/contact')} style={{
+              display: 'inline-flex', alignItems: 'center', gap: '10px',
+              background: tw.green, color: '#fff',
+              fontFamily: mono, fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase',
+              padding: '13px 32px', textDecoration: 'none',
+            }}>
+              {m.cta.cta} →
             </Link>
           </div>
         </div>
@@ -170,12 +163,10 @@ export default function MethodPage({ params }: { params: { lang: Lang } }) {
           align-items: start;
         }
         .cta-grid { grid-template-columns: 1fr 1fr; }
-        .principle-grid { flex-direction: row; }
         @media (max-width: 768px) {
           .method-step-grid { grid-template-columns: 40px 1fr; }
           .method-step-grid > div:last-child { grid-column: 2; }
           .cta-grid { grid-template-columns: 1fr !important; }
-          .principle-grid { flex-direction: column !important; gap: 1rem !important; }
         }
       `}</style>
     </main>
