@@ -8,7 +8,19 @@ import type { Lang } from '@/lib/i18n/translations'
 import { t } from '@/lib/i18n/translations'
 import WorldMap from '@/components/WorldMap'
 
-// ── COPY ─────────────────────────────────────────────────────────────
+// ── Design tokens ─────────────────────────────────────────────────────
+const tw = {
+  bg: '#FEFCF9', ink: '#1A1A1A', inkMid: '#3A3530', inkSub: '#5A5550',
+  inkFaint: '#7A7874', rule: '#E8E4DE', white: '#FFFFFF', green: '#4A8C40',
+}
+const notebookBg = [
+  'linear-gradient(90deg, transparent 68px, rgba(210,100,80,0.10) 68px, rgba(210,100,80,0.10) 69.5px, transparent 69.5px)',
+  'repeating-linear-gradient(180deg, transparent 0px, transparent 31px, rgba(100,140,200,0.09) 31px, rgba(100,140,200,0.09) 32px)',
+].join(',')
+const serif = "'Special Elite', Georgia, serif"
+const mono  = "'Courier Prime', Courier, monospace"
+
+// ── Copy ──────────────────────────────────────────────────────────────
 const copy = {
   en: {
     label: 'Work',
@@ -18,11 +30,11 @@ const copy = {
     mapLabel: 'Geographic reach',
     mapSub: 'projects mapped',
     casesLabel: 'Selected engagements',
-    industriesLabel: 'Industries we\'ve hired for',
+    industriesLabel: "Industries we've hired for",
     ctaLabel: 'Ready to be next?',
     ctaH2a: 'Tell us what you',
     ctaH2b: 'need to build.',
-    ctaBtn: 'Start a search ↗',
+    ctaBtn: 'Start a search',
     readMore: 'Read →',
     close: 'Close ↑',
     challenge: 'The challenge',
@@ -41,7 +53,7 @@ const copy = {
     ctaLabel: '¿Listo para ser el siguiente?',
     ctaH2a: 'Contanos qué',
     ctaH2b: 'necesitás construir.',
-    ctaBtn: 'Iniciar una búsqueda ↗',
+    ctaBtn: 'Iniciar una búsqueda',
     readMore: 'Leer →',
     close: 'Cerrar ↑',
     challenge: 'El desafío',
@@ -50,13 +62,13 @@ const copy = {
   },
 }
 
-// ── STATS ─────────────────────────────────────────────────────────────
+// ── Stats ─────────────────────────────────────────────────────────────
 const stats = {
   en: [
-    { value: '450+', label: 'Hirings completed',      sub: 'since 2008' },
-    { value: '70+',  label: 'Client companies',       sub: 'across 3 continents' },
-    { value: '94%',  label: 'Retention at 6 months',  sub: 'industry avg: ~60%' },
-    { value: '16',   label: 'Years in market',         sub: 'founded Buenos Aires, 2008' },
+    { value: '450+', label: 'Hirings completed',     sub: 'since 2008' },
+    { value: '70+',  label: 'Client companies',      sub: 'across 3 continents' },
+    { value: '94%',  label: 'Retention at 6 months', sub: 'industry avg: ~60%' },
+    { value: '16',   label: 'Years in market',        sub: 'founded Buenos Aires, 2008' },
   ],
   es: [
     { value: '450+', label: 'Contrataciones realizadas', sub: 'desde 2008' },
@@ -66,7 +78,7 @@ const stats = {
   ],
 }
 
-// ── REGIONS ───────────────────────────────────────────────────────────
+// ── Regions ───────────────────────────────────────────────────────────
 const regions = [
   { label: 'United States', projects: 44, x: 19, y: 38 },
   { label: 'Argentina',     projects: 34, x: 29, y: 76 },
@@ -76,7 +88,7 @@ const regions = [
   { label: 'Global/Remote', projects: 60, x: 73, y: 44 },
 ]
 
-// ── CASE STUDIES ──────────────────────────────────────────────────────
+// ── Case studies ──────────────────────────────────────────────────────
 const cases = [
   {
     slug: 'redhat',
@@ -159,9 +171,9 @@ const cases = [
       es: 'Los hiring managers de Disbyte ahora conducen entrevistas estructuradas con scorecards compartidos y un lenguaje de feedback común. Tienen una base de datos de candidatos, un proceso de contratación replicable y una biblioteca de recursos propia. El proyecto terminó con el equipo siendo más autosuficiente — que era exactamente el objetivo.',
     },
     metrics: [
-      { n: '1',     label: { en: 'full training workshop delivered', es: 'taller de capacitación completo' } },
-      { n: 'DB',    label: { en: 'candidate database architected',   es: 'base de candidatos diseñada' } },
-      { n: 'Notion',label: { en: 'resource library, owned by client', es: 'biblioteca de recursos, del cliente' } },
+      { n: '1',      label: { en: 'full training workshop delivered', es: 'taller de capacitación completo' } },
+      { n: 'DB',     label: { en: 'candidate database architected',   es: 'base de candidatos diseñada' } },
+      { n: 'Notion', label: { en: 'resource library, owned by client', es: 'biblioteca de recursos, del cliente' } },
     ],
     tags: ['TA Consulting', 'Hiring Capability', 'Scorecards', 'Interview Training', 'Argentina'],
   },
@@ -173,7 +185,7 @@ const industries = [
   'Enterprise Software', 'Marketplace', 'EdTech',
 ]
 
-// ── PAGE ──────────────────────────────────────────────────────────────
+// ── Page ──────────────────────────────────────────────────────────────
 export default function WorkClient({ params }: { params: { lang: Lang } }) {
   const lang = params.lang
   const tr = t(lang)
@@ -182,27 +194,28 @@ export default function WorkClient({ params }: { params: { lang: Lang } }) {
   const [openCase, setOpenCase] = useState<string | null>(null)
 
   return (
-    <main style={{ background: '#F0EBE3', minHeight: '100vh' }}>
+    <main style={{ backgroundColor: tw.bg, backgroundImage: notebookBg, minHeight: '100vh' }}>
       <Nav lang={lang} tr={tr.nav} />
 
-      {/* ── HEADER — blanco puro */}
-      <header style={{ paddingTop: '60px', background: '#FFFFFF', borderBottom: '1px solid #E8E4DE' }}>
+      {/* ── HEADER ── */}
+      <header style={{ background: tw.white, borderBottom: `1px solid ${tw.rule}` }}>
         <div className="work-header-grid">
           {/* Left */}
-          <div style={{ padding: '4rem clamp(1.25rem,4vw,3.5rem)', borderRight: '1px solid #E8E4DE', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <div style={{ padding: '4rem clamp(1.25rem,4vw,3.5rem)', borderRight: `1px solid ${tw.rule}`, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '2rem' }}>
-                <div style={{ width: '22px', height: '1px', background: '#C06A2D' }} />
-                <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C06A2D' }}>
+                <div style={{ width: '22px', height: '1px', background: tw.green }} />
+                <span style={{ fontFamily: mono, fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: tw.green }}>
                   {c.label}
                 </span>
-                <div style={{ width: '22px', height: '1px', background: 'rgba(192,106,45,0.4)' }} />
               </div>
-              <h1 style={{ fontFamily: 'Playfair Display, Georgia, serif', fontSize: 'clamp(44px,5.5vw,76px)', fontWeight: 900, lineHeight: 1.05, letterSpacing: '-0.02em', color: '#1A1A1A', marginBottom: '1.75rem' }}>
-                {c.h1a}<br />
-                <em style={{ color: '#C06A2D', fontStyle: 'italic' }}>{c.h1b}</em>
+              <h1 style={{ fontFamily: serif, fontSize: 'clamp(2.5rem,5.5vw,5rem)', lineHeight: 1.05, color: tw.inkMid, marginBottom: '0.5rem' }} className="tw-ink-heavy">
+                {c.h1a}<br />{c.h1b}
               </h1>
-              <p style={{ fontSize: '16px', lineHeight: 1.78, fontWeight: 300, maxWidth: '420px', color: '#6B6966' }}>
+              <svg width="240" height="8" viewBox="0 0 240 8" fill="none" style={{ display: 'block', marginBottom: '2rem' }}>
+                <path d="M0 4 Q60 1 120 4 Q180 7 240 4" stroke="#4A8C40" strokeWidth="2" fill="none" strokeLinecap="round"/>
+              </svg>
+              <p style={{ fontFamily: mono, fontSize: '15px', lineHeight: 1.78, maxWidth: '420px', color: tw.inkSub }}>
                 {c.intro}
               </p>
             </div>
@@ -215,25 +228,23 @@ export default function WorkClient({ params }: { params: { lang: Lang } }) {
                 key={s.label}
                 style={{
                   padding: '2.5rem clamp(1rem,3vw,2.5rem)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  borderRight: i % 2 === 0 ? '1px solid #E8E4DE' : 'none',
-                  borderBottom: i < 2 ? '1px solid #E8E4DE' : 'none',
-                  background: i === 3 ? '#F8F4EF' : 'transparent',
+                  display: 'flex', flexDirection: 'column', justifyContent: 'space-between',
+                  borderRight: i % 2 === 0 ? `1px solid ${tw.rule}` : 'none',
+                  borderBottom: i < 2 ? `1px solid ${tw.rule}` : 'none',
+                  background: i === 3 ? tw.bg : tw.white,
                 }}
               >
-                <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#A09D99', lineHeight: 1.5 }}>
+                <span style={{ fontFamily: mono, fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: tw.inkFaint, lineHeight: 1.5 }}>
                   {s.sub}
                 </span>
                 <div>
-                  <div style={{ fontFamily: 'Playfair Display, Georgia, serif', fontSize: 'clamp(44px,4.5vw,60px)', fontWeight: 900, lineHeight: 1, color: '#1A1A1A', letterSpacing: '-0.02em' }}>
+                  <div style={{ fontFamily: serif, fontSize: 'clamp(2.5rem,4.5vw,3.5rem)', lineHeight: 1, color: tw.inkMid }} className="tw-ink">
                     {s.value.endsWith('+')
-                      ? <>{s.value.slice(0, -1)}<span style={{ color: '#C06A2D', fontSize: '60%' }}>+</span></>
+                      ? <>{s.value.slice(0, -1)}<span style={{ color: tw.green, fontSize: '60%' }}>+</span></>
                       : s.value
                     }
                   </div>
-                  <div style={{ fontSize: '13px', fontWeight: 300, marginTop: '6px', color: '#6B6966' }}>{s.label}</div>
+                  <div style={{ fontFamily: mono, fontSize: '13px', marginTop: '6px', color: tw.inkSub }}>{s.label}</div>
                 </div>
               </div>
             ))}
@@ -241,89 +252,96 @@ export default function WorkClient({ params }: { params: { lang: Lang } }) {
         </div>
       </header>
 
-      {/* ── MAP — stone */}
-      <section style={{ background: '#F0EBE3', borderBottom: '1px solid #E0DBD3' }}>
-        <div style={{ padding: '1.5rem clamp(1.25rem,5vw,4rem)', borderBottom: '1px solid #E0DBD3' }}>
-          <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C06A2D' }}>
+      {/* ── MAP ── */}
+      <section style={{ backgroundColor: tw.bg, backgroundImage: notebookBg, borderBottom: `1px solid ${tw.rule}` }}>
+        <div style={{ padding: '1.5rem clamp(1.25rem,5vw,4rem)', borderBottom: `1px solid ${tw.rule}` }}>
+          <span style={{ fontFamily: mono, fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: tw.green }}>
             {c.mapLabel}
-          </div>
+          </span>
         </div>
         <div style={{ padding: '2.5rem clamp(1.25rem,5vw,4rem) 3rem' }}>
           <WorldMap lang={lang} />
         </div>
       </section>
 
-      {/* ── CASE STUDIES — blanco */}
-      <section style={{ background: '#FFFFFF', borderBottom: '1px solid #E0DBD3' }}>
-        <div style={{ padding: '1.5rem clamp(1.25rem,5vw,4rem)', borderBottom: '1px solid #E8E4DE' }}>
-          <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C06A2D' }}>
+      {/* ── CASE STUDIES ── */}
+      <section style={{ background: tw.white, borderBottom: `1px solid ${tw.rule}` }}>
+        <div style={{ padding: '1.5rem clamp(1.25rem,5vw,4rem)', borderBottom: `1px solid ${tw.rule}` }}>
+          <span style={{ fontFamily: mono, fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: tw.green }}>
             {c.casesLabel}
-          </div>
+          </span>
         </div>
 
         <div>
           {cases.map((cs, idx) => (
-            <div key={cs.slug} style={{ borderBottom: '1px solid #EBE7E1' }}>
+            <div key={cs.slug} style={{ borderBottom: `1px solid ${tw.rule}` }}>
+              {/* Row — clickeable */}
               <div
-                style={{ padding: '2.5rem clamp(1.25rem,5vw,4rem)', display: 'grid', gridTemplateColumns: '48px 1fr auto', gap: '1.5rem 2.5rem', alignItems: 'start', cursor: 'pointer', transition: 'background 0.15s', background: openCase === cs.slug ? '#F8F4EF' : 'transparent' }}
+                style={{
+                  padding: '2.5rem clamp(1.25rem,5vw,4rem)',
+                  display: 'grid', gridTemplateColumns: '48px 1fr auto', gap: '1.5rem 2.5rem', alignItems: 'start',
+                  cursor: 'pointer', transition: 'background 0.15s',
+                  background: openCase === cs.slug ? tw.bg : 'transparent',
+                }}
                 onClick={() => setOpenCase(openCase === cs.slug ? null : cs.slug)}
               >
-                <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', color: '#C06A2D', letterSpacing: '0.15em', paddingTop: '4px' }}>
+                <span style={{ fontFamily: mono, fontSize: '10px', color: tw.green, letterSpacing: '0.15em', paddingTop: '4px' }}>
                   0{idx + 1}
                 </span>
 
                 <div>
                   <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
-                    <h2 style={{ fontFamily: 'Playfair Display, Georgia, serif', fontSize: 'clamp(22px,2.5vw,32px)', fontWeight: 900, color: '#1A1A1A', letterSpacing: '-0.01em', lineHeight: 1.1 }}>
+                    <h2 style={{ fontFamily: serif, fontSize: 'clamp(1.4rem,2.5vw,2rem)', color: tw.inkMid, lineHeight: 1.1 }} className="tw-ink">
                       {cs.client}
                     </h2>
-                    <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#C06A2D', border: '1px solid rgba(192,106,45,0.45)', padding: '3px 10px' }}>
+                    <span style={{ fontFamily: mono, fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: tw.green, border: `1px solid rgba(74,140,64,0.4)`, padding: '3px 10px' }}>
                       {cs.type[lang]}
                     </span>
                   </div>
-                  <p style={{ fontSize: '15px', lineHeight: 1.78, fontWeight: 300, maxWidth: '640px', marginBottom: '12px', color: '#5A5754' }}>
+                  <p style={{ fontFamily: mono, fontSize: '14px', lineHeight: 1.78, maxWidth: '640px', marginBottom: '12px', color: tw.inkSub }}>
                     {cs.headline[lang]}
                   </p>
                   <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '10px' }}>
-                    <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.12em', color: '#A09D99' }}>{cs.region}</span>
-                    <span style={{ color: '#C4BFB8' }}>·</span>
-                    <span style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.12em', color: '#A09D99' }}>{cs.year}</span>
+                    <span style={{ fontFamily: mono, fontSize: '10px', letterSpacing: '0.12em', color: tw.inkFaint }}>{cs.region}</span>
+                    <span style={{ color: tw.rule }}>·</span>
+                    <span style={{ fontFamily: mono, fontSize: '10px', letterSpacing: '0.12em', color: tw.inkFaint }}>{cs.year}</span>
                   </div>
                 </div>
 
-                <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: openCase === cs.slug ? '#C06A2D' : '#A09D99', paddingTop: '4px', flexShrink: 0, transition: 'color 0.15s' }}>
+                <div style={{ fontFamily: mono, fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: openCase === cs.slug ? tw.green : tw.inkFaint, paddingTop: '4px', flexShrink: 0, transition: 'color 0.15s' }}>
                   {openCase === cs.slug ? c.close : c.readMore}
                 </div>
               </div>
 
+              {/* Expanded panel */}
               {openCase === cs.slug && (
-                <div style={{ borderTop: '1px solid #E8E4DE', background: '#F8F4EF', padding: '3rem clamp(1.25rem,5vw,4rem) 3.5rem' }}>
+                <div style={{ borderTop: `1px solid ${tw.rule}`, backgroundColor: tw.bg, backgroundImage: notebookBg, padding: '3rem clamp(1.25rem,5vw,4rem) 3.5rem' }}>
                   {/* Metrics */}
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem', marginBottom: '3rem', paddingBottom: '3rem', borderBottom: '1px solid #E0DBD3' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem', marginBottom: '3rem', paddingBottom: '3rem', borderBottom: `1px solid ${tw.rule}` }}>
                     {cs.metrics.map((m) => (
-                      <div key={m.label[lang]} style={{ borderLeft: '2px solid rgba(192,106,45,0.3)', paddingLeft: '1.25rem' }}>
-                        <div style={{ fontFamily: 'Playfair Display, Georgia, serif', fontSize: '40px', fontWeight: 900, color: '#1A1A1A', lineHeight: 1, marginBottom: '8px' }}>
+                      <div key={m.label[lang]} style={{ borderLeft: `2px solid rgba(74,140,64,0.35)`, paddingLeft: '1.25rem' }}>
+                        <div style={{ fontFamily: serif, fontSize: '2.5rem', color: tw.inkMid, lineHeight: 1, marginBottom: '8px' }} className="tw-ink">
                           {m.n}
                         </div>
-                        <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#6B6966' }}>
+                        <div style={{ fontFamily: mono, fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: tw.inkFaint }}>
                           {m.label[lang]}
                         </div>
                       </div>
                     ))}
                   </div>
 
-                  {/* CDA */}
+                  {/* Challenge / Approach / Result */}
                   <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '2.5rem' }} className="case-cda-grid">
                     {[
                       { label: c.challenge, text: cs.challenge[lang] },
-                      { label: c.approach,  text: cs.approach[lang] },
-                      { label: c.result,    text: cs.result[lang] },
+                      { label: c.approach,  text: cs.approach[lang]  },
+                      { label: c.result,    text: cs.result[lang]    },
                     ].map(({ label, text }) => (
                       <div key={label}>
-                        <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C06A2D', marginBottom: '1rem' }}>
+                        <div style={{ fontFamily: mono, fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: tw.green, marginBottom: '1rem' }}>
                           {label}
                         </div>
-                        <p style={{ fontSize: '15px', lineHeight: 1.82, fontWeight: 300, color: '#5A5754' }}>{text}</p>
+                        <p style={{ fontFamily: mono, fontSize: '14px', lineHeight: 1.82, color: tw.inkSub }}>{text}</p>
                       </div>
                     ))}
                   </div>
@@ -331,7 +349,7 @@ export default function WorkClient({ params }: { params: { lang: Lang } }) {
                   {/* Tags */}
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '2.5rem' }}>
                     {cs.tags.map((tag) => (
-                      <span key={tag} style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#6B6966', border: '1px solid #DDD8D0', padding: '6px 12px' }}>
+                      <span key={tag} style={{ fontFamily: mono, fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: tw.inkFaint, border: `1px solid ${tw.rule}`, padding: '6px 12px' }}>
                         {tag}
                       </span>
                     ))}
@@ -343,34 +361,41 @@ export default function WorkClient({ params }: { params: { lang: Lang } }) {
         </div>
       </section>
 
-      {/* ── INDUSTRIES — stone */}
-      <section style={{ background: '#F0EBE3', borderBottom: '1px solid #E0DBD3', padding: '3rem clamp(1.25rem,5vw,4rem)' }}>
-        <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C06A2D', marginBottom: '1.75rem' }}>
+      {/* ── INDUSTRIES ── */}
+      <section style={{ backgroundColor: tw.bg, backgroundImage: notebookBg, borderBottom: `1px solid ${tw.rule}`, padding: '3rem clamp(1.25rem,5vw,4rem)' }}>
+        <div style={{ fontFamily: mono, fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: tw.green, marginBottom: '1.75rem' }}>
           {c.industriesLabel}
         </div>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
           {industries.map((ind) => (
-            <span key={ind} style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#6B6966', border: '1px solid #C4BFB8', padding: '8px 16px', background: '#FFFFFF', transition: 'all 0.15s' }}>
+            <span key={ind} style={{ fontFamily: mono, fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: tw.inkSub, border: `1px solid ${tw.rule}`, padding: '8px 16px', background: tw.white }}>
               {ind}
             </span>
           ))}
         </div>
       </section>
 
-      {/* ── CTA — negro */}
-      <section style={{ background: '#1A1A1A', padding: '5rem clamp(1.25rem,5vw,4rem)', textAlign: 'center' }}>
-        <div style={{ fontFamily: 'DM Mono, monospace', fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#C06A2D', marginBottom: '1.75rem' }}>
+      {/* ── CTA FINAL ── */}
+      <section style={{ background: tw.white, padding: '5rem clamp(1.25rem,5vw,4rem)', textAlign: 'center', borderTop: `1px solid ${tw.rule}` }}>
+        <div style={{ fontFamily: mono, fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', color: tw.green, marginBottom: '1.75rem' }}>
           {c.ctaLabel}
         </div>
-        <h2 style={{ fontFamily: 'Playfair Display, Georgia, serif', fontSize: 'clamp(36px,5vw,64px)', fontWeight: 900, lineHeight: 1.1, letterSpacing: '-0.01em', color: '#F4F2EE', marginBottom: '2.5rem' }}>
-          {c.ctaH2a}<br />
-          <em style={{ color: '#C06A2D', fontStyle: 'italic' }}>{c.ctaH2b}</em>
+        <h2 style={{ fontFamily: serif, fontSize: 'clamp(2rem,5vw,4rem)', lineHeight: 1.1, color: tw.inkMid, marginBottom: '0.5rem' }} className="tw-ink">
+          {c.ctaH2a}<br />{c.ctaH2b}
         </h2>
+        <svg width="200" height="8" viewBox="0 0 200 8" fill="none" style={{ display: 'block', margin: '0 auto 2.5rem' }}>
+          <path d="M0 4 Q50 1 100 4 Q150 7 200 4" stroke="#4A8C40" strokeWidth="2" fill="none" strokeLinecap="round"/>
+        </svg>
         <Link
-          href={`/${lang}/contact`}
-          style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', background: '#C06A2D', color: '#0E0E0E', fontFamily: 'DM Mono, monospace', fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase', padding: '16px 40px', textDecoration: 'none', fontWeight: 500 }}
+          href={lk('/contact')}
+          style={{
+            display: 'inline-flex', alignItems: 'center', gap: '10px',
+            background: tw.green, color: '#fff',
+            fontFamily: mono, fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase',
+            padding: '15px 40px', textDecoration: 'none',
+          }}
         >
-          {c.ctaBtn}
+          {c.ctaBtn} →
         </Link>
       </section>
 
