@@ -1,7 +1,23 @@
 import type { Metadata } from 'next'
 import type { Lang } from '@/lib/i18n/translations'
 import { t } from '@/lib/i18n/translations'
+import { Special_Elite, Courier_Prime } from 'next/font/google'
 import '../globals.css'
+
+const specialElite = Special_Elite({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-special-elite',
+})
+
+const courierPrime = Courier_Prime({
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-courier',
+})
 
 export async function generateStaticParams() {
   return [{ lang: 'en' }, { lang: 'es' }]
@@ -130,14 +146,8 @@ export default function LangLayout({
   params: { lang: Lang }
 }) {
   return (
-    <html lang={params.lang}>
+    <html lang={params.lang} className={`${specialElite.variable} ${courierPrime.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap"
-          rel="stylesheet"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
