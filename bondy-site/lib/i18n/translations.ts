@@ -179,24 +179,24 @@ export const translations = {
     // ── SERVICES PAGE ──
     services: {
       meta: {
-        title: 'Services — Bondy',
-        description: 'Three ways to work with Bondy: Hunting, Talent Pipeline, and Embedded Recruiter.',
+        title: 'Technical Recruiting Services in Argentina & LATAM — Bondy',
+        description: 'Bondy places software engineers and tech talent across Argentina and LATAM. Three engagement models: Hunting, Talent Pipeline, and Embedded Recruiter.',
       },
       label: 'Services',
       h1_1: 'Three ways',
       h1_2: 'we can',
       h1_em: 'work together.',
-      intro: "Different hiring challenges require different approaches. We've designed each service around a specific type of need.",
+      intro: "Technical hiring in Argentina and LATAM isn't one-size-fits-all. We've designed each service around a specific type of need — from urgent searches to embedded recruiting.",
       items: [
         {
           n: '01', id: 'hunting', title: 'Hunting',
           lead: "You need someone hired. Not eventually — this quarter.",
-          body: "We take full ownership of the search, from brief to signed offer. You get a curated shortlist of pre-interviewed candidates within 5 to 7 business days, each with a detailed report. We stay through the close. Every placement comes with a 3-month guarantee — if it doesn't work out, we search again at no extra cost.",
+          body: "We take full ownership of the search, from brief to signed offer. You get a curated shortlist of pre-interviewed engineers and developers — sourced directly in Argentina and across LATAM — within 5 to 7 business days, each with a detailed report. We stay through the close. Every placement comes with a 3-month guarantee — if it doesn't work out, we search again at no extra cost.",
           details: [
             { label: "What's included", text: "Full brief, sourcing strategy, direct search, candidate interviews, detailed reports, offer support." },
             { label: 'Timeline',        text: '5–7 business days to first qualified shortlist. Offer close typically within 3–5 weeks.' },
             { label: 'Guarantee',       text: "3-month placement warranty. We search again if the hire doesn't work out." },
-            { label: 'Best for',        text: 'Specific roles that need to be filled urgently. Senior or hard-to-find profiles.' },
+            { label: 'Best for',        text: 'Specific roles that need to be filled urgently — backend engineers, frontend developers, data scientists, and tech leads. Senior or hard-to-find profiles in Argentina and LATAM.' },
           ],
           cta: 'Start a search ↗',
           ctaStyle: 'primary',
@@ -217,11 +217,11 @@ export const translations = {
         {
           n: '03', id: 'rpo', title: 'Embedded\nRecruiter',
           lead: "A Bondy recruiter, inside your team, for as long as you need.",
-          body: "Market insights in real time, full transparency, no agency markup. For companies with aggressive hiring plans that need both quality and market intelligence. The recruiter works as part of your team, understands your culture deeply, and brings the full weight of the Bondy network.",
+          body: "Market insights in real time, full transparency, no agency markup on engineer salaries in Argentina. For companies with aggressive hiring plans that need both quality and market intelligence. The recruiter works as part of your team, understands your culture deeply, and brings the full weight of the Bondy network across LATAM.",
           details: [
             { label: "What's included", text: "Full-time or part-time embedded recruiter, market salary reports, hiring strategy advisory." },
             { label: 'Engagement',      text: 'Minimum 3 months. Month-to-month renewable.' },
-            { label: 'Best for',        text: 'Series A+ companies scaling from 10 to 50+ engineers. High-velocity hiring plans.' },
+            { label: 'Best for',        text: 'Series A and Series B companies scaling engineering teams in Argentina or LATAM. High-velocity hiring plans where quality can\'t be sacrificed for speed.' },
             { label: 'Advantage',       text: 'You get agency-quality sourcing with in-house commitment and market data.' },
           ],
           cta: 'Learn more →',
