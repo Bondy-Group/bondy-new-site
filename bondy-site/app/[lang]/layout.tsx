@@ -132,6 +132,18 @@ export default function LangLayout({
   return (
     <html lang={params.lang}>
       <head>
+        {/* GA4 — Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4J2J3Q2WGE" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-4J2J3Q2WGE');
+            `,
+          }}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
