@@ -220,10 +220,10 @@ export default function WorldMap({ lang = 'es' }: { lang?: string }) {
     <div className="w-full">
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
-        <span className="font-mono-bondy text-[10px] tracking-widest uppercase text-b-orange">
+        <span style={{ fontFamily: "'Courier Prime', Courier, monospace", fontSize: '10px', letterSpacing: '.16em', textTransform: 'uppercase', color: '#4A8C40' }}>
           {mapLabel}
         </span>
-        <span className="font-mono-bondy text-[10px] tracking-widest text-white/20">
+        <span style={{ fontFamily: "'Courier Prime', Courier, monospace", fontSize: '10px', letterSpacing: '.13em', color: '#7A7874' }}>
           {totalProjects}+ {projectsLbl} · {REGIONS.length} {marketsLbl}
         </span>
       </div>
@@ -236,19 +236,19 @@ export default function WorldMap({ lang = 'es' }: { lang?: string }) {
           preserveAspectRatio="xMidYMid meet"
           style={{ overflow: 'visible' }}
         >
-          {/* Countries — subtle land mass on dark bg */}
+          {/* Sphere fill — very subtle wash so ocean reads differently from land */}
+          <path d={SPHERE} fill="rgba(74,140,64,0.03)" stroke="#E8E4DE" strokeWidth="0.8" />
+
+          {/* Countries — land masses in a slightly warmer tone than cream bg */}
           {COUNTRIES.map(c => (
             <path
               key={c.id}
               d={c.d}
-              fill="#1A1A1A"
-              stroke="#2A2A2A"
+              fill="#E0DCD7"
+              stroke="#D0CBC4"
               strokeWidth="0.5"
             />
           ))}
-
-          {/* Sphere border */}
-          <path d={SPHERE} fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="0.8" />
 
           {/* Region dots */}
           {REGIONS.map(r => {
@@ -264,7 +264,7 @@ export default function WorldMap({ lang = 'es' }: { lang?: string }) {
                 {!h && (
                   <circle
                     cx={r.x} cy={r.y} r="4"
-                    fill="none" stroke="#C06A2D" strokeWidth="1.2"
+                    fill="none" stroke="#4A8C40" strokeWidth="1.2"
                     style={{
                       animation: 'mapPulse 2.6s ease-out infinite',
                       transformBox: 'fill-box',
@@ -273,13 +273,13 @@ export default function WorldMap({ lang = 'es' }: { lang?: string }) {
                   />
                 )}
                 {/* Hover glow */}
-                {h && <circle cx={r.x} cy={r.y} r={r.r + 12} fill="rgba(192,106,45,0.07)" />}
+                {h && <circle cx={r.x} cy={r.y} r={r.r + 12} fill="rgba(74,140,64,0.08)" />}
                 {/* Outer ring */}
                 <circle
                   cx={r.x} cy={r.y}
                   r={h ? r.r + 2 : r.r}
-                  fill={h ? 'rgba(192,106,45,0.2)' : 'rgba(192,106,45,0.10)'}
-                  stroke={h ? '#C06A2D' : 'rgba(192,106,45,0.45)'}
+                  fill={h ? 'rgba(74,140,64,0.18)' : 'rgba(74,140,64,0.10)'}
+                  stroke={h ? '#4A8C40' : 'rgba(74,140,64,0.45)'}
                   strokeWidth={h ? 1.5 : 1}
                   style={{ transition: 'all .18s ease' }}
                 />
@@ -287,7 +287,7 @@ export default function WorldMap({ lang = 'es' }: { lang?: string }) {
                 <circle
                   cx={r.x} cy={r.y}
                   r={h ? 5 : 3.5}
-                  fill={h ? '#F0A060' : '#C06A2D'}
+                  fill={h ? '#5FA855' : '#4A8C40'}
                   style={{ transition: 'all .18s ease' }}
                 />
               </g>
@@ -302,16 +302,16 @@ export default function WorldMap({ lang = 'es' }: { lang?: string }) {
             const ty = pos.y + (flipY ? -84  : 16)
             return (
               <g transform={`translate(${tx},${ty})`} style={{ pointerEvents: 'none', animation: 'tipIn .15s ease forwards' }}>
-                <rect width="156" height="72" rx="2" fill="#141414" stroke="rgba(192,106,45,0.55)" strokeWidth=".8" />
-                <rect width="156" height="3" rx="1" fill="#C06A2D" />
-                <text x="12" y="22" style={{ fontFamily: 'var(--font-dm-sans)', fontSize: '13px', fontWeight: 500, fill: '#F4F2EE' }}>
+                <rect width="156" height="72" rx="2" fill="#FFFFFF" stroke="#E8E4DE" strokeWidth=".8" />
+                <rect width="156" height="3" rx="1" fill="#4A8C40" />
+                <text x="12" y="22" style={{ fontFamily: "'Courier Prime', Courier, monospace", fontSize: '13px', fontWeight: 700, fill: '#3A3530' }}>
                   {hovered.label}
                 </text>
-                <line x1="12" y1="29" x2="144" y2="29" stroke="rgba(255,255,255,0.07)" strokeWidth=".7" />
-                <text x="12" y="46" style={{ fontFamily: 'var(--font-dm-mono)', fontSize: '8px', letterSpacing: '.14em', fill: 'rgba(255,255,255,0.28)', textTransform: 'uppercase' }}>
+                <line x1="12" y1="29" x2="144" y2="29" stroke="#E8E4DE" strokeWidth=".7" />
+                <text x="12" y="46" style={{ fontFamily: "'Courier Prime', Courier, monospace", fontSize: '8px', letterSpacing: '.14em', fill: '#7A7874', textTransform: 'uppercase' }}>
                   {projectsLbl.toUpperCase()}
                 </text>
-                <text x="12" y="65" style={{ fontFamily: 'var(--font-playfair)', fontSize: '22px', fontWeight: 700, fill: '#C06A2D' }}>
+                <text x="12" y="65" style={{ fontFamily: "'Special Elite', Georgia, serif", fontSize: '22px', fill: '#4A8C40' }}>
                   {hovered.projects}+
                 </text>
               </g>
