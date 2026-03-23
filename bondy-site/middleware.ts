@@ -36,10 +36,10 @@ export function middleware(request: NextRequest) {
 
   if (pathnameHasLocale) return NextResponse.next()
 
-  // Redirect to locale path
+  // Redirect to locale path (308 = permanent redirect, preserves POST method and transfers link equity)
   const locale = getLocale(request)
   const newUrl = new URL(`/${locale}${pathname === '/' ? '' : pathname}`, request.url)
-  return NextResponse.redirect(newUrl)
+  return NextResponse.redirect(newUrl, 308)
 }
 
 export const config = {
