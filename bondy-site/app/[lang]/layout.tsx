@@ -144,7 +144,16 @@ export default function LangLayout({
             `,
           }}
         />
-        {/* Fonts: self-hosted via next/font in globals.css — no Google CDN needed */}
+        {/*
+          ⚠️  FUENTES — LEER ANTES DE TOCAR ESTE ARCHIVO
+          Special Elite + Courier Prime están self-hosted via next/font (globals.css).
+          NO agregar links a fonts.googleapis.com acá. Ya ocurrió dos veces — commit 462ea18.
+          Si ves preconnect o stylesheet de Google Fonts = regresión, revertir de inmediato.
+
+          ⚠️  DISEÑO — REGLA ABSOLUTA
+          NO modificar tipografía, colores, layout ni elementos visuales de este sitio.
+          Cambios permitidos: copy, meta tags, configuración técnica, JSON-LD únicamente.
+        */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
