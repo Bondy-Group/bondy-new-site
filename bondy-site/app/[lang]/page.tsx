@@ -8,11 +8,11 @@ import type { Metadata } from 'next'
 const pageMeta = {
   en: {
     title: 'Bondy — Technical Recruiting for Engineering Teams in LATAM',
-    description: 'Bondy is a technical recruiting firm based in Buenos Aires. We help CTOs and VPs of Engineering hire backend, frontend, and data engineers in Argentina and across Latin America.',
+    description: 'Technical recruiting firm in Buenos Aires. We help CTOs and engineering leaders hire backend, frontend, and data engineers across Argentina and LATAM.',
   },
   es: {
     title: 'Bondy — Recruiting Técnico para Equipos de Ingeniería en LATAM',
-    description: 'Bondy es una firma de recruiting técnico con base en Buenos Aires. Ayudamos a CTOs y VPs de Engineering a contratar ingenieros backend, frontend y datos en Argentina y LATAM.',
+    description: 'Firma de recruiting técnico en Buenos Aires. Ayudamos a CTOs y líderes de ingeniería a contratar engineers backend, frontend y datos en LATAM.',
   },
 }
 
