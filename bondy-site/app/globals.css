@@ -2,6 +2,44 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+  ⚠️  FUENTES — self-hosted via @font-face en /public/fonts/
+  Registradas bajo sus nombres REALES para que funcionen con todos los inline styles.
+  NO agregar <link href="fonts.googleapis.com"> ni next/font/google para estas fuentes.
+  NO cambiar los nombres de los archivos en /public/fonts/ sin actualizar los src: abajo.
+*/
+@font-face {
+  font-family: 'Special Elite';
+  src: url('/fonts/special-elite-latin.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Courier Prime';
+  src: url('/fonts/courier-prime-regular-latin.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Courier Prime';
+  src: url('/fonts/courier-prime-bold-latin.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Courier Prime';
+  src: url('/fonts/courier-prime-italic-latin.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
 :root {
   /* ── Sistema Typewriter (Brand v4) ── */
   --tw-bg:         #FEFCF9;
@@ -15,7 +53,7 @@
   --tw-margin:     rgba(210,100,80,0.10);
   --tw-lines:      rgba(100,140,200,0.09);
 
-  /* Fuentes */
+  /* Variables de fuente — apuntan a los nombres reales registrados en @font-face */
   --font-special-elite: 'Special Elite', Georgia, serif;
   --font-courier:       'Courier Prime', Courier, monospace;
 }
