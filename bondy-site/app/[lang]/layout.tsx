@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import type { Lang } from '@/lib/i18n/translations'
 import { t } from '@/lib/i18n/translations'
+import Script from 'next/script'
 import '../globals.css'
 
 /*
@@ -140,18 +141,7 @@ export default function LangLayout({
   return (
     <html lang={params.lang}>
       <head>
-        {/* GA4 — Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4J2J3Q2WGE" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-4J2J3Q2WGE');
-            `,
-          }}
-        />
+        {/* GA4 — migrado a next/script strategy="afterInteractive" para no bloquear LCP */}
         {/*
           ⚠️  FUENTES — LEER ANTES DE TOCAR ESTE ARCHIVO
           Special Elite + Courier Prime están self-hosted via @font-face en globals.css.
@@ -180,6 +170,19 @@ export default function LangLayout({
         />
       </head>
       <body>{children}</body>
+      {/* GA4 — afterInteractive: carga después del hydration, no bloquea LCP */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-4J2J3Q2WGE"
+        strategy="afterInteractive"
+      />
+      <Script id="ga4-init" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-4J2J3Q2WGE');
+        `}
+      </Script>
     </html>
   )
 }
