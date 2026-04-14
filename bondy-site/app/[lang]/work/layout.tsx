@@ -9,7 +9,7 @@ export async function generateMetadata({
   const canonical = `${baseUrl}/${params.lang}/work`
   const meta = {
     en: {
-      title: 'Our Work \u2014 Real Technical Hires Across LATAM | Bondy',
+      title: 'Technical Hiring Results — Engineers Placed Across Argentina & LATAM | Bondy',
       description: '450+ technical hires completed. 94% retention at 6 months. See the real engagements behind Bondy track record hiring engineers in Argentina and across Latin America.',
     },
     es: {

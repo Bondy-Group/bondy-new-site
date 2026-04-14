@@ -7,7 +7,7 @@ import type { Metadata } from 'next'
 
 const pageMeta = {
   en: {
-    title: 'Bondy — Technical Recruiting for Engineering Teams in LATAM',
+    title: 'Bondy — Technical Recruiting Firm in Buenos Aires & LATAM',
     description: 'Technical recruiting firm in Buenos Aires. We help CTOs and engineering leaders hire backend, frontend, and data engineers across Argentina and LATAM.',
   },
   es: {

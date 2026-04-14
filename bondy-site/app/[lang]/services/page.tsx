@@ -7,7 +7,7 @@ import type { Metadata } from 'next'
 
 const pageMeta = {
   en: {
-    title: 'Technical Recruiting Services — Bondy',
+    title: 'Technical Recruiting Services in Argentina & LATAM — Bondy',
     description: "Technical recruiting services in Argentina and LATAM: executive search, staffing, and RPO for engineering teams. We place engineers others can't find.",
   },
   es: {
