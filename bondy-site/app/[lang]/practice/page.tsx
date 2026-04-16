@@ -72,7 +72,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
           gap: 28px;
         }
         .tw-nav-link {
-          font-family: 'Courier Prime', 'Courier New', monospace;
+          font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
           font-size: 14px;
           letter-spacing: 0.04em;
           color: #5A5550;
@@ -80,7 +80,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
         }
         .tw-nav-link:hover { color: #1A1A1A; }
         .tw-nav-cta {
-          font-family: 'Courier Prime', 'Courier New', monospace;
+          font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
           font-size: 14px;
           letter-spacing: 0.04em;
           color: #1A1A1A;
@@ -234,7 +234,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
           gap: 12px;
           padding: 14px 0;
           border-bottom: 1px solid rgba(192,186,180,0.4);
-          font-family: 'Courier Prime', 'Courier New', monospace;
+          font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
           font-size: 13px;
           color: #5A5550;
         }
@@ -256,7 +256,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
           flex-wrap: wrap;
         }
         .tw-footer-link {
-          font-family: 'Courier Prime', 'Courier New', monospace;
+          font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
           font-size: 13px;
           letter-spacing: 0.06em;
           color: #5A5550;
@@ -269,7 +269,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          font-family: 'Courier Prime', 'Courier New', monospace;
+          font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
           font-size: 11px;
           letter-spacing: 0.10em;
           text-transform: uppercase;
@@ -284,7 +284,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          font-family: 'Courier Prime', 'Courier New', monospace;
+          font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
           font-size: 11px;
           letter-spacing: 0.10em;
           text-transform: uppercase;
@@ -361,7 +361,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
       <header style={{ padding: '80px 52px', borderBottom: '1.5px solid rgba(26,26,26,0.12)', position: 'relative' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '2rem' }}>
           <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: tw.green }} />
-          <span style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', color: tw.inkMid }}>
+          <span style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase', color: tw.inkMid }}>
             {es ? 'Por Bondy — Consultoría estratégica de personas' : 'By Bondy — Strategic people consulting'}
           </span>
         </div>
@@ -370,18 +370,18 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
           The <span className="tw-ul-lg" style={{ display: 'inline' }}>Practice.</span>
         </h1>
 
-        <div style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '10px', letterSpacing: '0.18em', textTransform: 'uppercase', color: tw.inkFaint, marginBottom: '3rem' }}>
+        <div style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '10px', letterSpacing: '0.18em', textTransform: 'uppercase', color: tw.inkFaint, marginBottom: '3rem' }}>
           {es ? 'Desde 2008' : 'Since 2008'}
         </div>
 
         <div className="tw-hero-body" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '5rem', alignItems: 'end' }}>
-          <p style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '15px', lineHeight: 1.8, color: tw.inkSub, margin: 0 }}>
+          <p style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '15px', lineHeight: 1.8, color: tw.inkSub, margin: 0 }}>
             {es
               ? 'El recruiting llena posiciones. The Practice construye los sistemas, capacidades e inteligencia que hacen posible un gran hiring — tanto si nosotros ejecutamos la búsqueda como si no.'
               : "Recruiting fills roles. The Practice builds the systems, capabilities, and intelligence that make great hiring possible — whether we're executing the search or not."}
           </p>
           <div>
-            <p style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '14px', lineHeight: 1.75, fontStyle: 'italic', color: tw.inkMid, marginBottom: '2rem' }}>
+            <p style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '14px', lineHeight: 1.75, fontStyle: 'italic', color: tw.inkMid, marginBottom: '2rem' }}>
               {es
                 ? 'Cuatro productos. Una convicción: el hiring técnico es una disciplina, no una transacción.'
                 : 'Four products. One belief: technical hiring is a discipline, not a transaction.'}
@@ -398,13 +398,13 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
       <div className="tw-products-nav">
         {products.map((p) => (
           <a key={p.anchor} href={`#${p.anchor}`} className="tw-product-pill">
-            <span style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '9px', letterSpacing: '0.14em', color: tw.inkFaint }}>
+            <span style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '9px', letterSpacing: '0.14em', color: tw.inkFaint }}>
               {p.n}
             </span>
             <span className="tw-ink" style={{ fontFamily: "'Special Elite','Courier New',monospace", fontSize: '13px', color: tw.ink }}>
               {p.name}
             </span>
-            <span style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '8px', letterSpacing: '0.12em', marginLeft: 'auto', color: p.avail ? tw.green : tw.inkFaint }}>
+            <span style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '8px', letterSpacing: '0.12em', marginLeft: 'auto', color: p.avail ? tw.green : tw.inkFaint }}>
               {p.avail
                 ? (es ? '● Disponible' : '● Available')
                 : (es ? '○ A pedido' : '○ By request')}
@@ -415,7 +415,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
 
       {/* ══ 01 — TALENT OS ══ */}
       <section id="talent-os" className="tw-section" style={{ scrollMarginTop: '60px' }}>
-        <div style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '10px', letterSpacing: '0.14em', textTransform: 'uppercase', color: tw.green, marginBottom: '1.25rem' }}>
+        <div style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '10px', letterSpacing: '0.14em', textTransform: 'uppercase', color: tw.green, marginBottom: '1.25rem' }}>
           01 — Talent OS
         </div>
         <h2 className="tw-ink-heavy" style={{ fontFamily: "'Special Elite','Courier New',monospace", fontSize: 'clamp(2rem,4.5vw,48px)', lineHeight: 1.05, letterSpacing: '0.01em', color: tw.ink, marginBottom: '1.5rem' }}>
@@ -425,7 +425,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
 
         <div className="tw-section-grid">
           <div>
-            <p style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '14px', lineHeight: 1.8, color: tw.inkSub, marginBottom: '2.5rem' }}>
+            <p style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '14px', lineHeight: 1.8, color: tw.inkSub, marginBottom: '2.5rem' }}>
               {es
                 ? 'Acabás de cerrar tu Seed o Serie A. La presión inversora para contratar es inmediata. Pero nadie construyó el sistema para hacerlo bien. Instalamos tu Talent OS completo en 100 días — para que puedas escalar de 15 a 150 personas sin romperte.'
                 : 'You just closed your Seed or Series A. Investor pressure to hire is immediate. But no one has built the system to hire well. We install your entire Talent OS in 100 days — so you can scale from 15 to 150 without breaking.'}
@@ -459,12 +459,12 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
                 },
               ].map((phase) => (
                 <div key={phase.title} className="tw-phase">
-                  <div style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '9px', letterSpacing: '0.16em', textTransform: 'uppercase', color: tw.green, marginBottom: '6px' }}>{phase.n}</div>
-                  <div style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '8px', letterSpacing: '0.14em', textTransform: 'uppercase', color: tw.inkFaint, marginBottom: '8px' }}>{phase.days}</div>
+                  <div style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '9px', letterSpacing: '0.16em', textTransform: 'uppercase', color: tw.green, marginBottom: '6px' }}>{phase.n}</div>
+                  <div style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '8px', letterSpacing: '0.14em', textTransform: 'uppercase', color: tw.inkFaint, marginBottom: '8px' }}>{phase.days}</div>
                   <div className="tw-ink" style={{ fontFamily: "'Special Elite','Courier New',monospace", fontSize: '18px', color: tw.ink, marginBottom: '10px' }}>{phase.title}</div>
                   <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '5px' }}>
                     {phase.items.map((item) => (
-                      <li key={item} style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '12px', lineHeight: 1.5, color: tw.inkMid, paddingLeft: '14px', position: 'relative' }}>
+                      <li key={item} style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '12px', lineHeight: 1.5, color: tw.inkMid, paddingLeft: '14px', position: 'relative' }}>
                         <span style={{ position: 'absolute', left: 0, top: '0.6em', width: '6px', height: '1px', background: tw.green, display: 'block' }} />
                         {item}
                       </li>
@@ -474,7 +474,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
               ))}
             </div>
 
-            <p style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '14px', fontStyle: 'italic', lineHeight: 1.7, color: tw.inkMid }}>
+            <p style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '14px', fontStyle: 'italic', lineHeight: 1.7, color: tw.inkMid }}>
               {es
                 ? 'No es un PDF. Es un sistema vivo que tu equipo usa el día 101 — sin nosotros.'
                 : 'Not a PDF. A living system your team uses on day 101 — without us.'}
@@ -482,7 +482,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
           </div>
 
           <div>
-            <div style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '9px', letterSpacing: '0.16em', textTransform: 'uppercase', color: tw.inkFaint, marginBottom: '12px' }}>
+            <div style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '9px', letterSpacing: '0.16em', textTransform: 'uppercase', color: tw.inkFaint, marginBottom: '12px' }}>
               {es ? 'Especificaciones del sprint' : 'Sprint specs'}
             </div>
             {[
@@ -493,7 +493,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
               { k: es ? 'Escala' : 'Scale', v: '15 → 150' },
             ].map((row) => (
               <div key={row.k} className="tw-spec-row">
-                <span style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '10px', letterSpacing: '0.10em', textTransform: 'uppercase', color: tw.inkFaint }}>{row.k}</span>
+                <span style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '10px', letterSpacing: '0.10em', textTransform: 'uppercase', color: tw.inkFaint }}>{row.k}</span>
                 <span className="tw-ink" style={{ fontFamily: "'Special Elite','Courier New',monospace", fontSize: '15px', color: tw.ink }}>{row.v}</span>
               </div>
             ))}
@@ -508,7 +508,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
 
       {/* ══ 02 — WORKSHOPS ══ */}
       <section id="workshops" className="tw-section" style={{ scrollMarginTop: '60px' }}>
-        <div style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '10px', letterSpacing: '0.14em', textTransform: 'uppercase', color: tw.green, marginBottom: '1.25rem' }}>
+        <div style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '10px', letterSpacing: '0.14em', textTransform: 'uppercase', color: tw.green, marginBottom: '1.25rem' }}>
           02 — {es ? 'Talleres' : 'Workshops'}
         </div>
         <h2 className="tw-ink-heavy" style={{ fontFamily: "'Special Elite','Courier New',monospace", fontSize: 'clamp(2rem,4.5vw,48px)', lineHeight: 1.05, letterSpacing: '0.01em', color: tw.ink, marginBottom: '1.5rem' }}>
@@ -516,7 +516,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
           <span className="tw-ul" style={{ display: 'inline' }}>{es ? 'contratan' : 'hire'}</span>
           {es ? ' personas.' : ' people.'}
         </h2>
-        <p style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '14px', lineHeight: 1.8, color: tw.inkSub, maxWidth: '640px', marginBottom: '0' }}>
+        <p style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '14px', lineHeight: 1.8, color: tw.inkSub, maxWidth: '640px', marginBottom: '0' }}>
           {es
             ? 'La mayoría de los errores de hiring no son problemas de sourcing — son problemas de entrevistas. Damos talleres focalizados que convierten a founders, hiring managers y recruiters internos en evaluadores disciplinados.'
             : "Most hiring mistakes aren't sourcing problems — they're interviewing problems. We run focused workshops that turn founders, hiring managers, and internal recruiters into disciplined evaluators."}
@@ -550,12 +550,12 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
             },
           ].map((card) => (
             <div key={card.title} className="tw-workshop-card">
-              <div style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '9px', letterSpacing: '0.14em', textTransform: 'uppercase', color: tw.green, marginBottom: '12px' }}>{card.tag}</div>
+              <div style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '9px', letterSpacing: '0.14em', textTransform: 'uppercase', color: tw.green, marginBottom: '12px' }}>{card.tag}</div>
               <div className="tw-ink" style={{ fontFamily: "'Special Elite','Courier New',monospace", fontSize: '20px', color: tw.ink, marginBottom: '10px', lineHeight: 1.1 }}>{card.title}</div>
-              <p style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '12.5px', lineHeight: 1.7, color: tw.inkMid, marginBottom: '16px' }}>{card.desc}</p>
+              <p style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '12.5px', lineHeight: 1.7, color: tw.inkMid, marginBottom: '16px' }}>{card.desc}</p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                 {card.meta.map(([k, v]) => (
-                  <div key={k} style={{ display: 'flex', gap: '8px', fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '10px' }}>
+                  <div key={k} style={{ display: 'flex', gap: '8px', fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '10px' }}>
                     <span style={{ color: tw.inkFaint, letterSpacing: '0.08em' }}>{k}:</span>
                     <span style={{ color: tw.inkMid }}>{v}</span>
                   </div>
@@ -566,10 +566,10 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
         </div>
 
         <div className="tw-case-strip">
-          <div style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '9px', letterSpacing: '0.16em', textTransform: 'uppercase', color: tw.green, marginBottom: '12px' }}>
+          <div style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '9px', letterSpacing: '0.16em', textTransform: 'uppercase', color: tw.green, marginBottom: '12px' }}>
             {es ? 'Caso — Disbyte' : 'Case — Disbyte'}
           </div>
-          <p style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '13.5px', lineHeight: 1.75, color: tw.inkMid, margin: 0 }}>
+          <p style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '13.5px', lineHeight: 1.75, color: tw.inkMid, margin: 0 }}>
             {es ? (
               <>
                 Disbyte nos convocó cuando se dio cuenta de que sus engineering managers tomaban decisiones de hiring basadas en intuición. Después de un día completo del taller de Hiring Basado en Cultura, unificaron sus criterios de evaluación en tres oficinas.{' '}
@@ -589,14 +589,14 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
 
       {/* ══ 03 — MARKET INTELLIGENCE ══ */}
       <section id="market-intelligence" className="tw-section" style={{ scrollMarginTop: '60px' }}>
-        <div style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '10px', letterSpacing: '0.14em', textTransform: 'uppercase', color: tw.green, marginBottom: '1.25rem' }}>
+        <div style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '10px', letterSpacing: '0.14em', textTransform: 'uppercase', color: tw.green, marginBottom: '1.25rem' }}>
           03 — {es ? 'Inteligencia de Mercado' : 'Market Intelligence'}
         </div>
         <h2 className="tw-ink-heavy" style={{ fontFamily: "'Special Elite','Courier New',monospace", fontSize: 'clamp(2rem,4.5vw,48px)', lineHeight: 1.05, letterSpacing: '0.01em', color: tw.ink, marginBottom: '1.5rem' }}>
           {es ? 'Contratá con ' : 'Hire with '}
           <span className="tw-ul-lg" style={{ display: 'inline' }}>{es ? 'datos.' : 'data.'}</span>
         </h2>
-        <p style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '14px', lineHeight: 1.8, color: tw.inkSub, maxWidth: '640px', marginBottom: '0' }}>
+        <p style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '14px', lineHeight: 1.8, color: tw.inkSub, maxWidth: '640px', marginBottom: '0' }}>
           {es
             ? 'La mayoría de las empresas toman decisiones de hiring sin ningún dato de mercado. Te damos la inteligencia para contratar mejor — basada en 17 años de sourcing activo en el ecosistema tech de LATAM.'
             : "Most companies make hiring decisions with no market data at all. We give you the intelligence to hire smarter — based on 17 years of active sourcing across LATAM's tech ecosystem."}
@@ -610,7 +610,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
           ].map((stat) => (
             <div key={stat.n} className="tw-stat">
               <div className="tw-ink-heavy" style={{ fontFamily: "'Special Elite','Courier New',monospace", fontSize: 'clamp(2rem,4vw,48px)', color: tw.ink, lineHeight: 1, marginBottom: '8px' }}>{stat.n}</div>
-              <div style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '11px', lineHeight: 1.6, color: tw.inkSub }}>{stat.label}</div>
+              <div style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '11px', lineHeight: 1.6, color: tw.inkSub }}>{stat.label}</div>
             </div>
           ))}
         </div>
@@ -644,7 +644,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
           ].map((item) => (
             <div key={item.title} className="tw-intel-item">
               <div className="tw-ink" style={{ fontFamily: "'Special Elite','Courier New',monospace", fontSize: '16px', color: tw.ink, marginBottom: '8px', lineHeight: 1.2 }}>{item.title}</div>
-              <p style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '12.5px', lineHeight: 1.7, color: tw.inkMid, margin: 0 }}>{item.desc}</p>
+              <p style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '12.5px', lineHeight: 1.7, color: tw.inkMid, margin: 0 }}>{item.desc}</p>
             </div>
           ))}
         </div>
@@ -652,7 +652,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
 
       {/* ══ 04 — TABLERO ══ */}
       <section id="tablero" className="tw-section" style={{ scrollMarginTop: '60px' }}>
-        <div style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '10px', letterSpacing: '0.14em', textTransform: 'uppercase', color: tw.green, marginBottom: '1.25rem' }}>
+        <div style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '10px', letterSpacing: '0.14em', textTransform: 'uppercase', color: tw.green, marginBottom: '1.25rem' }}>
           04 — {es ? 'Tablero de Comando' : 'Talent Dashboard'}
         </div>
         <h2 className="tw-ink-heavy" style={{ fontFamily: "'Special Elite','Courier New',monospace", fontSize: 'clamp(2rem,4.5vw,48px)', lineHeight: 1.05, letterSpacing: '0.01em', color: tw.ink, marginBottom: '1.5rem' }}>
@@ -662,7 +662,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
 
         <div className="tw-tablero-grid">
           <div>
-            <p style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '14px', lineHeight: 1.8, color: tw.inkSub, marginBottom: '2rem' }}>
+            <p style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '14px', lineHeight: 1.8, color: tw.inkSub, marginBottom: '2rem' }}>
               {es
                 ? 'Un diagnóstico a medida del estado de talento de tu organización. ¿Dónde están tus riesgos? ¿Quiénes son tus personas clave? ¿Cómo está tu bench? Construido una vez, usado continuamente.'
                 : 'A bespoke diagnostic of the talent state of your organization. Where are your risks? Who are your key people? What does your bench look like? Built once, used continuously.'}
@@ -675,7 +675,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
                 { n: es ? 'Entregable' : 'Output', item: es ? 'Plan de acción 90 días' : '90-day action plan' },
               ].map((phase) => (
                 <div key={phase.n} style={{ background: tw.bg, padding: '20px 18px' }}>
-                  <div style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '9px', letterSpacing: '0.14em', textTransform: 'uppercase', color: tw.green, marginBottom: '6px' }}>{phase.n}</div>
+                  <div style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '9px', letterSpacing: '0.14em', textTransform: 'uppercase', color: tw.green, marginBottom: '6px' }}>{phase.n}</div>
                   <div className="tw-ink" style={{ fontFamily: "'Special Elite','Courier New',monospace", fontSize: '14px', color: tw.ink }}>{phase.item}</div>
                 </div>
               ))}
@@ -691,7 +691,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
               {['#FF5F57', '#FFBD2E', '#28CA41'].map((c) => (
                 <div key={c} style={{ width: '8px', height: '8px', borderRadius: '50%', background: c }} />
               ))}
-              <div style={{ flex: 1, textAlign: 'center', fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '9px', letterSpacing: '0.10em', color: tw.inkFaint }}>
+              <div style={{ flex: 1, textAlign: 'center', fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '9px', letterSpacing: '0.10em', color: tw.inkFaint }}>
                 {es ? 'Tablero de Comando' : 'Talent Dashboard'}
               </div>
             </div>
@@ -703,13 +703,13 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
                 { label: es ? 'Retención 12m' : 'Retention 12m', val: '91%', delta: es ? 'Por encima del benchmark' : 'Above benchmark', pos: true },
               ].map((kpi) => (
                 <div key={kpi.label} className="tw-kpi">
-                  <div style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '7.5px', letterSpacing: '0.10em', textTransform: 'uppercase', color: tw.inkFaint, marginBottom: '4px' }}>{kpi.label}</div>
+                  <div style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '7.5px', letterSpacing: '0.10em', textTransform: 'uppercase', color: tw.inkFaint, marginBottom: '4px' }}>{kpi.label}</div>
                   <div className="tw-ink" style={{ fontFamily: "'Special Elite','Courier New',monospace", fontSize: '22px', color: kpi.pos ? tw.green : tw.ink, lineHeight: 1 }}>{kpi.val}</div>
-                  <div style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '7px', letterSpacing: '0.08em', color: tw.inkFaint, marginTop: '2px' }}>{kpi.delta}</div>
+                  <div style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '7px', letterSpacing: '0.08em', color: tw.inkFaint, marginTop: '2px' }}>{kpi.delta}</div>
                 </div>
               ))}
             </div>
-            <div style={{ padding: '8px 16px 16px', fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '10px', color: tw.inkFaint, textAlign: 'center', fontStyle: 'italic' }}>
+            <div style={{ padding: '8px 16px 16px', fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '10px', color: tw.inkFaint, textAlign: 'center', fontStyle: 'italic' }}>
               {es ? 'Vista en vivo del estado de talento de tu organización' : "Live view of your organization's talent state"}
             </div>
           </div>
@@ -723,7 +723,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
             {es ? '¿No sabés cuál producto es el ' : 'Not sure which product is the '}
             <span className="tw-ul" style={{ display: 'inline' }}>{es ? 'correcto?' : 'right one?'}</span>
           </h2>
-          <p style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '14px', lineHeight: 1.8, color: tw.inkSub, marginBottom: '2rem' }}>
+          <p style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '14px', lineHeight: 1.8, color: tw.inkSub, marginBottom: '2rem' }}>
             {es
               ? 'Te lo decimos nosotros. Agendá una llamada de 30 minutos sin otra agenda que entender tu situación.'
               : "We'll tell you. Book a 30-minute call with no agenda other than understanding your situation."}
@@ -734,7 +734,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
         </div>
 
         <div className="tw-cta-right">
-          <div style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '9px', letterSpacing: '0.16em', textTransform: 'uppercase', color: tw.inkFaint, marginBottom: '20px' }}>
+          <div style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '9px', letterSpacing: '0.16em', textTransform: 'uppercase', color: tw.inkFaint, marginBottom: '20px' }}>
             {es ? 'Encontrá tu camino' : 'Find your path'}
           </div>
           {[
@@ -774,7 +774,7 @@ export default function PracticePage({ params }: { params: { lang: Lang } }) {
             <a key={l.label} href={l.href} className="tw-footer-link">{l.label}</a>
           ))}
         </nav>
-        <span style={{ fontFamily: "'Courier Prime','Courier New',monospace", fontSize: '12px', color: '#7A7874', whiteSpace: 'nowrap' }}>
+        <span style={{ fontFamily: "'Plus Jakarta Sans', system-ui, sans-serif", fontSize: '12px', color: '#7A7874', whiteSpace: 'nowrap' }}>
           &copy; 2026 &middot; Buenos Aires
         </span>
       </footer>

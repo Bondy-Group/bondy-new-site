@@ -63,7 +63,7 @@ const notebookBg = [
 ].join(',')
 
 const serif = "'Special Elite', Georgia, serif"
-const mono  = "'Courier Prime', Courier, monospace"
+const mono  = "'Plus Jakarta Sans', system-ui, sans-serif"
 
 /* ── SVG underline ── */
 function TwUnderline({ width = 200 }: { width?: number }) {

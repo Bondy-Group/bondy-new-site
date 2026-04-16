@@ -36,7 +36,7 @@ const notebookBg = [
   'repeating-linear-gradient(180deg, transparent 0px, transparent 31px, rgba(100,140,200,0.09) 31px, rgba(100,140,200,0.09) 32px)',
 ].join(',')
 const serif = "'Special Elite', Georgia, serif"
-const mono  = "'Courier Prime', Courier, monospace"
+const mono  = "'Plus Jakarta Sans', system-ui, sans-serif"
 
 export default function MethodPage({ params }: { params: { lang: Lang } }) {
   const lang = params.lang

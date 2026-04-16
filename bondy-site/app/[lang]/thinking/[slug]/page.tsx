@@ -53,7 +53,7 @@ const notebookBg = [
   'repeating-linear-gradient(180deg, transparent 0px, transparent 31px, rgba(100,140,200,0.09) 31px, rgba(100,140,200,0.09) 32px)',
 ].join(',')
 const serif = "'Special Elite', Georgia, serif"
-const mono  = "'Courier Prime', Courier, monospace"
+const mono  = "'Plus Jakarta Sans', system-ui, sans-serif"
 
 // ── Component ─────────────────────────────────────────────────────────────────
 
@@ -218,7 +218,7 @@ export default function ArticlePage({
 
       <style>{`
         .article-body {
-          font-family: 'Courier Prime', Courier, monospace;
+          font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
           font-size: 15px;
           line-height: 1.88;
           color: #5A5550;
@@ -253,7 +253,7 @@ export default function ArticlePage({
           font-size: 13px;
         }
         .article-body th {
-          font-family: 'Courier Prime', Courier, monospace;
+          font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
           font-size: 10px;
           letter-spacing: 0.12em;
           text-transform: uppercase;
