@@ -415,7 +415,7 @@ Para roles senior en Buenos Aires trabajando para una empresa de EE.UU., la comp
 
 <h2>El fee de recruiting</h2>
 <p><strong>Contingencia (porcentaje del primer año de salario):</strong> El modelo más común. Los fees típicamente van del 15% al 25% del salario bruto del primer año del candidato. Sin costo inicial; se paga solo cuando se hace la contratación.</p>
-<p><strong>Búsqueda retenida:</strong> Una parte del fee se paga por adelantado como retainer. Estándar en executive search y para roles senior difíciles de cubrir.</p>
+<p><strong>kickoff fee:</strong> Una parte del fee se paga por adelantado como retainer. Estándar en executive search y para roles senior difíciles de cubrir.</p>
 <p><strong>Fee fijo:</strong> Algunas plataformas cobran una tarifa fija independientemente del salario — típicamente $2.500–$5.000 por colocación. La contrapartida es profundidad.</p>
 <p><strong>Porcentaje de factura mensual (modelo staffing/EOR):</strong> Cuando la firma gestiona el cumplimiento laboral además del recruiting, suelen cobrar 15–25% del salario mensual del developer.</p>
 

@@ -545,7 +545,7 @@ export const translations = {
           lead: 'Un recruiter de Bondy dentro de tu equipo, por el tiempo que necesites.',
           body: 'Información de mercado en tiempo real, transparencia total, sin markup de agencia. Para empresas con planes de contratación agresivos que necesitan calidad e inteligencia de mercado. El recruiter trabaja como parte de tu equipo, entiende tu cultura en profundidad y trae el peso total de la red de Bondy.',
           details: [
-            { label: 'Qué incluye',  text: 'Recruiter embebido full-time o part-time, reportes de salarios de mercado, asesoría en estrategia de contratación.' },
+            { label: 'Qué incluye',  text: 'RPO full-time o part-time, reportes de salarios de mercado, asesoría en estrategia de contratación.' },
             { label: 'Compromiso',   text: 'Mínimo 3 meses. Renovable mes a mes.' },
             { label: 'Ideal para',   text: 'Empresas Series A+ escalando de 10 a 50+ ingenieros. Planes de contratación de alta velocidad.' },
             { label: 'Ventaja',      text: 'Obtenés sourcing de calidad de agencia con el compromiso de un recruiter in-house y datos de mercado.' },
