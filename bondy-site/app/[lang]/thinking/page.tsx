@@ -277,13 +277,14 @@ function FeaturedCard({
       href={lk(`/thinking/${article.slug}`)}
       className="thinking-featured"
       style={{
-        display: 'grid',
+        display: article.quoteImage ? 'grid' : 'block',
         border: `1px solid ${tw.rule}`,
         background: tw.white,
         textDecoration: 'none',
         overflow: 'hidden',
       }}
     >
+      {article.quoteImage && (
       <div
         style={{
           background: tw.bg,
@@ -303,6 +304,7 @@ function FeaturedCard({
           authorInitials={article.authorInitials}
         />
       </div>
+      )}
       <div style={{
         padding: 'clamp(28px, 4vw, 48px)',
         display: 'flex',
@@ -383,6 +385,7 @@ function PostCard({
         textDecoration: 'none',
       }}
     >
+      {article.quoteImage && (
       <div
         style={{
           background: tw.bg,
@@ -403,6 +406,7 @@ function PostCard({
           compact
         />
       </div>
+      )}
       <div style={{ padding: '20px 22px 22px' }}>
         <div style={{
           fontFamily: body, fontSize: 9, letterSpacing: '0.18em',
