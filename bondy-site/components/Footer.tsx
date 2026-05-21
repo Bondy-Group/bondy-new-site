@@ -129,6 +129,7 @@ export default function Footer({ lang, tr }: FooterProps) {
               { href: '/services#hunting',  label: tr.links.hunting  },
               { href: '/services#pipeline', label: tr.links.pipeline },
               { href: '/services#rpo',      label: tr.links.embedded },
+              { href: '/services#staffing', label: tr.links.staffing },
               { href: '/referrals',         label: tr.links.referrals },
             ].map(({ href, label }) => (
               <li key={href}>

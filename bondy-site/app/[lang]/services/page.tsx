@@ -1,156 +1,290 @@
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
-import Link from 'next/link'
-import HeroV2 from '@/components/bondy/HeroV2'
-import { Tag, BondyUnderline } from '@/components/bondy/atoms'
+import { BondyUnderline } from '@/components/bondy/atoms'
+import AnchorStrip from '@/components/services/AnchorStrip'
+import ServicesSectionCard from '@/components/services/ServicesSectionCard'
 import type { Lang } from '@/lib/i18n/translations'
 import { t } from '@/lib/i18n/translations'
 import type { Metadata } from 'next'
 
-const pageMeta = {
-  en: {
-    title: 'Technical Recruiting Services in Argentina & LATAM — Bondy',
-    description: "Technical recruiting services in Argentina and LATAM: executive search, staffing, and RPO for engineering teams. We place engineers others can't find.",
-  },
-  es: {
-    title: 'Servicios de Recruiting Técnico — Bondy',
-    description: 'Bondy ofrece servicios especializados de recruiting técnico en Argentina y LATAM: búsqueda ejecutiva, staffing y RPO para equipos de ingeniería.',
-  },
-}
-
-export async function generateMetadata({ params }: { params: { lang: 'en' | 'es' } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { lang: Lang } }): Promise<Metadata> {
   const baseUrl = 'https://wearebondy.com'
-  const meta = pageMeta[params.lang] ?? pageMeta.en
+  const tr = t(params.lang)
+  const meta = tr.services.meta
   const canonical = `${baseUrl}/${params.lang}/services`
   return {
-    title: meta.title, description: meta.description,
-    alternates: { canonical, languages: { en: `${baseUrl}/en/services`, es: `${baseUrl}/es/services` } },
-    openGraph: { title: meta.title, description: meta.description, url: canonical, siteName: 'Bondy', locale: params.lang === 'es' ? 'es_AR' : 'en_US', type: 'website', images: [{ url: '/og-image-v2.png', width: 1200, height: 630, alt: 'Bondy' }] },
+    title: meta.title,
+    description: meta.description,
+    alternates: {
+      canonical,
+      languages: {
+        en: `${baseUrl}/en/services`,
+        es: `${baseUrl}/es/services`,
+      },
+    },
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      url: canonical,
+      siteName: 'Bondy',
+      locale: params.lang === 'es' ? 'es_AR' : 'en_US',
+      type: 'website',
+      images: [{ url: '/og-image-v2.png', width: 1200, height: 630, alt: 'Bondy' }],
+    },
   }
 }
 
-const tw = {
-  bg: '#FEFCF9', ink: '#1A1A1A', inkMid: '#3A3530', inkSub: '#5A5550',
-  inkFaint: '#7A7874', rule: '#E8E4DE', white: '#FFFFFF', green: '#4A8C40',
-}
-const notebookBg = [
-  'linear-gradient(90deg, transparent 68px, rgba(210,100,80,0.10) 68px, rgba(210,100,80,0.10) 69.5px, transparent 69.5px)',
-  'repeating-linear-gradient(180deg, transparent 0px, transparent 31px, rgba(100,140,200,0.09) 31px, rgba(100,140,200,0.09) 32px)',
-].join(',')
-const serif = "'Special Elite', Georgia, serif"
-const mono  = "'Plus Jakarta Sans', system-ui, sans-serif"
+const SERIF = "'Special Elite', Georgia, serif"
+const BODY = "'Plus Jakarta Sans', system-ui, sans-serif"
+
+const INK_MID = '#3A3530'
+const INK_SUB = '#5A5550'
+const INK_FAINT = '#7A7874'
+const RULE = '#E8E4DE'
+const WHITE = '#FFFFFF'
+const GREEN = '#4A8C40'
+const GREEN_HOVER = '#3a7030'
 
 export default function ServicesPage({ params }: { params: { lang: Lang } }) {
-  const lang = params.lang
-  const tr = t(lang)
+  const tr = t(params.lang)
   const s = tr.services
-  const lk = (href: string) => `/${lang}${href}`
-
-  const sectionBgs  = [tw.white, tw.bg, tw.white]
-  const detailBgs   = [tw.bg,    tw.white, tw.bg]
 
   return (
-    <main style={{ backgroundColor: tw.bg, backgroundImage: notebookBg, minHeight: '100vh' }}>
-      <Nav lang={lang} tr={tr.nav} />
+    <main className="notebook-bg" style={{ minHeight: '100vh' }}>
+      <Nav lang={params.lang} tr={tr.nav} />
 
-      {/* Header — Hero V2 (editorial + metadata aside) */}
-      <header style={{ paddingTop: '0', background: tw.white, borderBottom: `1px solid ${tw.rule}` }}>
-        <HeroV2
-          kicker={s.label}
-          title={
-            <>
-              {s.h1_1}<br />{s.h1_2} <em style={{ fontStyle: 'normal', color: tw.green }}>{s.h1_em}</em>
-            </>
-          }
-          underlineWidth={260}
-          body={s.intro}
-          meta={[
-            { n: '03', label: lang === 'es' ? 'Modalidades' : 'Ways' },
-            { n: '1', label: lang === 'es' ? 'Método' : 'Method', separatorBefore: true },
-          ]}
-        />
-      </header>
+      <AnchorStrip
+        anchors={[
+          { id: 'execution', n: '01', label: s.anchors.exec },
+          { id: 'practice',  n: '02', label: s.anchors.practice },
+          { id: 'strategy',  n: '03', label: s.anchors.strategy },
+        ]}
+      />
 
-      {/* Services */}
-      {s.items.map((item, idx) => {
-        const tagLabel = ['ACTIVE · CORE', 'ACTIVE · LIGHT', 'ACTIVE · RPO'][idx] || 'ACTIVE'
-        return (
-        <section key={item.id} id={item.id} style={{ borderBottom: `1px solid ${tw.rule}` }}>
-          <div className="services-split-grid">
-            {/* Left — header + body */}
-            <div style={{ background: sectionBgs[idx], borderRight: `1px solid ${tw.rule}`, padding: '4rem clamp(1.25rem,4vw,3.5rem)' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2.5rem' }}>
-                <div style={{ fontFamily: mono, fontSize: '11px', letterSpacing: '0.18em', textTransform: 'uppercase', color: tw.inkFaint, fontWeight: 500 }}>
-                  {item.n}
-                </div>
-                <Tag tone="green">{tagLabel}</Tag>
-              </div>
-              <h2 style={{ fontFamily: serif, fontSize: 'clamp(2rem,4vw,3rem)', lineHeight: 1.05, color: tw.inkMid, marginBottom: '14px', opacity: 0.92, fontWeight: 400, letterSpacing: '-0.005em' }} className="tw-ink">
-                {item.title.split('\n').map((line, i) => <span key={i}>{line}{i < item.title.split('\n').length - 1 && <br />}</span>)}
-              </h2>
-              <BondyUnderline width={120} strokeWidth={2} style={{ marginBottom: '1.75rem' }} />
-              <p style={{ fontFamily: mono, fontSize: '15px', lineHeight: 1.8, color: tw.inkSub, marginBottom: '1.25rem' }}>{item.lead}</p>
-              <p style={{ fontFamily: mono, fontSize: '14px', lineHeight: 1.8, color: tw.inkFaint }}>{item.body}</p>
-            </div>
-            {/* Right — specs block bordered */}
-            <div style={{ background: detailBgs[idx], padding: '4rem clamp(1.25rem,4vw,3.5rem)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-              <div style={{ border: `1px solid ${tw.rule}`, padding: '28px 30px', display: 'flex', flexDirection: 'column', gap: '1.5rem', background: tw.white }}>
-                {item.details.map((d) => (
-                  <div key={d.label} style={{ borderLeft: `2px solid rgba(74,140,64,0.35)`, paddingLeft: '20px' }}>
-                    <div style={{ fontFamily: mono, fontSize: '10px', letterSpacing: '0.18em', textTransform: 'uppercase', color: tw.green, marginBottom: '8px', fontWeight: 500 }}>
-                      {d.label}
-                    </div>
-                    <p style={{ fontFamily: mono, fontSize: '14px', lineHeight: 1.75, color: tw.inkSub }}>{d.text}</p>
-                  </div>
-                ))}
-              </div>
-              <Link
-                href={lk('/contact')}
-                style={{
-                  marginTop: '2rem', display: 'inline-flex', alignItems: 'center', gap: '10px',
-                  fontFamily: mono, fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase',
-                  padding: '13px 26px', textDecoration: 'none', alignSelf: 'flex-start',
-                  ...(item.ctaStyle === 'primary'
-                    ? { background: tw.green, color: '#fff' }
-                    : { border: `1px solid ${tw.rule}`, color: tw.inkSub }),
-                }}
-              >
-                {item.cta} →
-              </Link>
-            </div>
-          </div>
-        </section>
-        )
-      })}
+      {/* HERO */}
+      <section
+        style={{
+          maxWidth: 1080,
+          margin: '0 auto',
+          padding: 'clamp(3rem,6vw,5rem) clamp(1.25rem,4vw,3rem) clamp(2rem,4vw,3rem)',
+        }}
+      >
+        {/* Kicker */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 10,
+            marginBottom: '1.5rem',
+          }}
+        >
+          <span
+            aria-hidden
+            style={{ display: 'inline-block', width: 22, height: 1, background: GREEN }}
+          />
+          <span
+            style={{
+              fontFamily: BODY,
+              fontSize: 10,
+              letterSpacing: '0.2em',
+              textTransform: 'uppercase',
+              color: GREEN,
+              fontWeight: 600,
+            }}
+          >
+            {s.intro.kicker}
+          </span>
+        </div>
 
-      {/* CTA final */}
-      <section style={{ background: tw.white, padding: '5rem clamp(1.25rem,5vw,4rem)', textAlign: 'center', borderTop: `1px solid ${tw.rule}` }}>
-        <h2 style={{ fontFamily: serif, fontSize: 'clamp(2rem,5vw,4rem)', lineHeight: 1.1, color: tw.inkMid, marginBottom: '0.5rem' }} className="tw-ink">
-          {s.bottomCta.h2.split('\n').map((line, i) => <span key={i}>{line}{i === 0 && <br />}</span>)} {s.bottomCta.h2_em}
-        </h2>
-        <svg width="200" height="8" viewBox="0 0 200 8" fill="none" style={{ display: 'block', margin: '0 auto 2rem' }}>
-          <path d="M0 4 Q50 1 100 4 Q150 7 200 4" stroke="#4A8C40" strokeWidth="2" fill="none" strokeLinecap="round"/>
-        </svg>
-        <p style={{ fontFamily: mono, fontSize: '15px', lineHeight: 1.75, maxWidth: '420px', margin: '0 auto 2.5rem', color: tw.inkSub }}>
-          {s.bottomCta.body}
-        </p>
-        <Link href={lk('/contact')} style={{
-          display: 'inline-flex', alignItems: 'center', gap: '10px',
-          background: tw.green, color: '#fff',
-          fontFamily: mono, fontSize: '11px', letterSpacing: '0.12em', textTransform: 'uppercase',
-          padding: '15px 40px', textDecoration: 'none',
-        }}>
-          {s.bottomCta.cta} →
-        </Link>
+        {/* H1 */}
+        <h1
+          className="tw-ink-heavy"
+          style={{
+            fontFamily: SERIF,
+            fontSize: 'clamp(2.4rem, 5vw, 4.4rem)',
+            lineHeight: 0.98,
+            color: INK_MID,
+            fontWeight: 400,
+            margin: 0,
+            maxWidth: 900,
+            letterSpacing: '0.01em',
+          }}
+        >
+          {s.intro.h1a} {s.intro.h1b}{' '}
+          <em style={{ fontStyle: 'normal', color: GREEN }}>{s.intro.h1c}</em>
+        </h1>
+
+        <BondyUnderline width={240} strokeWidth={2} style={{ marginTop: '1.25rem', marginBottom: '2rem' }} />
+
+        {/* 2-col body grid */}
+        <div className="services-hero-grid">
+          <p
+            style={{
+              fontFamily: BODY,
+              fontSize: 17,
+              lineHeight: 1.55,
+              color: INK_MID,
+              fontWeight: 500,
+              margin: 0,
+            }}
+          >
+            {s.intro.sub}
+          </p>
+          <p
+            style={{
+              fontFamily: BODY,
+              fontSize: '14.5px',
+              lineHeight: 1.75,
+              color: INK_SUB,
+              margin: 0,
+            }}
+          >
+            {s.intro.body}
+          </p>
+        </div>
       </section>
 
-      <Footer lang={lang} tr={tr.footer} />
+      {/* SECTION CARDS */}
+      <div
+        style={{
+          maxWidth: 1080,
+          margin: '0 auto',
+          padding: '0 clamp(1.25rem,4vw,3rem) 3rem',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '1.5rem',
+        }}
+      >
+        {s.sections.map((sec) => (
+          <ServicesSectionCard
+            key={sec.id}
+            section={sec}
+            labels={s.labels}
+            defaultOpenId={sec.id === 'execution' ? 'hunting' : undefined}
+          />
+        ))}
+      </div>
 
+      {/* CLOSER */}
+      <section
+        style={{
+          maxWidth: 1080,
+          margin: '0 auto',
+          padding: '0 clamp(1.25rem,4vw,3rem) clamp(4rem,8vw,6rem)',
+        }}
+      >
+        <div
+          style={{
+            background: WHITE,
+            border: `1px solid ${RULE}`,
+            borderRadius: 20,
+            padding: '3rem clamp(1.5rem,4vw,3.5rem)',
+            maxWidth: 880,
+            margin: '0 auto',
+            textAlign: 'center',
+            position: 'relative',
+          }}
+        >
+          {/* Kicker centered */}
+          <div
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 10,
+              marginBottom: '1.25rem',
+            }}
+          >
+            <span aria-hidden style={{ display: 'inline-block', width: 22, height: 1, background: GREEN }} />
+            <span
+              style={{
+                fontFamily: BODY,
+                fontSize: 10,
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
+                color: GREEN,
+                fontWeight: 600,
+              }}
+            >
+              {s.closer.kicker}
+            </span>
+          </div>
+
+          <h2
+            className="tw-ink-heavy"
+            style={{
+              fontFamily: SERIF,
+              fontSize: 'clamp(1.8rem, 3.6vw, 2.8rem)',
+              lineHeight: 1.1,
+              color: INK_MID,
+              fontWeight: 400,
+              margin: 0,
+              letterSpacing: '0.005em',
+            }}
+          >
+            {s.closer.h2a} <em style={{ fontStyle: 'normal', color: GREEN }}>{s.closer.h2b}</em>
+          </h2>
+
+          <BondyUnderline width={200} strokeWidth={2} style={{ margin: '1.25rem auto 1.75rem' }} />
+
+          <p
+            style={{
+              fontFamily: BODY,
+              fontSize: 15,
+              lineHeight: 1.75,
+              color: INK_SUB,
+              margin: '0 auto 2rem',
+              maxWidth: 540,
+            }}
+          >
+            {s.closer.body}
+          </p>
+
+          <a
+            href={s.closer.ctaHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="services-cta"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 8,
+              padding: '13px 26px',
+              background: GREEN,
+              color: '#fff',
+              fontFamily: BODY,
+              fontSize: 11,
+              letterSpacing: '0.10em',
+              textTransform: 'uppercase',
+              textDecoration: 'none',
+              fontWeight: 600,
+              borderRadius: 0,
+              transition: 'background 120ms ease',
+            }}
+          >
+            {s.closer.cta}
+          </a>
+        </div>
+      </section>
+
+      <Footer lang={params.lang} tr={tr.footer} />
+
+      {/* Page-scoped CSS */}
       <style>{`
-        .services-split-grid { display: grid; grid-template-columns: 1fr 1fr; }
-        @media (max-width: 768px) {
-          .services-split-grid { grid-template-columns: 1fr !important; }
-          .services-split-grid > div:first-child { border-right: none !important; border-bottom: 1px solid #E8E4DE; }
+        .services-hero-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 2rem;
+        }
+        @media (max-width: 720px) {
+          .services-hero-grid {
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+          }
+        }
+        .services-cta:hover { background: ${GREEN_HOVER} !important; }
+        @media (max-width: 640px) {
+          .services-item-name { min-width: 0 !important; font-size: 16px !important; }
+          .services-item-sub  { display: none !important; }
         }
       `}</style>
     </main>
