@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import type { Lang, Translations } from '@/lib/i18n/translations'
+import { getAlternateThinkingSlug } from '@/lib/thinking/slug-pairs'
 
 type NavProps = {
   lang: Lang
@@ -42,6 +43,22 @@ export default function Nav({ lang, tr }: NavProps) {
 
   const switchLang = () => {
     document.cookie = `lang=${otherLang};path=/;max-age=31536000`
+
+    // Handle /thinking/[slug]: article slugs differ between EN and ES,
+    // so a plain pathname replace lands on a 404. Resolve the equivalent
+    // slug; if there isn't one, fall back to the /thinking listing.
+    const thinkingMatch = pathname.match(new RegExp(`^/${lang}/thinking/([^/]+)/?$`))
+    if (thinkingMatch) {
+      const currentSlug = thinkingMatch[1]
+      const altSlug = getAlternateThinkingSlug(currentSlug, lang)
+      const newPath = altSlug
+        ? `/${otherLang}/thinking/${altSlug}`
+        : `/${otherLang}/thinking`
+      router.push(newPath)
+      return
+    }
+
+    // Default: same path structure across languages.
     const newPath = pathname.replace(`/${lang}`, `/${otherLang}`)
     router.push(newPath)
   }
