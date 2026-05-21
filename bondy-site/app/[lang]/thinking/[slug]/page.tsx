@@ -33,10 +33,20 @@ export async function generateMetadata({
   if (!article) return {}
   const baseUrl = 'https://wearebondy.com'
   const canonical = `${baseUrl}/${params.lang}/thinking/${article.slug}`
+  // Build hreflang alternates only when we have a known equivalent in the other language.
+  // Without altSlug we skip alternates entirely — emitting wrong URLs is worse than emitting none.
+  const alternates: Metadata['alternates'] = { canonical }
+  if (article.altSlug) {
+    const otherLang: Lang = params.lang === 'en' ? 'es' : 'en'
+    alternates.languages = {
+      en: `${baseUrl}/${params.lang === 'en' ? params.lang : otherLang}/thinking/${params.lang === 'en' ? article.slug : article.altSlug}`,
+      es: `${baseUrl}/${params.lang === 'es' ? params.lang : otherLang}/thinking/${params.lang === 'es' ? article.slug : article.altSlug}`,
+    }
+  }
   return {
     title: article.meta.title,
     description: article.meta.description,
-    alternates: { canonical },
+    alternates,
     openGraph: {
       title: article.meta.title,
       description: article.meta.description,

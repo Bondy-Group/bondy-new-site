@@ -49,8 +49,48 @@ export default function ServicesPage({ params }: { params: { lang: Lang } }) {
   const tr = t(params.lang)
   const s = tr.services
 
+  // ItemList of Service offerings — surfaces the 10 services to Google as discrete entities,
+  // referencing the global Organization via @id rather than duplicating the entity.
+  const baseUrl = 'https://wearebondy.com'
+  const servicesItemList = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Bondy — Services',
+    itemListElement: [
+      { name: 'Hunting', description: 'Dedicated technical search with a curated shortlist of pre-interviewed candidates within 5 to 7 business days. 3-month guarantee on every placement.', serviceType: 'Technical Recruiting', anchor: 'hunting' },
+      { name: 'Talent Pipeline', description: 'Curated list of pre-vetted, ready-to-contact candidates selected to spec, not to volume. Lightweight 3 to 5 day delivery.', serviceType: 'Tech Sourcing', anchor: 'pipeline' },
+      { name: 'RPO', description: 'Embedded recruiter inside your team for 3+ months. Market insights in real time, full transparency, no agency markup.', serviceType: 'Recruitment Process Outsourcing', anchor: 'rpo' },
+      { name: 'Staffing Partner Program', description: 'White-label technical recruiting for staffing companies that need senior engineering search delivered to their clients under their brand.', serviceType: 'Staffing Partnership', anchor: 'staffing' },
+      { name: 'Hiring Process Audit', description: 'Diagnostic of an engineering hiring funnel. Identifies where qualified candidates drop, where the brief misaligns with the market, and where the offer loses.', serviceType: 'Hiring Advisory', anchor: 'practice' },
+      { name: 'Hiring Workshops', description: 'Tactical workshops for engineering leaders and hiring managers on interview design, brief calibration, and candidate evaluation.', serviceType: 'Training', anchor: 'practice' },
+      { name: 'Talent OS', description: 'End-to-end hiring operating system: cadence, roles, scorecards, and metrics for engineering teams running multiple parallel searches.', serviceType: 'Hiring Strategy', anchor: 'strategy' },
+      { name: 'Salary Benchmarks', description: 'Compensation benchmarking for engineering roles in Argentina and LATAM. Real data from active searches, not survey self-reports.', serviceType: 'Compensation Advisory', anchor: 'strategy' },
+      { name: 'Headcount Planning', description: 'Engineering org design and headcount sequencing aligned to roadmap, runway, and hiring market reality.', serviceType: 'Workforce Planning', anchor: 'strategy' },
+      { name: 'HR Dashboard', description: 'Custom hiring metrics dashboard: funnel conversion, time-to-shortlist, offer acceptance, retention. Built per engagement.', serviceType: 'Hiring Analytics', anchor: 'strategy' },
+    ].map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'Service',
+        name: item.name,
+        description: item.description,
+        provider: { '@id': `${baseUrl}/#organization` },
+        areaServed: [
+          { '@type': 'Country', name: 'Argentina' },
+          { '@type': 'Place', name: 'Latin America' },
+        ],
+        serviceType: item.serviceType,
+        url: `${baseUrl}/${params.lang}/services#${item.anchor}`,
+      },
+    })),
+  }
+
   return (
     <main className="notebook-bg" style={{ minHeight: '100vh' }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesItemList) }}
+      />
       <Nav lang={params.lang} tr={tr.nav} />
 
       <AnchorStrip

@@ -52,6 +52,7 @@ export interface Article {
   dataCallout?: DataCallout  // rendered as a green-number stat card in the body
   pdfDownload?: PdfDownload  // download card rendered between hero and body; used by Foundation/Fundamento papers
   featured?: boolean         // if true, surfaced at the top of the /thinking list
+  altSlug?: string           // slug of the equivalent article in the other language — used to emit hreflang alternates
 }
 
 // ─────────────────────────────────────────────
@@ -65,6 +66,7 @@ const en: Article[] = [
     category: 'Foundation',
     date: '2026-04-15',
     readingTime: '6 min read',
+    altSlug: 'diagnostico-cognitivo',
     title: 'How they think, not what they know',
     excerpt: 'Hiring badly today is easier than ever, and it costs more than ever. The skills indicator broke with AI. The paper proposes what to evaluate instead: the cognitive mode of the candidate.',
     meta: {
@@ -529,6 +531,7 @@ const es: Article[] = [
     category: 'Fundamento',
     date: '2026-04-15',
     readingTime: '6 min de lectura',
+    altSlug: 'how-they-think',
     title: 'Cómo piensa, no qué sabe',
     excerpt: 'Contratar mal hoy es más fácil que nunca, y cuesta más caro que nunca. El indicador de skills se rompió con la IA. El paper propone qué evaluar en su lugar: el modo cognitivo del candidato.',
     meta: {
