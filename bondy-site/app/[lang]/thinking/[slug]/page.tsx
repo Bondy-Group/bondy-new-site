@@ -287,6 +287,51 @@ export default function ArticlePage({
           gap: 48, alignItems: 'start',
         }}>
           <article style={{ paddingTop: 48 }}>
+            {/* PDF download card (Foundation papers) */}
+            {article.pdfDownload && (
+              <div style={{
+                background: tw.white, border: `1px solid ${tw.rule}`,
+                borderLeft: `3px solid ${tw.green}`,
+                padding: '24px 28px', marginBottom: 36,
+                display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                gap: 24, flexWrap: 'wrap',
+              }}>
+                <div style={{ flex: '1 1 280px' }}>
+                  <span style={{
+                    fontFamily: body, fontSize: 9, letterSpacing: '0.18em',
+                    textTransform: 'uppercase', color: tw.faint,
+                    display: 'block', marginBottom: 6, fontWeight: 500,
+                  }}>
+                    {article.pdfDownload.label}
+                  </span>
+                  <h2 style={{
+                    fontFamily: serif, fontSize: '1.35rem',
+                    color: tw.mid, opacity: 0.92, lineHeight: 1.25, marginBottom: 6,
+                  }}>
+                    {article.pdfDownload.title}
+                  </h2>
+                  <p style={{
+                    fontFamily: body, fontSize: 14, color: tw.sub,
+                    lineHeight: 1.6, fontWeight: 400, margin: 0, maxWidth: '52ch',
+                  }}>
+                    {article.pdfDownload.description}
+                  </p>
+                </div>
+                <a
+                  href={article.pdfDownload.href}
+                  download
+                  style={{
+                    fontFamily: body, fontSize: 10, letterSpacing: '0.10em',
+                    textTransform: 'uppercase', padding: '14px 24px',
+                    background: tw.green, color: '#fff', textDecoration: 'none',
+                    whiteSpace: 'nowrap', fontWeight: 500,
+                  }}
+                >
+                  {article.pdfDownload.cta}
+                </a>
+              </div>
+            )}
+
             {/* Article body (rendered HTML) */}
             <div
               className="article-body"
@@ -660,6 +705,64 @@ export default function ArticlePage({
           font-size: 12px;
           color: ${tw.faint};
           line-height: 1.7;
+        }
+
+        /* Cognitive modes list (Foundation papers) */
+        .article-body ol.modes-list {
+          list-style: none;
+          padding-left: 0;
+          margin: 8px 0 28px;
+          max-width: 65ch;
+        }
+        .article-body ol.modes-list li {
+          display: grid;
+          grid-template-columns: 38px 1fr;
+          gap: 14px;
+          align-items: baseline;
+          padding: 14px 0;
+          margin-bottom: 0;
+          border-bottom: 1px solid ${tw.rule};
+        }
+        .article-body ol.modes-list li:last-child {
+          border-bottom: none;
+        }
+        .article-body ol.modes-list .mode-n {
+          font-family: ${body};
+          font-size: 11px;
+          letter-spacing: 0.10em;
+          color: ${tw.green};
+          font-weight: 500;
+        }
+        .article-body ol.modes-list .mode-body {
+          display: block;
+        }
+        .article-body ol.modes-list .mode-name {
+          font-family: ${serif};
+          font-size: 1.05rem;
+          color: ${tw.mid};
+          line-height: 1.4;
+          display: block;
+          margin-bottom: 4px;
+          opacity: 0.92;
+        }
+        .article-body ol.modes-list .mode-gloss {
+          font-family: ${body};
+          font-size: 14.5px;
+          color: ${tw.sub};
+          line-height: 1.6;
+          display: block;
+          font-weight: 400;
+        }
+        .article-body ol.modes-list .mode-opt {
+          font-family: ${body};
+          font-size: 9px;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+          color: ${tw.faint};
+          margin-left: 8px;
+          padding: 2px 6px;
+          border: 1px solid ${tw.rule};
+          font-weight: 500;
         }
 
         @media (max-width: 900px) {

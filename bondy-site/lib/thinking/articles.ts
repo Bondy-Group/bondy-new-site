@@ -3,8 +3,8 @@
 // Each article has: slug, category, date, readingTime, meta (title + description), and content (full HTML string).
 
 export type ArticleCategory =
-  | 'Trends' | 'Bondy Method' | 'Market intel' | 'Leadership' | 'Culture'
-  | 'Tendencias' | 'Método Bondy' | 'Inteligencia de mercado' | 'Liderazgo' | 'Cultura'
+  | 'Trends' | 'Bondy Method' | 'Market intel' | 'Leadership' | 'Culture' | 'Foundation'
+  | 'Tendencias' | 'Método Bondy' | 'Inteligencia de mercado' | 'Liderazgo' | 'Cultura' | 'Fundamento'
 export type Lang = 'en' | 'es'
 
 export interface DataCallout {
@@ -16,6 +16,14 @@ export interface DataCallout {
 export interface PullQuote {
   text: string
   cite?: string
+}
+
+export interface PdfDownload {
+  label: string         // small uppercase eyebrow, e.g. 'Full paper (PDF)'
+  title: string         // headline of the card, e.g. 'Read the paper'
+  description: string   // short body copy
+  href: string          // absolute path under /public, e.g. '/thinking/how-they-think.pdf'
+  cta: string           // button label, e.g. 'Download PDF ↓'
 }
 
 export interface Article {
@@ -42,6 +50,7 @@ export interface Article {
   quoteImage?: string        // multi-line string (\n as separator). Max 3 lines, max 6 words per line. Last line gets the green underline.
   pullQuote?: PullQuote      // rendered as a green-bordered block in the body
   dataCallout?: DataCallout  // rendered as a green-number stat card in the body
+  pdfDownload?: PdfDownload  // download card rendered between hero and body; used by Foundation/Fundamento papers
   featured?: boolean         // if true, surfaced at the top of the /thinking list
 }
 
@@ -50,6 +59,104 @@ export interface Article {
 // ─────────────────────────────────────────────
 
 const en: Article[] = [
+  {
+    slug: 'how-they-think',
+    lang: 'en',
+    category: 'Foundation',
+    date: '2026-04-15',
+    readingTime: '6 min read',
+    title: 'How they think, not what they know',
+    excerpt: 'Hiring badly today is easier than ever, and it costs more than ever. The skills indicator broke with AI. The paper proposes what to evaluate instead: the cognitive mode of the candidate.',
+    meta: {
+      title: 'How they think, not what they know · Bondy',
+      description: 'Why the indicators of tech hiring broke with AI, and what to evaluate instead. Bondy Group\'s cognitive evaluation method. Paper v1.0.',
+    },
+    author: 'Mara Schmitman',
+    authorInitials: 'MS',
+    authorRole: 'Founder, Bondy Group',
+    authorBio: 'Psychologist and founder of Bondy Group. Since 2008, leading searches for technical profiles for Series A to public companies across LATAM and globally. Her work starts with diagnostics before going to market.',
+    tags: ['Foundation', 'Cognitive evaluation', 'Method'],
+    quoteImage: 'How they think,\nnot what\nthey know.',
+    dataCallout: {
+      num: '84%',
+      label: 'Developers using AI in 2025',
+      desc: 'Of the 84% of developers already using or planning to use AI (Stack Overflow Developer Survey 2025), no standard hiring process evaluates how they think.',
+    },
+    pdfDownload: {
+      label: 'Full paper (PDF)',
+      title: 'Read the paper',
+      description: '26 pages. Complete argument, the six modes in detail, honest limitations, and bibliography. To download, cite, or debate.',
+      href: '/thinking/how-they-think.pdf',
+      cta: 'Download PDF ↓',
+    },
+    featured: true,
+    content: `
+<p>For years, tech hiring was built on an implicit consensus: if a person knew how to write code, they probably knew how to think problems through. Languages, frameworks, years of experience were reasonable indicators. AI turned exactly that into a commodity. What used to distinguish a good engineer from a mediocre one, speed and technical fluency, now comes from a tool. The indicator broke.</p>
+
+<p>The consequence is uncomfortable: <strong>hiring badly today is easier than ever, and it costs more than ever</strong>. Easier because AI helps the candidate produce output that looks good in an interview and in the first three months. More expensive because by the time problems appear, six months later, technical debt and architectural decisions are already in place. The DORA 2025 report says it with a phrase worth quoting: artificial intelligence acts as a mirror and a multiplier. It amplifies the strengths of cohesive teams and the weaknesses of fragmented ones. It fixes nothing. It accelerates.</p>
+
+<p>If the skills model stopped working, something else has to be evaluated. The paper proposes what: the candidate\'s cognitive mode. How they decide under ambiguity, how they read someone else\'s code, how they translate between technical and business, how they connect pieces that already exist. This doesn\'t replace technical skills evaluation. It complements it with a layer nobody is evaluating in a structured way today.</p>
+
+<h2>Six cognitive modes</h2>
+
+<p>The method works with six modes: not personality types, but structured ways of approaching technical work. Four are core (evaluated in every process) and two are optional (activated depending on the role). Every person has a dominant mode and a range, meaning the capacity to activate other modes when the situation calls for it.</p>
+
+<ol class="modes-list">
+  <li>
+    <span class="mode-n">01</span>
+    <div class="mode-body">
+      <span class="mode-name">Decision Architect</span>
+      <span class="mode-gloss">Structures the reasoning that precedes the system. Identifies alternatives, evaluates trade-offs, argues what they rule out and why.</span>
+    </div>
+  </li>
+  <li>
+    <span class="mode-n">02</span>
+    <div class="mode-body">
+      <span class="mode-name">Connector</span>
+      <span class="mode-gloss">Combines pieces that already exist. Knows the ecosystem and chooses by fit with the problem, not by familiarity.</span>
+    </div>
+  </li>
+  <li>
+    <span class="mode-n">03</span>
+    <div class="mode-body">
+      <span class="mode-name">Technical Editor</span>
+      <span class="mode-gloss">Reads someone else\'s code and improves it without breaking what works. The most critical mode of the moment, because AI writes a lot and reviews little.</span>
+    </div>
+  </li>
+  <li>
+    <span class="mode-n">04</span>
+    <div class="mode-body">
+      <span class="mode-name">Translator</span>
+      <span class="mode-gloss">Converts between business and technical. Brings a business problem down to an actionable spec, and explains a technical limitation without losing rigor.</span>
+    </div>
+  </li>
+  <li>
+    <span class="mode-n">05</span>
+    <div class="mode-body">
+      <span class="mode-name">Operator <span class="mode-opt">Optional</span></span>
+      <span class="mode-gloss">Executes with autonomy inside a defined framework. Evaluated in juniors or when the specific role requires execution capacity under supervision.</span>
+    </div>
+  </li>
+  <li>
+    <span class="mode-n">06</span>
+    <div class="mode-body">
+      <span class="mode-name">Guardian <span class="mode-opt">Optional</span></span>
+      <span class="mode-gloss">Thinks about what can go wrong. Security, edge cases, observability. Doesn\'t slow the team down: prepares what the team builds to survive contact with reality.</span>
+    </div>
+  </li>
+</ol>
+
+<h2>Application and limits</h2>
+
+<p>The method runs in 45-minute interviews, calibrable between evaluators and designed to produce a diagnosis defensible to the client. It doesn\'t replace the technical skills test: a brilliant Decision Architect who doesn\'t know Kubernetes is still inadequate for a role that asks for Kubernetes. It doesn\'t replace cultural fit: cognitive mode says how a person thinks, not how they\'re going to behave in a specific culture. And it works better with seniors than with juniors, where the professional history available to discuss is more limited.</p>
+
+<p>The full paper develops each mode in detail, the pathologies associated with each dominant mode when it operates without range, the interview protocol, the scoring criteria, the honest limitations of the method, and the bibliography that supports it.</p>
+
+<hr>
+<p class="article-sources"><strong>Sources:</strong> Stack Overflow Developer Survey 2025; DORA 2025 (Accelerate State of DevOps Report); Bondy Group internal placement data and method development (2008–present).</p>
+`,
+  },
+
   {
     slug: 'how-to-hire-software-engineers-in-argentina',
     lang: 'en',
@@ -309,7 +416,7 @@ For senior roles in Buenos Aires working for a US company, competitive total com
     author: 'Mara Schmitman',
     authorInitials: 'MS',
     authorRole: 'Founder, Bondy Group',
-    authorBio: 'Organizational psychologist and founder of Bondy Group. Since 2008, leading searches for technical profiles for Series A to public companies across LATAM and globally. Her work starts with diagnostics before going to market.',
+    authorBio: 'Psychologist and founder of Bondy Group. Since 2008, leading searches for technical profiles for Series A to public companies across LATAM and globally. Her work starts with diagnostics before going to market.',
     tags: ['Market intel', 'Compensation', 'LATAM'],
     quoteImage: 'Speed\nis not\na virtue.',
     pullQuote: {
@@ -321,7 +428,6 @@ For senior roles in Buenos Aires working for a US company, competitive total com
       label: 'Average variation · 2023–2025',
       desc: 'Increase in salary expectations for Senior+ engineering profiles across LATAM. Internal Bondy data based on 340 closed processes during the period.',
     },
-    featured: true,
     content: `
 <p>Three years ago, a Senior Backend Engineer in Buenos Aires asked for <strong>USD 4,000 to 6,000 monthly</strong>. Today the same profile asks for <strong>USD 6,500 to 9,000</strong>. The market moved. Candidate expectations moved. But many hiring managers still reference 2023 ranges.</p>
 
@@ -417,6 +523,104 @@ For senior roles in Buenos Aires working for a US company, competitive total com
 // ─────────────────────────────────────────────
 
 const es: Article[] = [
+  {
+    slug: 'diagnostico-cognitivo',
+    lang: 'es',
+    category: 'Fundamento',
+    date: '2026-04-15',
+    readingTime: '6 min de lectura',
+    title: 'Cómo piensa, no qué sabe',
+    excerpt: 'Contratar mal hoy es más fácil que nunca, y cuesta más caro que nunca. El indicador de skills se rompió con la IA. El paper propone qué evaluar en su lugar: el modo cognitivo del candidato.',
+    meta: {
+      title: 'Cómo piensa, no qué sabe · Bondy',
+      description: 'Por qué los indicadores del hiring tech se rompieron con la IA, y qué evaluar en su lugar. El método de evaluación cognitiva de Bondy Group. Paper v1.0.',
+    },
+    author: 'Mara Schmitman',
+    authorInitials: 'MS',
+    authorRole: 'Founder, Bondy Group',
+    authorBio: 'Psicóloga y fundadora de Bondy Group. Desde 2008 lidera búsquedas de perfiles técnicos para empresas Serie A a públicas en LATAM y globalmente. Su trabajo parte de un diagnóstico antes de salir al mercado.',
+    tags: ['Fundamento', 'Evaluación cognitiva', 'Método'],
+    quoteImage: 'Cómo piensa,\nno qué\nsabe.',
+    dataCallout: {
+      num: '84%',
+      label: 'Developers que usan IA en 2025',
+      desc: 'Del 84% de developers que ya usa o planea usar IA (Stack Overflow Developer Survey 2025), ningún proceso de hiring estándar evalúa cómo piensan.',
+    },
+    pdfDownload: {
+      label: 'Paper completo (PDF)',
+      title: 'Leer el paper',
+      description: '26 páginas. Argumento completo, los seis modos en detalle, limitaciones honestas y bibliografía. Para descargar, citar o discutir.',
+      href: '/thinking/diagnostico-cognitivo.pdf',
+      cta: 'Descargar PDF ↓',
+    },
+    featured: true,
+    content: `
+<p>Durante años, el hiring tech se construyó sobre un consenso implícito: si una persona sabía escribir código, probablemente sabía pensar problemas. Los lenguajes, los frameworks, los años de experiencia eran indicadores razonables. La IA volvió commodity exactamente eso. Lo que antes distinguía a un buen ingeniero de uno mediocre, la velocidad y la fluidez técnica, ya lo hace una herramienta. El indicador se rompió.</p>
+
+<p>La consecuencia es incómoda: <strong>contratar mal hoy es más fácil que nunca, y cuesta más caro que nunca</strong>. Más fácil porque la IA ayuda al candidato a producir output que se ve bien en una entrevista y en los primeros tres meses. Más caro porque cuando aparecen los problemas, seis meses después, la deuda técnica y las decisiones arquitectónicas ya están instaladas. El reporte DORA 2025 lo dice con una frase que merece volverse famosa: la inteligencia artificial actúa como espejo y multiplicador. Amplifica las fortalezas de los equipos cohesivos y las debilidades de los equipos fragmentados. No arregla nada. Acelera.</p>
+
+<p>Si el modelo de skills dejó de funcionar, hay que evaluar otra cosa. El paper propone qué: el modo cognitivo del candidato. Cómo decide bajo ambigüedad, cómo lee código ajeno, cómo traduce entre técnico y negocio, cómo conecta piezas que ya existen. Esto no reemplaza la evaluación técnica de skills. La complementa con una capa que hoy nadie está evaluando de forma estructurada.</p>
+
+<h2>Seis modos cognitivos</h2>
+
+<p>El método trabaja sobre seis modos. Cuatro son core (se evalúan en todos los procesos) y dos son opcionales (se activan según el rol). No son tipos de personalidad: son formas estructuradas de aproximarse al trabajo técnico. Cada persona tiene un modo dominante y un rango, que es la capacidad de activar otros modos cuando la situación lo pide.</p>
+
+<ol class="modes-list">
+  <li>
+    <span class="mode-n">01</span>
+    <div class="mode-body">
+      <span class="mode-name">Arquitecto de Decisiones</span>
+      <span class="mode-gloss">Estructura el razonamiento que precede al sistema. Identifica alternativas, evalúa trade-offs y argumenta qué descarta y por qué.</span>
+    </div>
+  </li>
+  <li>
+    <span class="mode-n">02</span>
+    <div class="mode-body">
+      <span class="mode-name">Conector</span>
+      <span class="mode-gloss">Combina piezas que ya existen. Conoce el ecosistema y elige por fit con el problema, no por familiaridad.</span>
+    </div>
+  </li>
+  <li>
+    <span class="mode-n">03</span>
+    <div class="mode-body">
+      <span class="mode-name">Editor Técnico</span>
+      <span class="mode-gloss">Lee código ajeno y lo mejora sin romper lo que funciona. El modo más crítico del momento, porque la IA escribe mucho y revisa poco.</span>
+    </div>
+  </li>
+  <li>
+    <span class="mode-n">04</span>
+    <div class="mode-body">
+      <span class="mode-name">Traductor</span>
+      <span class="mode-gloss">Convierte entre negocio y técnica. Baja un problema de negocio a una especificación accionable, y explica una limitación técnica sin perder rigor.</span>
+    </div>
+  </li>
+  <li>
+    <span class="mode-n">05</span>
+    <div class="mode-body">
+      <span class="mode-name">Operador <span class="mode-opt">Opcional</span></span>
+      <span class="mode-gloss">Ejecuta con autonomía dentro de un marco definido. Se evalúa en juniors o cuando el rol específico requiere capacidad de ejecución bajo supervisión.</span>
+    </div>
+  </li>
+  <li>
+    <span class="mode-n">06</span>
+    <div class="mode-body">
+      <span class="mode-name">Guardián <span class="mode-opt">Opcional</span></span>
+      <span class="mode-gloss">Piensa en lo que puede salir mal. Seguridad, edge cases, observabilidad. No frena al equipo, prepara lo que el equipo construye para sobrevivir al contacto con la realidad.</span>
+    </div>
+  </li>
+</ol>
+
+<h2>Aplicación y límites</h2>
+
+<p>El método se aplica en entrevistas de 45 minutos, calibrables entre evaluadores y diseñadas para producir un diagnóstico defendible al cliente. No reemplaza el test técnico de skills: un Arquitecto de Decisiones brillante que no sabe Kubernetes sigue siendo inadecuado para un rol que pide Kubernetes. No reemplaza el fit cultural: el modo cognitivo dice cómo piensa una persona, no cómo se va a comportar en una cultura específica. Y funciona mejor con seniors que con juniors, donde la historia profesional disponible para discutir es más limitada.</p>
+
+<p>El paper completo desarrolla cada modo en detalle, las patologías asociadas a cada modo dominante cuando opera sin rango, el protocolo de entrevista, los criterios de scoring, las limitaciones honestas del método, y la bibliografía que lo sostiene.</p>
+
+<hr>
+<p class="article-sources"><strong>Fuentes:</strong> Stack Overflow Developer Survey 2025; DORA 2025 (Accelerate State of DevOps Report); datos internos de placement y desarrollo del método de Bondy Group (2008–presente).</p>
+`,
+  },
+
   {
     slug: 'como-contratar-ingenieros-de-software-en-argentina',
     lang: 'es',
@@ -695,7 +899,7 @@ Para roles senior en Buenos Aires trabajando para una empresa de EE.UU., la comp
     author: 'Mara Schmitman',
     authorInitials: 'MS',
     authorRole: 'Founder, Bondy Group',
-    authorBio: 'Psicóloga organizacional y fundadora de Bondy Group. Desde 2008 lidera búsquedas de perfiles técnicos para empresas Serie A a públicas en LATAM y globalmente. Su trabajo parte de un diagnóstico antes de salir al mercado.',
+    authorBio: 'Psicóloga y fundadora de Bondy Group. Desde 2008 lidera búsquedas de perfiles técnicos para empresas Serie A a públicas en LATAM y globalmente. Su trabajo parte de un diagnóstico antes de salir al mercado.',
     tags: ['Inteligencia', 'Compensación', 'LATAM'],
     quoteImage: 'Speed\nis not\na virtue.',
     pullQuote: {
@@ -707,7 +911,6 @@ Para roles senior en Buenos Aires trabajando para una empresa de EE.UU., la comp
       label: 'Variación promedio · 2023–2025',
       desc: 'Incremento en expectativas salariales de perfiles Senior+ en engineering LATAM. Datos internos Bondy basados en 340 procesos cerrados en el período.',
     },
-    featured: true,
     content: `
 <p>Hace tres años, un Senior Backend Engineer en Buenos Aires pedía entre <strong>USD 4.000 y 6.000 mensuales</strong>. Hoy el mismo perfil pide entre <strong>USD 6.500 y 9.000</strong>. El mercado se movió. Las expectativas de los candidatos se movieron. Pero muchos hiring managers siguen usando los mismos rangos de 2023 como referencia.</p>
 
