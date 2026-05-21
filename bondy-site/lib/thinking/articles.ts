@@ -76,7 +76,7 @@ const en: Article[] = [
     authorRole: 'Founder, Bondy Group',
     authorBio: 'Psychologist and founder of Bondy Group. Since 2008, leading searches for technical profiles for Series A to public companies across LATAM and globally. Her work starts with diagnostics before going to market.',
     tags: ['Foundation', 'Cognitive evaluation', 'Method'],
-    quoteImage: 'How they\nthink.\nNot what.',
+    quoteImage: 'How they\nthink',
     dataCallout: {
       num: '84%',
       label: 'Developers using AI in 2025',
@@ -540,7 +540,7 @@ const es: Article[] = [
     authorRole: 'Founder, Bondy Group',
     authorBio: 'Psicóloga y fundadora de Bondy Group. Desde 2008 lidera búsquedas de perfiles técnicos para empresas Serie A a públicas en LATAM y globalmente. Su trabajo parte de un diagnóstico antes de salir al mercado.',
     tags: ['Fundamento', 'Evaluación cognitiva', 'Método'],
-    quoteImage: 'Cómo\npiensa.\nNo qué.',
+    quoteImage: 'Cómo\npiensa',
     dataCallout: {
       num: '84%',
       label: 'Developers que usan IA en 2025',
